@@ -1,0 +1,17183 @@
+cscope 15 $HOME/dwm -c               0000091399
+	@config.def.h
+
+4 static const unsigned int 
+	gborderpx
+ = 1;
+
+5 static const unsigned int 
+	gsnap
+ = 32;
+
+6 static const int 
+	gshowbar
+ = 1;
+
+7 static const int 
+	gtopbar
+ = 1;
+
+8 static const char *
+	gfonts
+[] = { "monospace:size=10" };
+
+9 static const char 
+	gdmenufont
+[] = "monospace:size=10";
+
+10 static const char 
+	gcol_gray1
+[] = "#222222";
+
+11 static const char 
+	gcol_gray2
+[] = "#444444";
+
+12 static const char 
+	gcol_gray3
+[] = "#bbbbbb";
+
+13 static const char 
+	gcol_gray4
+[] = "#eeeeee";
+
+14 static const char 
+	gcol_cyan
+[] = "#005577";
+
+15 static const char *
+	gcolors
+[][3] = {
+
+17 [
+SchemeNorm
+] = { 
+col_gray3
+, 
+col_gray1
+, 
+col_gray2
+ },
+
+18 [
+SchemeSel
+] = { 
+col_gray4
+, 
+col_cyan
+, col_cyan },
+
+22 static const char *
+	gtags
+[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+24 static const 
+Rule
+ 
+	grules
+[] = {
+
+30 { "Gimp", 
+NULL
+, NULL, 0, 1, -1 },
+
+31 { "Firefox", 
+NULL
+, NULL, 1 << 8, 0, -1 },
+
+35 static const float 
+	gmfact
+ = 0.55;
+
+36 static const int 
+	gnmaster
+ = 1;
+
+37 static const int 
+	gresizehints
+ = 1;
+
+38 static const int 
+	glockfullscreen
+ = 1;
+
+40 static const 
+Layout
+ 
+	glayouts
+[] = {
+
+42 { "[]=", 
+tile
+ },
+
+43 { "><>", 
+NULL
+ },
+
+44 { "[M]", 
+monocle
+ },
+
+48 #define 
+	#MODKEY
+ 
+Mod1Mask
+
+
+	)
+
+49 #define 
+	#TAGKEYS
+(
+KEY
+,
+TAG
+) \
+
+50 { 
+MODKEY
+, 
+KEY
+, 
+view
+, {.
+ui
+ = 1 << 
+TAG
+} }, \
+
+51 { 
+MODKEY
+|
+ControlMask
+, 
+KEY
+, 
+toggleview
+, {.
+ui
+ = 1 << 
+TAG
+} }, \
+
+52 { 
+MODKEY
+|
+ShiftMask
+, 
+KEY
+, 
+tag
+, {.
+ui
+ = 1 << 
+TAG
+} }, \
+
+53 { 
+MODKEY
+|
+ControlMask
+|
+ShiftMask
+, 
+KEY
+, 
+toggletag
+, {.
+ui
+ = 1 << 
+TAG
+} },
+
+	)
+
+56 #define 
+	#SHCMD
+(
+cmd
+) { .
+v
+ = (const char*[]){ "/bin/sh", "-c", cmd, 
+NULL
+ } }
+
+	)
+
+59 static char 
+	gdmenumon
+[2] = "0";
+
+60 static const char *
+	gdmenucmd
+[] = { "dmenu_run", "-m", 
+dmenumon
+, "-fn", 
+dmenufont
+, "-nb", 
+col_gray1
+, "-nf", 
+col_gray3
+, "-sb", 
+col_cyan
+, "-sf", 
+col_gray4
+, 
+NULL
+ };
+
+61 static const char *
+	gtermcmd
+[] = { "st", 
+NULL
+ };
+
+63 static const 
+Key
+ 
+	gkeys
+[] = {
+
+65 { 
+MODKEY
+, 
+XK_p
+, 
+spawn
+, {.
+v
+ = 
+dmenucmd
+ } },
+
+66 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_Return
+, 
+	gspawn
+, {.
+	gv
+ = 
+termcmd
+ } },
+
+67 { 
+	gMODKEY
+, 
+	gXK_b
+, 
+	gtogglebar
+, {0} },
+
+68 { 
+	gMODKEY
+, 
+	gXK_j
+, 
+	gfocusstack
+, {.
+	gi
+ = +1 } },
+
+69 { 
+	gMODKEY
+, 
+	gXK_k
+, 
+	gfocusstack
+, {.
+	gi
+ = -1 } },
+
+70 { 
+	gMODKEY
+, 
+	gXK_i
+, 
+	gincnmaster
+, {.
+	gi
+ = +1 } },
+
+71 { 
+	gMODKEY
+, 
+	gXK_d
+, 
+	gincnmaster
+, {.
+	gi
+ = -1 } },
+
+72 { 
+	gMODKEY
+, 
+	gXK_h
+, 
+	gsetmfact
+, {.
+	gf
+ = -0.05} },
+
+73 { 
+	gMODKEY
+, 
+	gXK_l
+, 
+	gsetmfact
+, {.
+	gf
+ = +0.05} },
+
+74 { 
+	gMODKEY
+, 
+	gXK_Return
+, 
+	gzoom
+, {0} },
+
+75 { 
+	gMODKEY
+, 
+	gXK_Tab
+, 
+	gview
+, {0} },
+
+76 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_c
+, 
+	gkillclient
+, {0} },
+
+77 { 
+	gMODKEY
+, 
+	gXK_t
+, 
+	gsetlayout
+, {.
+	gv
+ = &
+layouts
+[0]} },
+
+78 { 
+	gMODKEY
+, 
+	gXK_f
+, 
+	gsetlayout
+, {.
+	gv
+ = &
+layouts
+[1]} },
+
+79 { 
+	gMODKEY
+, 
+	gXK_m
+, 
+	gsetlayout
+, {.
+	gv
+ = &
+layouts
+[2]} },
+
+80 { 
+	gMODKEY
+, 
+	gXK_space
+, 
+	gsetlayout
+, {0} },
+
+81 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_space
+, 
+	gtogglefloating
+, {0} },
+
+82 { 
+	gMODKEY
+, 
+	gXK_0
+, 
+	gview
+, {.
+	gui
+ = ~0 } },
+
+83 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_0
+, 
+	gtag
+, {.
+	gui
+ = ~0 } },
+
+84 { 
+	gMODKEY
+, 
+	gXK_comma
+, 
+	gfocusmon
+, {.
+	gi
+ = -1 } },
+
+85 { 
+	gMODKEY
+, 
+	gXK_period
+, 
+	gfocusmon
+, {.
+	gi
+ = +1 } },
+
+86 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_comma
+, 
+	gtagmon
+, {.
+	gi
+ = -1 } },
+
+87 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_period
+, 
+	gtagmon
+, {.
+	gi
+ = +1 } },
+
+88 
+TAGKEYS
+( 
+XK_1
+, 0)
+
+89 
+TAGKEYS
+( 
+XK_2
+, 1)
+
+90 
+TAGKEYS
+( 
+XK_3
+, 2)
+
+91 
+TAGKEYS
+( 
+XK_4
+, 3)
+
+92 
+TAGKEYS
+( 
+XK_5
+, 4)
+
+93 
+TAGKEYS
+( 
+XK_6
+, 5)
+
+94 
+TAGKEYS
+( 
+XK_7
+, 6)
+
+95 
+TAGKEYS
+( 
+XK_8
+, 7)
+
+96 
+TAGKEYS
+( 
+XK_9
+, 8)
+
+97 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_q
+, 
+	gquit
+, {0} },
+
+102 static const 
+Button
+ 
+	gbuttons
+[] = {
+
+104 { 
+ClkLtSymbol
+, 0, 
+Button1
+, 
+setlayout
+, {0} },
+
+105 { 
+ClkLtSymbol
+, 0, 
+Button3
+, 
+setlayout
+, {.
+v
+ = &
+layouts
+[2]} },
+
+106 { 
+	gClkWinTitle
+, 0, 
+	gButton2
+, 
+	gzoom
+, {0} },
+
+107 { 
+	gClkStatusText
+, 0, 
+	gButton2
+, 
+	gspawn
+, {.
+	gv
+ = 
+termcmd
+ } },
+
+108 { 
+	gClkClientWin
+, 
+	gMODKEY
+, 
+	gButton1
+, 
+	gmovemouse
+, {0} },
+
+109 { 
+	gClkClientWin
+, 
+	gMODKEY
+, 
+	gButton2
+, 
+	gtogglefloating
+, {0} },
+
+110 { 
+	gClkClientWin
+, 
+	gMODKEY
+, 
+	gButton3
+, 
+	gresizemouse
+, {0} },
+
+111 { 
+	gClkTagBar
+, 0, 
+	gButton1
+, 
+	gview
+, {0} },
+
+112 { 
+	gClkTagBar
+, 0, 
+	gButton3
+, 
+	gtoggleview
+, {0} },
+
+113 { 
+	gClkTagBar
+, 
+	gMODKEY
+, 
+	gButton1
+, 
+	gtag
+, {0} },
+
+114 { 
+	gClkTagBar
+, 
+	gMODKEY
+, 
+	gButton3
+, 
+	gtoggletag
+, {0} },
+
+	@config.h
+
+2 #include 
+	~<X11/XF86keysym.h
+>
+
+3 #include 
+	~<X11/Xutil.h
+>
+
+5 static const unsigned int 
+	gborderpx
+ = 1;
+
+6 static const unsigned int 
+	gsnap
+ = 32;
+
+7 static const int 
+	gshowbar
+ = 1;
+
+8 static const int 
+	gtopbar
+ = 1;
+
+9 static const char *
+	gfonts
+[] = { "NotoSansCJK-Regular:pixelsize=15:antialias=true:autohint=true" };
+
+10 static const char 
+	gdmenufont
+[] = "LXGWWenKaiMono:size=20";
+
+11 static const char 
+	gcol_gray1
+[] = "#222222";
+
+12 static const char 
+	gcol_gray2
+[] = "#444444";
+
+13 static const char 
+	gcol_gray3
+[] = "#bbbbbb";
+
+14 static const char 
+	gcol_gray4
+[] = "#eeeeee";
+
+15 static const char 
+	gcol_cyan
+[] = "#005577";
+
+16 static const char *
+	gcolors
+[][3] = {
+
+18 [
+SchemeNorm
+] = { 
+col_gray3
+, 
+col_gray1
+, 
+col_gray2
+ },
+
+19 [
+SchemeSel
+] = { 
+col_gray4
+, 
+col_cyan
+, col_cyan },
+
+23 static const char *
+	gtags
+[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+25 static const 
+Rule
+ 
+	grules
+[] = {
+
+31 { "firefox", 
+NULL
+, NULL, 1 << 6, 0, -1 },
+
+32 { "Cursor", 
+NULL
+, NULL, 1 << 8, 0, -1 },
+
+33 { "Code", 
+NULL
+, NULL, 1 << 7, 0, -1 },
+
+37 static const float 
+	gmfact
+ = 0.83;
+
+38 static const int 
+	gnmaster
+ = 1;
+
+39 static const int 
+	gresizehints
+ = 1;
+
+40 static const int 
+	glockfullscreen
+ = 1;
+
+42 static const 
+Layout
+ 
+	glayouts
+[] = {
+
+44 { "=[]", 
+tile
+ },
+
+45 { "><>", 
+NULL
+ },
+
+46 { "[M]", 
+monocle
+ },
+
+50 #define 
+	#MODKEY
+ 
+Mod4Mask
+
+
+	)
+
+51 #define 
+	#TAGKEYS
+(
+KEY
+,
+TAG
+) \
+
+52 { 
+MODKEY
+, 
+KEY
+, 
+view
+, {.
+ui
+ = 1 << 
+TAG
+} }, \
+
+53 { 
+MODKEY
+|
+ControlMask
+, 
+KEY
+, 
+toggleview
+, {.
+ui
+ = 1 << 
+TAG
+} }, \
+
+54 { 
+MODKEY
+|
+ShiftMask
+, 
+KEY
+, 
+tag
+, {.
+ui
+ = 1 << 
+TAG
+} }, \
+
+55 { 
+MODKEY
+|
+ControlMask
+|
+ShiftMask
+, 
+KEY
+, 
+toggletag
+, {.
+ui
+ = 1 << 
+TAG
+} },
+
+	)
+
+58 #define 
+	#SHCMD
+(
+cmd
+) { .
+v
+ = (const char*[]){ "/bin/sh", "-c", cmd, 
+NULL
+ } }
+
+	)
+
+61 static char 
+	gdmenumon
+[2] = "0";
+
+62 static const char *
+	gdmenucmd
+[] = { "dmenu_run", "-m", 
+dmenumon
+, "-fn", 
+dmenufont
+, "-nb", 
+col_gray1
+, "-nf", 
+col_gray3
+, "-sb", 
+col_cyan
+, "-sf", 
+col_gray4
+, 
+NULL
+ };
+
+63 static const char *
+	gtermcmd
+[] = { "/bin/sh", "-c", "[ \"$GTK_THEME\" = \"Breeze-Dark\" ] && dt || st", 
+NULL
+ };
+
+65 static const char *
+	gupvol
+[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master 10%+; touch /tmp/dwm-status-change", 
+NULL
+ };
+
+66 static const char *
+	gdownvol
+[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master 10%-; touch /tmp/dwm-status-change", 
+NULL
+ };
+
+67 static const char *
+	gmutevol
+[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master toggle; touch /tmp/dwm-status-change", 
+NULL
+ };
+
+68 static const char *
+	glightup
+[] = { "/bin/sh", "-c", "/usr/bin/ddcutil -d 2 setvcp 10 + 10; /usr/bin/ddcutil -d 1 setvcp 10 + 10; touch /tmp/dwm-status-change", 
+NULL
+ };
+
+69 static const char *
+	glightdown
+[] = { "/bin/sh", "-c", "/usr/bin/ddcutil -d 2 setvcp 10 - 10; /usr/bin/ddcutil -d 1 setvcp 10 - 10; touch /tmp/dwm-status-change", 
+NULL
+ };
+
+71 static const 
+Key
+ 
+	gkeys
+[] = {
+
+73 { 0, 
+XF86XK_AudioMute
+, 
+spawn
+, {.
+v
+ = 
+mutevol
+ } },
+
+74 { 0, 
+	gXF86XK_AudioLowerVolume
+, 
+	gspawn
+, {.
+	gv
+ = 
+downvol
+ } },
+
+75 { 0, 
+	gXF86XK_AudioRaiseVolume
+, 
+	gspawn
+, {.
+	gv
+ = 
+upvol
+ } },
+
+76 { 0, 
+	gXF86XK_MonBrightnessUp
+, 
+	gspawn
+, {.
+	gv
+ = 
+lightup
+ } },
+
+77 { 0, 
+	gXF86XK_MonBrightnessDown
+,
+	gspawn
+, {.
+	gv
+ = 
+lightdown
+ } },
+
+78 { 
+	gMod1Mask
+, 
+	gXK_space
+, 
+	gspawn
+, {.
+	gv
+ = 
+dmenucmd
+ } },
+
+79 { 
+	gMODKEY
+, 
+	gXK_Return
+, 
+	gspawn
+, {.
+	gv
+ = 
+termcmd
+ } },
+
+80 { 
+	gMODKEY
+, 
+	gXK_b
+, 
+	gtogglebar
+, {0} },
+
+81 { 
+	gMODKEY
+, 
+	gXK_j
+, 
+	gfocusstack
+, {.
+	gi
+ = +1 } },
+
+82 { 
+	gMODKEY
+, 
+	gXK_k
+, 
+	gfocusstack
+, {.
+	gi
+ = -1 } },
+
+85 { 
+	gMODKEY
+, 
+	gXK_h
+, 
+	gsetmfact
+, {.
+	gf
+ = -0.05} },
+
+86 { 
+	gMODKEY
+, 
+	gXK_l
+, 
+	gsetmfact
+, {.
+	gf
+ = +0.05} },
+
+87 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_Return
+, 
+	gzoom
+, {0} },
+
+88 { 
+	gMODKEY
+, 
+	gXK_Tab
+, 
+	gview
+, {0} },
+
+89 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_q
+, 
+	gkillclient
+, {0} },
+
+90 { 
+	gMODKEY
+, 
+	gXK_t
+, 
+	gsetlayout
+, {.
+	gv
+ = &
+layouts
+[0]} },
+
+91 { 
+	gMODKEY
+, 
+	gXK_f
+, 
+	gsetlayout
+, {.
+	gv
+ = &
+layouts
+[1]} },
+
+92 { 
+	gMODKEY
+, 
+	gXK_m
+, 
+	gsetlayout
+, {.
+	gv
+ = &
+layouts
+[2]} },
+
+93 { 
+	gMODKEY
+, 
+	gXK_space
+, 
+	gsetlayout
+, {0} },
+
+94 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_space
+, 
+	gtogglefloating
+, {0} },
+
+95 { 
+	gMODKEY
+, 
+	gXK_0
+, 
+	gview
+, {.
+	gui
+ = ~0 } },
+
+96 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_0
+, 
+	gtag
+, {.
+	gui
+ = ~0 } },
+
+97 { 
+	gMODKEY
+, 
+	gXK_comma
+, 
+	gfocusmon
+, {.
+	gi
+ = -1 } },
+
+98 { 
+	gMODKEY
+, 
+	gXK_period
+, 
+	gfocusmon
+, {.
+	gi
+ = +1 } },
+
+99 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_comma
+, 
+	gtagmon
+, {.
+	gi
+ = -1 } },
+
+100 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_period
+, 
+	gtagmon
+, {.
+	gi
+ = +1 } },
+
+101 
+TAGKEYS
+( 
+XK_1
+, 0)
+
+102 
+TAGKEYS
+( 
+XK_2
+, 1)
+
+103 
+TAGKEYS
+( 
+XK_3
+, 2)
+
+104 
+TAGKEYS
+( 
+XK_4
+, 3)
+
+105 
+TAGKEYS
+( 
+XK_5
+, 4)
+
+106 
+TAGKEYS
+( 
+XK_6
+, 5)
+
+107 
+TAGKEYS
+( 
+XK_7
+, 6)
+
+108 
+TAGKEYS
+( 
+XK_8
+, 7)
+
+109 
+TAGKEYS
+( 
+XK_9
+, 8)
+
+110 { 
+	gMODKEY
+|
+	gShiftMask
+, 
+	gXK_e
+, 
+	gquit
+, {0} },
+
+115 static const 
+Button
+ 
+	gbuttons
+[] = {
+
+117 { 
+ClkLtSymbol
+, 0, 
+Button1
+, 
+setlayout
+, {0} },
+
+118 { 
+ClkLtSymbol
+, 0, 
+Button3
+, 
+setlayout
+, {.
+v
+ = &
+layouts
+[2]} },
+
+119 { 
+	gClkWinTitle
+, 0, 
+	gButton2
+, 
+	gzoom
+, {0} },
+
+120 { 
+	gClkStatusText
+, 0, 
+	gButton2
+, 
+	gspawn
+, {.
+	gv
+ = 
+termcmd
+ } },
+
+121 { 
+	gClkClientWin
+, 
+	gMODKEY
+, 
+	gButton1
+, 
+	gmovemouse
+, {0} },
+
+122 { 
+	gClkClientWin
+, 
+	gMODKEY
+, 
+	gButton2
+, 
+	gtogglefloating
+, {0} },
+
+123 { 
+	gClkClientWin
+, 
+	gMODKEY
+, 
+	gButton3
+, 
+	gresizemouse
+, {0} },
+
+124 { 
+	gClkTagBar
+, 0, 
+	gButton1
+, 
+	gview
+, {0} },
+
+125 { 
+	gClkTagBar
+, 0, 
+	gButton3
+, 
+	gtoggleview
+, {0} },
+
+126 { 
+	gClkTagBar
+, 
+	gMODKEY
+, 
+	gButton1
+, 
+	gtag
+, {0} },
+
+127 { 
+	gClkTagBar
+, 
+	gMODKEY
+, 
+	gButton3
+, 
+	gtoggletag
+, {0} },
+
+	@drw.c
+
+2 #include 
+	~<stdio.h
+>
+
+3 #include 
+	~<stdlib.h
+>
+
+4 #include 
+	~<string.h
+>
+
+5 #include 
+	~<X11/Xlib.h
+>
+
+6 #include 
+	~<X11/Xft/Xft.h
+>
+
+8 #include 
+	~"drw.h
+"
+
+9 #include 
+	~"util.h
+"
+
+11 #define 
+	#UTF_INVALID
+ 0xFFFD
+
+	)
+
+14 
+	$utf8decode
+(const char *
+s_in
+, long *
+u
+, int *
+err
+)
+
+16 static const unsigned char 
+lens
+[] = {
+
+24 static const unsigned char 
+leading_mask
+[] = { 0x7F, 0x1F, 0x0F, 0x07 };
+
+25 static const unsigned int 
+overlong
+[] = { 0x0, 0x80, 0x0800, 0x10000 };
+
+27 const unsigned char *
+s
+ = (const unsigned char *)
+s_in
+;
+
+28 int 
+len
+ = 
+lens
+[*
+s
+ >> 3];
+
+29 *
+u
+ = 
+UTF_INVALID
+;
+
+30 *
+err
+ = 1;
+
+31 if (
+len
+ == 0)
+
+34 long 
+cp
+ = 
+s
+[0] & 
+leading_mask
+[
+len
+ - 1];
+
+35 for (int 
+i
+ = 1; i < 
+len
+; ++i) {
+
+36 if (
+s
+[
+i
+] == '\0' || (s[i] & 0xC0) != 0x80)
+
+37 return 
+i
+;
+
+38 
+cp
+ = (cp << 6) | (
+s
+[
+i
+] & 0x3F);
+
+41 if (
+cp
+ > 0x10FFFF || (cp >> 11) == 0x1B || cp < 
+overlong
+[
+len
+ - 1])
+
+42 return 
+len
+;
+
+44 *
+err
+ = 0;
+
+45 *
+u
+ = 
+cp
+;
+
+46 return 
+len
+;
+
+47 
+	}
+}
+
+49 
+Drw
+ *
+
+50 
+	$drw_create
+(
+Display
+ *
+dpy
+, int 
+screen
+, 
+Window
+ 
+root
+, unsigned int 
+w
+, unsigned int 
+h
+)
+
+52 
+Drw
+ *
+drw
+ = 
+	`ecalloc
+(1, sizeof(Drw));
+
+54 
+drw
+->
+dpy
+ = dpy;
+
+55 
+drw
+->
+screen
+ = screen;
+
+56 
+drw
+->
+root
+ = root;
+
+57 
+drw
+->
+w
+ = w;
+
+58 
+drw
+->
+h
+ = h;
+
+59 
+drw
+->
+drawable
+ = 
+	`XCreatePixmap
+(
+dpy
+, 
+root
+, 
+w
+, 
+h
+, 
+	`DefaultDepth
+(dpy, 
+screen
+));
+
+60 
+drw
+->
+gc
+ = 
+	`XCreateGC
+(
+dpy
+, 
+root
+, 0, 
+NULL
+);
+
+61 
+	`XSetLineAttributes
+(
+dpy
+, 
+drw
+->
+gc
+, 1, 
+LineSolid
+, 
+CapButt
+, 
+JoinMiter
+);
+
+63 return 
+drw
+;
+
+64 
+	}
+}
+
+67 
+	$drw_resize
+(
+Drw
+ *
+drw
+, unsigned int 
+w
+, unsigned int 
+h
+)
+
+69 if (!
+drw
+)
+
+72 
+drw
+->
+w
+ = w;
+
+73 
+drw
+->
+h
+ = h;
+
+74 if (
+drw
+->
+drawable
+)
+
+75 
+	`XFreePixmap
+(
+drw
+->
+dpy
+, drw->
+drawable
+);
+
+76 
+drw
+->
+drawable
+ = 
+	`XCreatePixmap
+(drw->
+dpy
+, drw->
+root
+, 
+w
+, 
+h
+, 
+	`DefaultDepth
+(drw->dpy, drw->
+screen
+));
+
+77 
+	}
+}
+
+80 
+	$drw_free
+(
+Drw
+ *
+drw
+)
+
+82 
+	`XFreePixmap
+(
+drw
+->
+dpy
+, drw->
+drawable
+);
+
+83 
+	`XFreeGC
+(
+drw
+->
+dpy
+, drw->
+gc
+);
+
+84 
+	`drw_fontset_free
+(
+drw
+->
+fonts
+);
+
+85 
+	`free
+(
+drw
+);
+
+86 
+	}
+}
+
+91 static 
+Fnt
+ *
+
+92 
+	$xfont_create
+(
+Drw
+ *
+drw
+, const char *
+fontname
+, 
+FcPattern
+ *
+fontpattern
+)
+
+94 
+Fnt
+ *
+font
+;
+
+95 
+XftFont
+ *
+xfont
+ = 
+NULL
+;
+
+96 
+FcPattern
+ *
+pattern
+ = 
+NULL
+;
+
+98 if (
+fontname
+) {
+
+104 if (!(
+xfont
+ = 
+	`XftFontOpenName
+(
+drw
+->
+dpy
+, drw->
+screen
+, 
+fontname
+))) {
+
+105 
+	`fprintf
+(
+stderr
+, "error, cannot load font from name: '%s'\n", 
+fontname
+);
+
+106 return 
+NULL
+;
+
+108 if (!(
+pattern
+ = 
+	`FcNameParse
+((
+FcChar8
+ *) 
+fontname
+))) {
+
+109 
+	`fprintf
+(
+stderr
+, "error, cannot parse font name to pattern: '%s'\n", 
+fontname
+);
+
+110 
+	`XftFontClose
+(
+drw
+->
+dpy
+, 
+xfont
+);
+
+111 return 
+NULL
+;
+
+113 } else if (
+fontpattern
+) {
+
+114 if (!(
+xfont
+ = 
+	`XftFontOpenPattern
+(
+drw
+->
+dpy
+, 
+fontpattern
+))) {
+
+115 
+	`fprintf
+(
+stderr
+, "error, cannot load font from pattern.\n");
+
+116 return 
+NULL
+;
+
+119 
+	`die
+("no font specified.");
+
+122 
+font
+ = 
+	`ecalloc
+(1, sizeof(
+Fnt
+));
+
+123 
+font
+->
+xfont
+ = xfont;
+
+124 
+font
+->
+pattern
+ = pattern;
+
+125 
+font
+->
+h
+ = 
+xfont
+->
+ascent
+ + xfont->
+descent
+;
+
+126 
+font
+->
+dpy
+ = 
+drw
+->dpy;
+
+128 return 
+font
+;
+
+129 
+	}
+}
+
+132 
+	$xfont_free
+(
+Fnt
+ *
+font
+)
+
+134 if (!
+font
+)
+
+136 if (
+font
+->
+pattern
+)
+
+137 
+	`FcPatternDestroy
+(
+font
+->
+pattern
+);
+
+138 
+	`XftFontClose
+(
+font
+->
+dpy
+, font->
+xfont
+);
+
+139 
+	`free
+(
+font
+);
+
+140 
+	}
+}
+
+142 
+Fnt
+*
+
+143 
+	$drw_fontset_create
+(
+Drw
+* 
+drw
+, const char *
+fonts
+[], 
+size_t
+ 
+fontcount
+)
+
+145 
+Fnt
+ *
+cur
+, *
+ret
+ = 
+NULL
+;
+
+146 
+size_t
+ 
+i
+;
+
+148 if (!
+drw
+ || !
+fonts
+)
+
+149 return 
+NULL
+;
+
+151 for (
+i
+ = 1; i <= 
+fontcount
+; i++) {
+
+152 if ((
+cur
+ = 
+	`xfont_create
+(
+drw
+, 
+fonts
+[
+fontcount
+ - 
+i
+], 
+NULL
+))) {
+
+153 
+cur
+->
+next
+ = 
+ret
+;
+
+154 
+ret
+ = 
+cur
+;
+
+157 return (
+drw
+->
+fonts
+ = 
+ret
+);
+
+158 
+	}
+}
+
+161 
+	$drw_fontset_free
+(
+Fnt
+ *
+font
+)
+
+163 if (
+font
+) {
+
+164 
+	`drw_fontset_free
+(
+font
+->
+next
+);
+
+165 
+	`xfont_free
+(
+font
+);
+
+167 
+	}
+}
+
+170 
+	$drw_clr_create
+(
+Drw
+ *
+drw
+, 
+Clr
+ *
+dest
+, const char *
+clrname
+)
+
+172 if (!
+drw
+ || !
+dest
+ || !
+clrname
+)
+
+175 if (!
+	`XftColorAllocName
+(
+drw
+->
+dpy
+, 
+	`DefaultVisual
+(drw->dpy, drw->
+screen
+),
+
+176 
+	`DefaultColormap
+(
+drw
+->
+dpy
+, drw->
+screen
+),
+
+177 
+clrname
+, 
+dest
+))
+
+178 
+	`die
+("error, cannot allocate color '%s'", 
+clrname
+);
+
+179 
+	}
+}
+
+183 
+Clr
+ *
+
+184 
+	$drw_scm_create
+(
+Drw
+ *
+drw
+, const char *
+clrnames
+[], 
+size_t
+ 
+clrcount
+)
+
+186 
+size_t
+ 
+i
+;
+
+187 
+Clr
+ *
+ret
+;
+
+190 if (!
+drw
+ || !
+clrnames
+ || 
+clrcount
+ < 2 || !(
+ret
+ = 
+	`ecalloc
+(clrcount, sizeof(
+XftColor
+))))
+
+191 return 
+NULL
+;
+
+193 for (
+i
+ = 0; i < 
+clrcount
+; i++)
+
+194 
+	`drw_clr_create
+(
+drw
+, &
+ret
+[
+i
+], 
+clrnames
+[i]);
+
+195 return 
+ret
+;
+
+196 
+	}
+}
+
+199 
+	$drw_setfontset
+(
+Drw
+ *
+drw
+, 
+Fnt
+ *
+set
+)
+
+201 if (
+drw
+)
+
+202 
+drw
+->
+fonts
+ = 
+set
+;
+
+203 
+	}
+}
+
+206 
+	$drw_setscheme
+(
+Drw
+ *
+drw
+, 
+Clr
+ *
+scm
+)
+
+208 if (
+drw
+)
+
+209 
+drw
+->
+scheme
+ = 
+scm
+;
+
+210 
+	}
+}
+
+213 
+	$drw_rect
+(
+Drw
+ *
+drw
+, int 
+x
+, int 
+y
+, unsigned int 
+w
+, unsigned int 
+h
+, int 
+filled
+, int 
+invert
+)
+
+215 if (!
+drw
+ || !drw->
+scheme
+)
+
+217 
+	`XSetForeground
+(
+drw
+->
+dpy
+, drw->
+gc
+, 
+invert
+ ? drw->
+scheme
+[
+ColBg
+].
+pixel
+ : drw->scheme[
+ColFg
+].pixel);
+
+218 if (
+filled
+)
+
+219 
+	`XFillRectangle
+(
+drw
+->
+dpy
+, drw->
+drawable
+, drw->
+gc
+, 
+x
+, 
+y
+, 
+w
+, 
+h
+);
+
+221 
+	`XDrawRectangle
+(
+drw
+->
+dpy
+, drw->
+drawable
+, drw->
+gc
+, 
+x
+, 
+y
+, 
+w
+ - 1, 
+h
+ - 1);
+
+222 
+	}
+}
+
+225 
+	$drw_text
+(
+Drw
+ *
+drw
+, int 
+x
+, int 
+y
+, unsigned int 
+w
+, unsigned int 
+h
+, unsigned int 
+lpad
+, const char *
+text
+, int 
+invert
+)
+
+227 int 
+ty
+, 
+ellipsis_x
+ = 0;
+
+228 unsigned int 
+tmpw
+, 
+ew
+, 
+ellipsis_w
+ = 0, 
+ellipsis_len
+, 
+hash
+, 
+h0
+, 
+h1
+;
+
+229 
+XftDraw
+ *
+d
+ = 
+NULL
+;
+
+230 
+Fnt
+ *
+usedfont
+, *
+curfont
+, *
+nextfont
+;
+
+231 int 
+utf8strlen
+, 
+utf8charlen
+, 
+utf8err
+, 
+render
+ = 
+x
+ || 
+y
+ || 
+w
+ || 
+h
+;
+
+232 long 
+utf8codepoint
+ = 0;
+
+233 const char *
+utf8str
+;
+
+234 
+FcCharSet
+ *
+fccharset
+;
+
+235 
+FcPattern
+ *
+fcpattern
+;
+
+236 
+FcPattern
+ *
+match
+;
+
+237 
+XftResult
+ 
+result
+;
+
+238 int 
+charexists
+ = 0, 
+overflow
+ = 0;
+
+240 static unsigned int 
+nomatches
+[128], 
+ellipsis_width
+, 
+invalid_width
+;
+
+241 static const char 
+invalid
+[] = "�";
+
+243 if (!
+drw
+ || (
+render
+ && (!drw->
+scheme
+ || !
+w
+)) || !
+text
+ || !drw->
+fonts
+)
+
+246 if (!
+render
+) {
+
+247 
+w
+ = 
+invert
+ ? invert : ~invert;
+
+249 
+	`XSetForeground
+(
+drw
+->
+dpy
+, drw->
+gc
+, drw->
+scheme
+[
+invert
+ ? 
+ColFg
+ : 
+ColBg
+].
+pixel
+);
+
+250 
+	`XFillRectangle
+(
+drw
+->
+dpy
+, drw->
+drawable
+, drw->
+gc
+, 
+x
+, 
+y
+, 
+w
+, 
+h
+);
+
+251 if (
+w
+ < 
+lpad
+)
+
+252 return 
+x
+ + 
+w
+;
+
+253 
+d
+ = 
+	`XftDrawCreate
+(
+drw
+->
+dpy
+, drw->
+drawable
+,
+
+254 
+	`DefaultVisual
+(
+drw
+->
+dpy
+, drw->
+screen
+),
+
+255 
+	`DefaultColormap
+(
+drw
+->
+dpy
+, drw->
+screen
+));
+
+256 
+x
+ += 
+lpad
+;
+
+257 
+w
+ -= 
+lpad
+;
+
+260 
+usedfont
+ = 
+drw
+->
+fonts
+;
+
+261 if (!
+ellipsis_width
+ && 
+render
+)
+
+262 
+ellipsis_width
+ = 
+	`drw_fontset_getwidth
+(
+drw
+, "...");
+
+263 if (!
+invalid_width
+ && 
+render
+)
+
+264 
+invalid_width
+ = 
+	`drw_fontset_getwidth
+(
+drw
+, 
+invalid
+);
+
+266 
+ew
+ = 
+ellipsis_len
+ = 
+utf8err
+ = 
+utf8charlen
+ = 
+utf8strlen
+ = 0;
+
+267 
+utf8str
+ = 
+text
+;
+
+268 
+nextfont
+ = 
+NULL
+;
+
+269 while (*
+text
+) {
+
+270 
+utf8charlen
+ = 
+	`utf8decode
+(
+text
+, &
+utf8codepoint
+, &
+utf8err
+);
+
+271 for (
+curfont
+ = 
+drw
+->
+fonts
+; curfont; curfont = curfont->
+next
+) {
+
+272 
+charexists
+ = charexists || 
+	`XftCharExists
+(
+drw
+->
+dpy
+, 
+curfont
+->
+xfont
+, 
+utf8codepoint
+);
+
+273 if (
+charexists
+) {
+
+274 
+	`drw_font_getexts
+(
+curfont
+, 
+text
+, 
+utf8charlen
+, &
+tmpw
+, 
+NULL
+);
+
+275 if (
+ew
+ + 
+ellipsis_width
+ <= 
+w
+) {
+
+277 
+ellipsis_x
+ = 
+x
+ + 
+ew
+;
+
+278 
+ellipsis_w
+ = 
+w
+ - 
+ew
+;
+
+279 
+ellipsis_len
+ = 
+utf8strlen
+;
+
+282 if (
+ew
+ + 
+tmpw
+ > 
+w
+) {
+
+283 
+overflow
+ = 1;
+
+287 if (!
+render
+)
+
+288 
+x
+ += 
+tmpw
+;
+
+290 
+utf8strlen
+ = 
+ellipsis_len
+;
+
+291 } else if (
+curfont
+ == 
+usedfont
+) {
+
+292 
+text
+ += 
+utf8charlen
+;
+
+293 
+utf8strlen
+ += 
+utf8err
+ ? 0 : 
+utf8charlen
+;
+
+294 
+ew
+ += 
+utf8err
+ ? 0 : 
+tmpw
+;
+
+296 
+nextfont
+ = 
+curfont
+;
+
+302 if (
+overflow
+ || !
+charexists
+ || 
+nextfont
+ || 
+utf8err
+)
+
+305 
+charexists
+ = 0;
+
+308 if (
+utf8strlen
+) {
+
+309 if (
+render
+) {
+
+310 
+ty
+ = 
+y
+ + (
+h
+ - 
+usedfont
+->h) / 2 + usedfont->
+xfont
+->
+ascent
+;
+
+311 
+	`XftDrawStringUtf8
+(
+d
+, &
+drw
+->
+scheme
+[
+invert
+ ? 
+ColBg
+ : 
+ColFg
+],
+
+312 
+usedfont
+->
+xfont
+, 
+x
+, 
+ty
+, (
+XftChar8
+ *)
+utf8str
+, 
+utf8strlen
+);
+
+314 
+x
+ += 
+ew
+;
+
+315 
+w
+ -= 
+ew
+;
+
+317 if (
+utf8err
+ && (!
+render
+ || 
+invalid_width
+ < 
+w
+)) {
+
+318 if (
+render
+)
+
+319 
+	`drw_text
+(
+drw
+, 
+x
+, 
+y
+, 
+w
+, 
+h
+, 0, 
+invalid
+, 
+invert
+);
+
+320 
+x
+ += 
+invalid_width
+;
+
+321 
+w
+ -= 
+invalid_width
+;
+
+323 if (
+render
+ && 
+overflow
+)
+
+324 
+	`drw_text
+(
+drw
+, 
+ellipsis_x
+, 
+y
+, 
+ellipsis_w
+, 
+h
+, 0, "...", 
+invert
+);
+
+326 if (!*
+text
+ || 
+overflow
+) {
+
+328 } else if (
+nextfont
+) {
+
+329 
+charexists
+ = 0;
+
+330 
+usedfont
+ = 
+nextfont
+;
+
+334 
+charexists
+ = 1;
+
+336 
+hash
+ = (unsigned int)
+utf8codepoint
+;
+
+337 
+hash
+ = ((hash >> 16) ^ hash) * 0x21F0AAAD;
+
+338 
+hash
+ = ((hash >> 15) ^ hash) * 0xD35A2D97;
+
+339 
+h0
+ = ((
+hash
+ >> 15) ^ hash) % 
+	`LENGTH
+(
+nomatches
+);
+
+340 
+h1
+ = (
+hash
+ >> 17) % 
+	`LENGTH
+(
+nomatches
+);
+
+342 if (
+nomatches
+[
+h0
+] == 
+utf8codepoint
+ || nomatches[
+h1
+] == utf8codepoint)
+
+343 goto 
+no_match
+;
+
+345 
+fccharset
+ = 
+	`FcCharSetCreate
+();
+
+346 
+	`FcCharSetAddChar
+(
+fccharset
+, 
+utf8codepoint
+);
+
+348 if (!
+drw
+->
+fonts
+->
+pattern
+) {
+
+350 
+	`die
+("the first font in the cache must be loaded from a font string.");
+
+353 
+fcpattern
+ = 
+	`FcPatternDuplicate
+(
+drw
+->
+fonts
+->
+pattern
+);
+
+354 
+	`FcPatternAddCharSet
+(
+fcpattern
+, 
+FC_CHARSET
+, 
+fccharset
+);
+
+355 
+	`FcPatternAddBool
+(
+fcpattern
+, 
+FC_SCALABLE
+, 
+FcTrue
+);
+
+357 
+	`FcConfigSubstitute
+(
+NULL
+, 
+fcpattern
+, 
+FcMatchPattern
+);
+
+358 
+	`FcDefaultSubstitute
+(
+fcpattern
+);
+
+359 
+match
+ = 
+	`XftFontMatch
+(
+drw
+->
+dpy
+, drw->
+screen
+, 
+fcpattern
+, &
+result
+);
+
+361 
+	`FcCharSetDestroy
+(
+fccharset
+);
+
+362 
+	`FcPatternDestroy
+(
+fcpattern
+);
+
+364 if (
+match
+) {
+
+365 
+usedfont
+ = 
+	`xfont_create
+(
+drw
+, 
+NULL
+, 
+match
+);
+
+366 if (
+usedfont
+ && 
+	`XftCharExists
+(
+drw
+->
+dpy
+, usedfont->
+xfont
+, 
+utf8codepoint
+)) {
+
+367 for (
+curfont
+ = 
+drw
+->
+fonts
+; curfont->
+next
+; curfont = curfont->next)
+
+369 
+curfont
+->
+next
+ = 
+usedfont
+;
+
+371 
+	`xfont_free
+(
+usedfont
+);
+
+372 
+nomatches
+[nomatches[
+h0
+] ? 
+h1
+ : h0] = 
+utf8codepoint
+;
+
+373 
+no_match
+:
+
+374 
+usedfont
+ = 
+drw
+->
+fonts
+;
+
+379 if (
+d
+)
+
+380 
+	`XftDrawDestroy
+(
+d
+);
+
+382 return 
+x
+ + (
+render
+ ? 
+w
+ : 0);
+
+383 
+	}
+}
+
+386 
+	$drw_map
+(
+Drw
+ *
+drw
+, 
+Window
+ 
+win
+, int 
+x
+, int 
+y
+, unsigned int 
+w
+, unsigned int 
+h
+)
+
+388 if (!
+drw
+)
+
+391 
+	`XCopyArea
+(
+drw
+->
+dpy
+, drw->
+drawable
+, 
+win
+, drw->
+gc
+, 
+x
+, 
+y
+, 
+w
+, 
+h
+, x, y);
+
+392 
+	`XSync
+(
+drw
+->
+dpy
+, 
+False
+);
+
+393 
+	}
+}
+
+396 
+	$drw_fontset_getwidth
+(
+Drw
+ *
+drw
+, const char *
+text
+)
+
+398 if (!
+drw
+ || !drw->
+fonts
+ || !
+text
+)
+
+400 return 
+	`drw_text
+(
+drw
+, 0, 0, 0, 0, 0, 
+text
+, 0);
+
+401 
+	}
+}
+
+404 
+	$drw_fontset_getwidth_clamp
+(
+Drw
+ *
+drw
+, const char *
+text
+, unsigned int 
+n
+)
+
+406 unsigned int 
+tmp
+ = 0;
+
+407 if (
+drw
+ && drw->
+fonts
+ && 
+text
+ && 
+n
+)
+
+408 
+tmp
+ = 
+	`drw_text
+(
+drw
+, 0, 0, 0, 0, 0, 
+text
+, 
+n
+);
+
+409 return 
+	`MIN
+(
+n
+, 
+tmp
+);
+
+410 
+	}
+}
+
+413 
+	$drw_font_getexts
+(
+Fnt
+ *
+font
+, const char *
+text
+, unsigned int 
+len
+, unsigned int *
+w
+, unsigned int *
+h
+)
+
+415 
+XGlyphInfo
+ 
+ext
+;
+
+417 if (!
+font
+ || !
+text
+)
+
+420 
+	`XftTextExtentsUtf8
+(
+font
+->
+dpy
+, font->
+xfont
+, (
+XftChar8
+ *)
+text
+, 
+len
+, &
+ext
+);
+
+421 if (
+w
+)
+
+422 *
+w
+ = 
+ext
+.
+xOff
+;
+
+423 if (
+h
+)
+
+424 *
+h
+ = 
+font
+->h;
+
+425 
+	}
+}
+
+427 
+Cur
+ *
+
+428 
+	$drw_cur_create
+(
+Drw
+ *
+drw
+, int 
+shape
+)
+
+430 
+Cur
+ *
+cur
+;
+
+432 if (!
+drw
+ || !(
+cur
+ = 
+	`ecalloc
+(1, sizeof(
+Cur
+))))
+
+433 return 
+NULL
+;
+
+435 
+cur
+->
+cursor
+ = 
+	`XCreateFontCursor
+(
+drw
+->
+dpy
+, 
+shape
+);
+
+437 return 
+cur
+;
+
+438 
+	}
+}
+
+441 
+	$drw_cur_free
+(
+Drw
+ *
+drw
+, 
+Cur
+ *
+cursor
+)
+
+443 if (!
+cursor
+)
+
+446 
+	`XFreeCursor
+(
+drw
+->
+dpy
+, 
+cursor
+->cursor);
+
+447 
+	`free
+(
+cursor
+);
+
+448 
+	}
+}
+
+	@drw.h
+
+4 
+Cursor
+ 
+	mcursor
+;
+
+5 } 
+	tCur
+;
+
+7 typedef struct 
+	sFnt
+ {
+
+8 
+Display
+ *
+	mdpy
+;
+
+9 unsigned int 
+	mh
+;
+
+10 
+XftFont
+ *
+	mxfont
+;
+
+11 
+FcPattern
+ *
+	mpattern
+;
+
+12 struct 
+Fnt
+ *
+	mnext
+;
+
+13 } 
+	tFnt
+;
+
+15 enum { 
+	mColFg
+, 
+	mColBg
+, 
+	mColBorder
+ };
+
+16 typedef 
+XftColor
+ 
+	tClr
+;
+
+19 unsigned int 
+	mw
+, 
+	mh
+;
+
+20 
+Display
+ *
+	mdpy
+;
+
+21 int 
+	mscreen
+;
+
+22 
+Window
+ 
+	mroot
+;
+
+23 
+Drawable
+ 
+	mdrawable
+;
+
+24 
+GC
+ 
+	mgc
+;
+
+25 
+Clr
+ *
+	mscheme
+;
+
+26 
+Fnt
+ *
+	mfonts
+;
+
+27 } 
+	tDrw
+;
+
+30 
+Drw
+ *
+drw_create
+(
+Display
+ *
+dpy
+, int 
+screen
+, 
+Window
+ 
+win
+, unsigned int 
+w
+, unsigned int 
+h
+);
+
+31 void 
+drw_resize
+(
+Drw
+ *
+drw
+, unsigned int 
+w
+, unsigned int 
+h
+);
+
+32 void 
+drw_free
+(
+Drw
+ *
+drw
+);
+
+35 
+Fnt
+ *
+drw_fontset_create
+(
+Drw
+* 
+drw
+, const char *
+fonts
+[], 
+size_t
+ 
+fontcount
+);
+
+36 void 
+drw_fontset_free
+(
+Fnt
+* 
+set
+);
+
+37 unsigned int 
+drw_fontset_getwidth
+(
+Drw
+ *
+drw
+, const char *
+text
+);
+
+38 unsigned int 
+drw_fontset_getwidth_clamp
+(
+Drw
+ *
+drw
+, const char *
+text
+, unsigned int 
+n
+);
+
+39 void 
+drw_font_getexts
+(
+Fnt
+ *
+font
+, const char *
+text
+, unsigned int 
+len
+, unsigned int *
+w
+, unsigned int *
+h
+);
+
+42 void 
+drw_clr_create
+(
+Drw
+ *
+drw
+, 
+Clr
+ *
+dest
+, const char *
+clrname
+);
+
+43 
+Clr
+ *
+drw_scm_create
+(
+Drw
+ *
+drw
+, const char *
+clrnames
+[], 
+size_t
+ 
+clrcount
+);
+
+46 
+Cur
+ *
+drw_cur_create
+(
+Drw
+ *
+drw
+, int 
+shape
+);
+
+47 void 
+drw_cur_free
+(
+Drw
+ *
+drw
+, 
+Cur
+ *
+cursor
+);
+
+50 void 
+drw_setfontset
+(
+Drw
+ *
+drw
+, 
+Fnt
+ *
+set
+);
+
+51 void 
+drw_setscheme
+(
+Drw
+ *
+drw
+, 
+Clr
+ *
+scm
+);
+
+54 void 
+drw_rect
+(
+Drw
+ *
+drw
+, int 
+x
+, int 
+y
+, unsigned int 
+w
+, unsigned int 
+h
+, int 
+filled
+, int 
+invert
+);
+
+55 int 
+drw_text
+(
+Drw
+ *
+drw
+, int 
+x
+, int 
+y
+, unsigned int 
+w
+, unsigned int 
+h
+, unsigned int 
+lpad
+, const char *
+text
+, int 
+invert
+);
+
+58 void 
+drw_map
+(
+Drw
+ *
+drw
+, 
+Window
+ 
+win
+, int 
+x
+, int 
+y
+, unsigned int 
+w
+, unsigned int 
+h
+);
+
+	@dwm.c
+
+23 #include 
+	~<errno.h
+>
+
+24 #include 
+	~<locale.h
+>
+
+25 #include 
+	~<signal.h
+>
+
+26 #include 
+	~<stdarg.h
+>
+
+27 #include 
+	~<stdio.h
+>
+
+28 #include 
+	~<stdlib.h
+>
+
+29 #include 
+	~<string.h
+>
+
+30 #include 
+	~<unistd.h
+>
+
+31 #include 
+	~<sys/types.h
+>
+
+32 #include 
+	~<sys/wait.h
+>
+
+33 #include 
+	~<X11/cursorfont.h
+>
+
+34 #include 
+	~<X11/keysym.h
+>
+
+35 #include 
+	~<X11/Xatom.h
+>
+
+36 #include 
+	~<X11/Xlib.h
+>
+
+37 #include 
+	~<X11/Xproto.h
+>
+
+38 #include 
+	~<X11/Xutil.h
+>
+
+39 #ifdef 
+XINERAMA
+
+
+40 #include 
+	~<X11/extensions/Xinerama.h
+>
+
+42 #include 
+	~<X11/Xft/Xft.h
+>
+
+44 #include 
+	~"drw.h
+"
+
+45 #include 
+	~"util.h
+"
+
+48 #define 
+	#BUTTONMASK
+ (
+ButtonPressMask
+|
+ButtonReleaseMask
+)
+
+	)
+
+49 #define 
+	#CLEANMASK
+(
+mask
+) (mask & ~(
+numlockmask
+|
+LockMask
+) & (
+ShiftMask
+|
+ControlMask
+|
+Mod1Mask
+|
+Mod2Mask
+|
+Mod3Mask
+|
+Mod4Mask
+|
+Mod5Mask
+))
+
+	)
+
+50 #define 
+	#INTERSECT
+(
+x
+,
+y
+,
+w
+,
+h
+,
+m
+) (
+	`MAX
+(0, 
+	`MIN
+((x)+(w),(m)->
+wx
++(m)->
+ww
+) - MAX((x),(m)->wx)) \
+
+51 * 
+	`MAX
+(0, 
+	`MIN
+((
+y
+)+(
+h
+),(
+m
+)->
+wy
++(m)->
+wh
+) - MAX((y),(m)->wy)))
+
+	)
+
+52 #define 
+	#ISVISIBLE
+(
+C
+) ((C->
+tags
+ & C->
+mon
+->
+tagset
+[C->mon->
+seltags
+]))
+
+	)
+
+53 #define 
+	#MOUSEMASK
+ (
+BUTTONMASK
+|
+PointerMotionMask
+)
+
+	)
+
+54 #define 
+	#WIDTH
+(
+X
+) ((X)->
+w
+ + 2 * (X)->
+bw
+)
+
+	)
+
+55 #define 
+	#HEIGHT
+(
+X
+) ((X)->
+h
+ + 2 * (X)->
+bw
+)
+
+	)
+
+56 #define 
+	#TAGMASK
+ ((1 << 
+	`LENGTH
+(
+tags
+)) - 1)
+
+	)
+
+57 #define 
+	#TEXTW
+(
+X
+) (
+	`drw_fontset_getwidth
+(
+drw
+, (X)) + 
+lrpad
+)
+
+	)
+
+60 enum { 
+	mCurNormal
+, 
+	mCurResize
+, 
+	mCurMove
+, 
+	mCurLast
+ };
+
+61 enum { 
+	mSchemeNorm
+, 
+	mSchemeSel
+ };
+
+62 enum { 
+	mNetSupported
+, 
+	mNetWMName
+, 
+	mNetWMState
+, 
+	mNetWMCheck
+,
+
+63 
+	mNetWMFullscreen
+, 
+	mNetActiveWindow
+, 
+	mNetWMWindowType
+,
+
+64 
+	mNetWMWindowTypeDialog
+, 
+	mNetClientList
+, 
+	mNetLast
+ };
+
+65 enum { 
+	mWMProtocols
+, 
+	mWMDelete
+, 
+	mWMState
+, 
+	mWMTakeFocus
+, 
+	mWMLast
+ };
+
+66 enum { 
+	mClkTagBar
+, 
+	mClkLtSymbol
+, 
+	mClkStatusText
+, 
+	mClkWinTitle
+,
+
+67 
+	mClkClientWin
+, 
+	mClkRootWin
+, 
+	mClkLast
+ };
+
+70 int 
+	mi
+;
+
+71 unsigned int 
+	mui
+;
+
+72 float 
+	mf
+;
+
+73 const void *
+	mv
+;
+
+74 } 
+	tArg
+;
+
+77 unsigned int 
+	mclick
+;
+
+78 unsigned int 
+	mmask
+;
+
+79 unsigned int 
+	mbutton
+;
+
+80 void (*
+	mfunc
+)(const 
+Arg
+ *
+	marg
+);
+
+81 const 
+Arg
+ 
+	marg
+;
+
+82 } 
+	tButton
+;
+
+84 typedef struct 
+Monitor
+ 
+	tMonitor
+;
+
+85 typedef struct 
+Client
+ 
+	tClient
+;
+
+86 struct 
+	sClient
+ {
+
+87 char 
+	mname
+[256];
+
+88 float 
+	mmina
+, 
+	mmaxa
+;
+
+89 int 
+	mx
+, 
+	my
+, 
+	mw
+, 
+	mh
+;
+
+90 int 
+	moldx
+, 
+	moldy
+, 
+	moldw
+, 
+	moldh
+;
+
+91 int 
+	mbasew
+, 
+	mbaseh
+, 
+	mincw
+, 
+	minch
+, 
+	mmaxw
+, 
+	mmaxh
+, 
+	mminw
+, 
+	mminh
+, 
+	mhintsvalid
+;
+
+92 int 
+	mbw
+, 
+	moldbw
+;
+
+93 unsigned int 
+	mtags
+;
+
+94 int 
+	misfixed
+, 
+	misfloating
+, 
+	misurgent
+, 
+	mneverfocus
+, 
+	moldstate
+, 
+	misfullscreen
+;
+
+95 
+Client
+ *
+	mnext
+;
+
+96 
+Client
+ *
+	msnext
+;
+
+97 
+Monitor
+ *
+	mmon
+;
+
+98 
+Window
+ 
+	mwin
+;
+
+102 unsigned int 
+	mmod
+;
+
+103 
+KeySym
+ 
+	mkeysym
+;
+
+104 void (*
+	mfunc
+)(const 
+	mArg
+ *);
+
+105 const 
+Arg
+ 
+	marg
+;
+
+106 } 
+	tKey
+;
+
+109 const char *
+	msymbol
+;
+
+110 void (*
+	marrange
+)(
+	mMonitor
+ *);
+
+111 } 
+	tLayout
+;
+
+113 struct 
+	sMonitor
+ {
+
+114 char 
+	mltsymbol
+[16];
+
+115 float 
+	mmfact
+;
+
+116 int 
+	mnmaster
+;
+
+117 int 
+	mnum
+;
+
+118 int 
+	mby
+;
+
+119 int 
+	mmx
+, 
+	mmy
+, 
+	mmw
+, 
+	mmh
+;
+
+120 int 
+	mwx
+, 
+	mwy
+, 
+	mww
+, 
+	mwh
+;
+
+121 unsigned int 
+	mseltags
+;
+
+122 unsigned int 
+	msellt
+;
+
+123 unsigned int 
+	mtagset
+[2];
+
+124 int 
+	mshowbar
+;
+
+125 int 
+	mtopbar
+;
+
+126 
+Client
+ *
+	mclients
+;
+
+127 
+Client
+ *
+	msel
+;
+
+128 
+Client
+ *
+	mstack
+;
+
+129 
+Monitor
+ *
+	mnext
+;
+
+130 
+Window
+ 
+	mbarwin
+;
+
+131 const 
+Layout
+ *
+	mlt
+[2];
+
+135 const char *
+	mclass
+;
+
+136 const char *
+	minstance
+;
+
+137 const char *
+	mtitle
+;
+
+138 unsigned int 
+	mtags
+;
+
+139 int 
+	misfloating
+;
+
+140 int 
+	mmonitor
+;
+
+141 } 
+	tRule
+;
+
+144 static void 
+applyrules
+(
+Client
+ *
+c
+);
+
+145 static int 
+applysizehints
+(
+Client
+ *
+c
+, int *
+x
+, int *
+y
+, int *
+w
+, int *
+h
+, int 
+interact
+);
+
+146 static void 
+arrange
+(
+Monitor
+ *
+m
+);
+
+147 static void 
+arrangemon
+(
+Monitor
+ *
+m
+);
+
+148 static void 
+attach
+(
+Client
+ *
+c
+);
+
+149 static void 
+attachstack
+(
+Client
+ *
+c
+);
+
+150 static void 
+buttonpress
+(
+XEvent
+ *
+e
+);
+
+151 static void 
+checkotherwm
+(void);
+
+152 static void 
+cleanup
+(void);
+
+153 static void 
+cleanupmon
+(
+Monitor
+ *
+mon
+);
+
+154 static void 
+clientmessage
+(
+XEvent
+ *
+e
+);
+
+155 static void 
+configure
+(
+Client
+ *
+c
+);
+
+156 static void 
+configurenotify
+(
+XEvent
+ *
+e
+);
+
+157 static void 
+configurerequest
+(
+XEvent
+ *
+e
+);
+
+158 static 
+Monitor
+ *
+createmon
+(void);
+
+159 static void 
+destroynotify
+(
+XEvent
+ *
+e
+);
+
+160 static void 
+detach
+(
+Client
+ *
+c
+);
+
+161 static void 
+detachstack
+(
+Client
+ *
+c
+);
+
+162 static 
+Monitor
+ *
+dirtomon
+(int 
+dir
+);
+
+163 static void 
+drawbar
+(
+Monitor
+ *
+m
+);
+
+164 static void 
+drawbars
+(void);
+
+165 static void 
+enternotify
+(
+XEvent
+ *
+e
+);
+
+166 static void 
+expose
+(
+XEvent
+ *
+e
+);
+
+167 static void 
+focus
+(
+Client
+ *
+c
+);
+
+168 static void 
+focusin
+(
+XEvent
+ *
+e
+);
+
+169 static void 
+focusmon
+(const 
+Arg
+ *
+arg
+);
+
+170 static void 
+focusstack
+(const 
+Arg
+ *
+arg
+);
+
+171 static 
+Atom
+ 
+getatomprop
+(
+Client
+ *
+c
+, Atom 
+prop
+);
+
+172 static int 
+getrootptr
+(int *
+x
+, int *
+y
+);
+
+173 static long 
+getstate
+(
+Window
+ 
+w
+);
+
+174 static int 
+gettextprop
+(
+Window
+ 
+w
+, 
+Atom
+ 
+atom
+, char *
+text
+, unsigned int 
+size
+);
+
+175 static void 
+grabbuttons
+(
+Client
+ *
+c
+, int 
+focused
+);
+
+176 static void 
+grabkeys
+(void);
+
+177 static void 
+incnmaster
+(const 
+Arg
+ *
+arg
+);
+
+178 static void 
+keypress
+(
+XEvent
+ *
+e
+);
+
+179 static void 
+killclient
+(const 
+Arg
+ *
+arg
+);
+
+180 static void 
+manage
+(
+Window
+ 
+w
+, 
+XWindowAttributes
+ *
+wa
+);
+
+181 static void 
+mappingnotify
+(
+XEvent
+ *
+e
+);
+
+182 static void 
+maprequest
+(
+XEvent
+ *
+e
+);
+
+183 static void 
+monocle
+(
+Monitor
+ *
+m
+);
+
+184 static void 
+motionnotify
+(
+XEvent
+ *
+e
+);
+
+185 static void 
+movemouse
+(const 
+Arg
+ *
+arg
+);
+
+186 static 
+Client
+ *
+nexttiled
+(Client *
+c
+);
+
+187 static void 
+pop
+(
+Client
+ *
+c
+);
+
+188 static void 
+propertynotify
+(
+XEvent
+ *
+e
+);
+
+189 static void 
+quit
+(const 
+Arg
+ *
+arg
+);
+
+190 static 
+Monitor
+ *
+recttomon
+(int 
+x
+, int 
+y
+, int 
+w
+, int 
+h
+);
+
+191 static void 
+resize
+(
+Client
+ *
+c
+, int 
+x
+, int 
+y
+, int 
+w
+, int 
+h
+, int 
+interact
+);
+
+192 static void 
+resizeclient
+(
+Client
+ *
+c
+, int 
+x
+, int 
+y
+, int 
+w
+, int 
+h
+);
+
+193 static void 
+resizemouse
+(const 
+Arg
+ *
+arg
+);
+
+194 static void 
+restack
+(
+Monitor
+ *
+m
+);
+
+195 static void 
+run
+(void);
+
+196 static void 
+scan
+(void);
+
+197 static int 
+sendevent
+(
+Client
+ *
+c
+, 
+Atom
+ 
+proto
+);
+
+198 static void 
+sendmon
+(
+Client
+ *
+c
+, 
+Monitor
+ *
+m
+);
+
+199 static void 
+setclientstate
+(
+Client
+ *
+c
+, long 
+state
+);
+
+200 static void 
+setfocus
+(
+Client
+ *
+c
+);
+
+201 static void 
+setfullscreen
+(
+Client
+ *
+c
+, int 
+fullscreen
+);
+
+202 static void 
+setlayout
+(const 
+Arg
+ *
+arg
+);
+
+203 static void 
+setmfact
+(const 
+Arg
+ *
+arg
+);
+
+204 static void 
+setup
+(void);
+
+205 static void 
+seturgent
+(
+Client
+ *
+c
+, int 
+urg
+);
+
+206 static void 
+showhide
+(
+Client
+ *
+c
+);
+
+207 static void 
+spawn
+(const 
+Arg
+ *
+arg
+);
+
+208 static void 
+tag
+(const 
+Arg
+ *
+arg
+);
+
+209 static void 
+tagmon
+(const 
+Arg
+ *
+arg
+);
+
+210 static void 
+tile
+(
+Monitor
+ *
+m
+);
+
+211 static void 
+togglebar
+(const 
+Arg
+ *
+arg
+);
+
+212 static void 
+togglefloating
+(const 
+Arg
+ *
+arg
+);
+
+213 static void 
+toggletag
+(const 
+Arg
+ *
+arg
+);
+
+214 static void 
+toggleview
+(const 
+Arg
+ *
+arg
+);
+
+215 static void 
+unfocus
+(
+Client
+ *
+c
+, int 
+setfocus
+);
+
+216 static void 
+unmanage
+(
+Client
+ *
+c
+, int 
+destroyed
+);
+
+217 static void 
+unmapnotify
+(
+XEvent
+ *
+e
+);
+
+218 static void 
+updatebarpos
+(
+Monitor
+ *
+m
+);
+
+219 static void 
+updatebars
+(void);
+
+220 static void 
+updateclientlist
+(void);
+
+221 static int 
+updategeom
+(void);
+
+222 static void 
+updatenumlockmask
+(void);
+
+223 static void 
+updatesizehints
+(
+Client
+ *
+c
+);
+
+224 static void 
+updatestatus
+(void);
+
+225 static void 
+updatetitle
+(
+Client
+ *
+c
+);
+
+226 static void 
+updatewindowtype
+(
+Client
+ *
+c
+);
+
+227 static void 
+updatewmhints
+(
+Client
+ *
+c
+);
+
+228 static void 
+view
+(const 
+Arg
+ *
+arg
+);
+
+229 static 
+Client
+ *
+wintoclient
+(
+Window
+ 
+w
+);
+
+230 static 
+Monitor
+ *
+wintomon
+(
+Window
+ 
+w
+);
+
+231 static int 
+xerror
+(
+Display
+ *
+dpy
+, 
+XErrorEvent
+ *
+ee
+);
+
+232 static int 
+xerrordummy
+(
+Display
+ *
+dpy
+, 
+XErrorEvent
+ *
+ee
+);
+
+233 static int 
+xerrorstart
+(
+Display
+ *
+dpy
+, 
+XErrorEvent
+ *
+ee
+);
+
+234 static void 
+zoom
+(const 
+Arg
+ *
+arg
+);
+
+237 static const char 
+	gbroken
+[] = "broken";
+
+238 static char 
+	gstext
+[256];
+
+239 static int 
+	gscreen
+;
+
+240 static int 
+	gsw
+, 
+	gsh
+;
+
+241 static int 
+	gbh
+;
+
+242 static int 
+	glrpad
+;
+
+243 static int (*
+xerrorxlib
+)(
+Display
+ *, 
+XErrorEvent
+ *);
+
+244 static unsigned int 
+numlockmask
+ = 0;
+
+245 static void (*
+handler
+[
+LASTEvent
+]) (
+XEvent
+ *) = {
+
+246 [
+ButtonPress
+] = 
+buttonpress
+,
+
+247 [
+ClientMessage
+] = 
+clientmessage
+,
+
+248 [
+ConfigureRequest
+] = 
+configurerequest
+,
+
+249 [
+ConfigureNotify
+] = 
+configurenotify
+,
+
+250 [
+DestroyNotify
+] = 
+destroynotify
+,
+
+251 [
+EnterNotify
+] = 
+enternotify
+,
+
+252 [
+Expose
+] = 
+expose
+,
+
+253 [
+FocusIn
+] = 
+focusin
+,
+
+254 [
+KeyPress
+] = 
+keypress
+,
+
+255 [
+MappingNotify
+] = 
+mappingnotify
+,
+
+256 [
+MapRequest
+] = 
+maprequest
+,
+
+257 [
+MotionNotify
+] = 
+motionnotify
+,
+
+258 [
+PropertyNotify
+] = 
+propertynotify
+,
+
+259 [
+UnmapNotify
+] = 
+unmapnotify
+
+
+260 
+	}
+};
+
+261 static 
+Atom
+ 
+	gwmatom
+[
+WMLast
+], 
+	gnetatom
+[
+NetLast
+];
+
+262 static int 
+	grunning
+ = 1;
+
+263 static 
+Cur
+ *
+	gcursor
+[
+CurLast
+];
+
+264 static 
+Clr
+ **
+	gscheme
+;
+
+265 static 
+Display
+ *
+	gdpy
+;
+
+266 static 
+Drw
+ *
+	gdrw
+;
+
+267 static 
+Monitor
+ *
+	gmons
+, *
+	gselmon
+;
+
+268 static 
+Window
+ 
+	groot
+, 
+	gwmcheckwin
+;
+
+271 #include 
+	~"config.h
+"
+
+274 struct 
+	sNumTags
+ { char 
+	mlimitexceeded
+[
+LENGTH
+(
+tags
+) > 31 ? -1 : 1]; };
+
+278 
+	$applyrules
+(
+Client
+ *
+c
+)
+
+280 const char *
+class
+, *
+instance
+;
+
+281 unsigned int 
+i
+;
+
+282 const 
+Rule
+ *
+r
+;
+
+283 
+Monitor
+ *
+m
+;
+
+284 
+XClassHint
+ 
+ch
+ = { 
+NULL
+, NULL };
+
+287 
+c
+->
+isfloating
+ = 0;
+
+288 
+c
+->
+tags
+ = 0;
+
+289 
+	`XGetClassHint
+(
+dpy
+, 
+c
+->
+win
+, &
+ch
+);
+
+290 
+class
+ = 
+ch
+.
+res_class
+ ? ch.res_class : 
+broken
+;
+
+291 
+instance
+ = 
+ch
+.
+res_name
+ ? ch.res_name : 
+broken
+;
+
+293 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+rules
+); i++) {
+
+294 
+r
+ = &
+rules
+[
+i
+];
+
+295 if ((!
+r
+->
+title
+ || 
+	`strstr
+(
+c
+->
+name
+, r->title))
+
+296 && (!
+r
+->
+class
+ || 
+	`strstr
+(class, r->class))
+
+297 && (!
+r
+->
+instance
+ || 
+	`strstr
+(instance, r->instance)))
+
+299 
+c
+->
+isfloating
+ = 
+r
+->isfloating;
+
+300 
+c
+->
+tags
+ |= 
+r
+->tags;
+
+301 for (
+m
+ = 
+mons
+; m && m->
+num
+ != 
+r
+->
+monitor
+; m = m->
+next
+);
+
+302 if (
+m
+)
+
+303 
+c
+->
+mon
+ = 
+m
+;
+
+306 if (
+ch
+.
+res_class
+)
+
+307 
+	`XFree
+(
+ch
+.
+res_class
+);
+
+308 if (
+ch
+.
+res_name
+)
+
+309 
+	`XFree
+(
+ch
+.
+res_name
+);
+
+310 
+c
+->
+tags
+ = c->tags & 
+TAGMASK
+ ? c->tags & TAGMASK : c->
+mon
+->
+tagset
+[c->mon->
+seltags
+];
+
+311 
+	}
+}
+
+314 
+	$applysizehints
+(
+Client
+ *
+c
+, int *
+x
+, int *
+y
+, int *
+w
+, int *
+h
+, int 
+interact
+)
+
+316 int 
+baseismin
+;
+
+317 
+Monitor
+ *
+m
+ = 
+c
+->
+mon
+;
+
+320 *
+w
+ = 
+	`MAX
+(1, *w);
+
+321 *
+h
+ = 
+	`MAX
+(1, *h);
+
+322 if (
+interact
+) {
+
+323 if (*
+x
+ > 
+sw
+)
+
+324 *
+x
+ = 
+sw
+ - 
+	`WIDTH
+(
+c
+);
+
+325 if (*
+y
+ > 
+sh
+)
+
+326 *
+y
+ = 
+sh
+ - 
+	`HEIGHT
+(
+c
+);
+
+327 if (*
+x
+ + *
+w
+ + 2 * 
+c
+->
+bw
+ < 0)
+
+328 *
+x
+ = 0;
+
+329 if (*
+y
+ + *
+h
+ + 2 * 
+c
+->
+bw
+ < 0)
+
+330 *
+y
+ = 0;
+
+332 if (*
+x
+ >= 
+m
+->
+wx
+ + m->
+ww
+)
+
+333 *
+x
+ = 
+m
+->
+wx
+ + m->
+ww
+ - 
+	`WIDTH
+(
+c
+);
+
+334 if (*
+y
+ >= 
+m
+->
+wy
+ + m->
+wh
+)
+
+335 *
+y
+ = 
+m
+->
+wy
+ + m->
+wh
+ - 
+	`HEIGHT
+(
+c
+);
+
+336 if (*
+x
+ + *
+w
+ + 2 * 
+c
+->
+bw
+ <= 
+m
+->
+wx
+)
+
+337 *
+x
+ = 
+m
+->
+wx
+;
+
+338 if (*
+y
+ + *
+h
+ + 2 * 
+c
+->
+bw
+ <= 
+m
+->
+wy
+)
+
+339 *
+y
+ = 
+m
+->
+wy
+;
+
+341 if (*
+h
+ < 
+bh
+)
+
+342 *
+h
+ = 
+bh
+;
+
+343 if (*
+w
+ < 
+bh
+)
+
+344 *
+w
+ = 
+bh
+;
+
+345 if (
+resizehints
+ || 
+c
+->
+isfloating
+ || !c->
+mon
+->
+lt
+[c->mon->
+sellt
+]->
+arrange
+) {
+
+346 if (!
+c
+->
+hintsvalid
+)
+
+347 
+	`updatesizehints
+(
+c
+);
+
+349 
+baseismin
+ = 
+c
+->
+basew
+ == c->
+minw
+ && c->
+baseh
+ == c->
+minh
+;
+
+350 if (!
+baseismin
+) {
+
+351 *
+w
+ -= 
+c
+->
+basew
+;
+
+352 *
+h
+ -= 
+c
+->
+baseh
+;
+
+355 if (
+c
+->
+mina
+ > 0 && c->
+maxa
+ > 0) {
+
+356 if (
+c
+->
+maxa
+ < (float)*
+w
+ / *
+h
+)
+
+357 *
+w
+ = *
+h
+ * 
+c
+->
+maxa
+ + 0.5;
+
+358 else if (
+c
+->
+mina
+ < (float)*
+h
+ / *
+w
+)
+
+359 *
+h
+ = *
+w
+ * 
+c
+->
+mina
+ + 0.5;
+
+361 if (
+baseismin
+) {
+
+362 *
+w
+ -= 
+c
+->
+basew
+;
+
+363 *
+h
+ -= 
+c
+->
+baseh
+;
+
+366 if (
+c
+->
+incw
+)
+
+367 *
+w
+ -= *w % 
+c
+->
+incw
+;
+
+368 if (
+c
+->
+inch
+)
+
+369 *
+h
+ -= *h % 
+c
+->
+inch
+;
+
+371 *
+w
+ = 
+	`MAX
+(*w + 
+c
+->
+basew
+, c->
+minw
+);
+
+372 *
+h
+ = 
+	`MAX
+(*h + 
+c
+->
+baseh
+, c->
+minh
+);
+
+373 if (
+c
+->
+maxw
+)
+
+374 *
+w
+ = 
+	`MIN
+(*w, 
+c
+->
+maxw
+);
+
+375 if (
+c
+->
+maxh
+)
+
+376 *
+h
+ = 
+	`MIN
+(*h, 
+c
+->
+maxh
+);
+
+378 return *
+x
+ != 
+c
+->x || *
+y
+ != c->y || *
+w
+ != c->w || *
+h
+ != c->h;
+
+379 
+	}
+}
+
+382 
+	$arrange
+(
+Monitor
+ *
+m
+)
+
+384 if (
+m
+)
+
+385 
+	`showhide
+(
+m
+->
+stack
+);
+
+386 else for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+387 
+	`showhide
+(
+m
+->
+stack
+);
+
+388 if (
+m
+) {
+
+389 
+	`arrangemon
+(
+m
+);
+
+390 
+	`restack
+(
+m
+);
+
+391 } else for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+392 
+	`arrangemon
+(
+m
+);
+
+393 
+	}
+}
+
+396 
+	$arrangemon
+(
+Monitor
+ *
+m
+)
+
+398 
+	`strncpy
+(
+m
+->
+ltsymbol
+, m->
+lt
+[m->
+sellt
+]->
+symbol
+, sizeof m->ltsymbol);
+
+399 if (
+m
+->
+lt
+[m->
+sellt
+]->
+arrange
+)
+
+400 
+m
+->
+lt
+[m->
+sellt
+]->
+	`arrange
+(m);
+
+401 
+	}
+}
+
+404 
+	$attach
+(
+Client
+ *
+c
+)
+
+406 
+c
+->
+next
+ = c->
+mon
+->
+clients
+;
+
+407 
+c
+->
+mon
+->
+clients
+ = c;
+
+408 
+	}
+}
+
+411 
+	$attachstack
+(
+Client
+ *
+c
+)
+
+413 
+c
+->
+snext
+ = c->
+mon
+->
+stack
+;
+
+414 
+c
+->
+mon
+->
+stack
+ = c;
+
+415 
+	}
+}
+
+418 
+	$buttonpress
+(
+XEvent
+ *
+e
+)
+
+420 unsigned int 
+i
+, 
+x
+, 
+click
+;
+
+421 
+Arg
+ 
+arg
+ = {0};
+
+422 
+Client
+ *
+c
+;
+
+423 
+Monitor
+ *
+m
+;
+
+424 
+XButtonPressedEvent
+ *
+ev
+ = &
+e
+->
+xbutton
+;
+
+426 
+click
+ = 
+ClkRootWin
+;
+
+428 if ((
+m
+ = 
+	`wintomon
+(
+ev
+->
+window
+)) && m != 
+selmon
+) {
+
+429 
+	`unfocus
+(
+selmon
+->
+sel
+, 1);
+
+430 
+selmon
+ = 
+m
+;
+
+431 
+	`focus
+(
+NULL
+);
+
+433 if (
+ev
+->
+window
+ == 
+selmon
+->
+barwin
+) {
+
+434 
+i
+ = 
+x
+ = 0;
+
+436 
+x
+ += 
+	`TEXTW
+(
+tags
+[
+i
+]);
+
+437 while (
+ev
+->
+x
+ >= x && ++
+i
+ < 
+	`LENGTH
+(
+tags
+));
+
+438 if (
+i
+ < 
+	`LENGTH
+(
+tags
+)) {
+
+439 
+click
+ = 
+ClkTagBar
+;
+
+440 
+arg
+.
+ui
+ = 1 << 
+i
+;
+
+441 } else if (
+ev
+->
+x
+ < x + 
+	`TEXTW
+(
+selmon
+->
+ltsymbol
+))
+
+442 
+click
+ = 
+ClkLtSymbol
+;
+
+443 else if (
+ev
+->
+x
+ > 
+selmon
+->
+ww
+ - (int)
+	`TEXTW
+(
+stext
+))
+
+444 
+click
+ = 
+ClkStatusText
+;
+
+446 
+click
+ = 
+ClkWinTitle
+;
+
+447 } else if ((
+c
+ = 
+	`wintoclient
+(
+ev
+->
+window
+))) {
+
+448 
+	`focus
+(
+c
+);
+
+449 
+	`restack
+(
+selmon
+);
+
+450 
+	`XAllowEvents
+(
+dpy
+, 
+ReplayPointer
+, 
+CurrentTime
+);
+
+451 
+click
+ = 
+ClkClientWin
+;
+
+453 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+buttons
+); i++)
+
+454 if (
+click
+ == 
+buttons
+[
+i
+].click && buttons[i].
+func
+ && buttons[i].
+button
+ == 
+ev
+->button
+
+455 && 
+	`CLEANMASK
+(
+buttons
+[
+i
+].
+mask
+) == CLEANMASK(
+ev
+->
+state
+))
+
+456 
+buttons
+[
+i
+].
+	`func
+(
+click
+ == 
+ClkTagBar
+ && buttons[i].
+arg
+.i == 0 ? &arg : &buttons[i].arg);
+
+457 
+	}
+}
+
+460 
+	$checkotherwm
+(void)
+
+462 
+xerrorxlib
+ = 
+	`XSetErrorHandler
+(
+xerrorstart
+);
+
+464 
+	`XSelectInput
+(
+dpy
+, 
+	`DefaultRootWindow
+(dpy), 
+SubstructureRedirectMask
+);
+
+465 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+466 
+	`XSetErrorHandler
+(
+xerror
+);
+
+467 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+468 
+	}
+}
+
+471 
+	$cleanup
+(void)
+
+473 
+Arg
+ 
+a
+ = {.
+ui
+ = ~0};
+
+474 
+Layout
+ 
+foo
+ = { "", 
+NULL
+ };
+
+475 
+Monitor
+ *
+m
+;
+
+476 
+size_t
+ 
+i
+;
+
+478 
+	`view
+(&
+a
+);
+
+479 
+selmon
+->
+lt
+[selmon->
+sellt
+] = &
+foo
+;
+
+480 for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+481 while (
+m
+->
+stack
+)
+
+482 
+	`unmanage
+(
+m
+->
+stack
+, 0);
+
+483 
+	`XUngrabKey
+(
+dpy
+, 
+AnyKey
+, 
+AnyModifier
+, 
+root
+);
+
+484 while (
+mons
+)
+
+485 
+	`cleanupmon
+(
+mons
+);
+
+486 for (
+i
+ = 0; i < 
+CurLast
+; i++)
+
+487 
+	`drw_cur_free
+(
+drw
+, 
+cursor
+[
+i
+]);
+
+488 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+colors
+); i++)
+
+489 
+	`free
+(
+scheme
+[
+i
+]);
+
+490 
+	`free
+(
+scheme
+);
+
+491 
+	`XDestroyWindow
+(
+dpy
+, 
+wmcheckwin
+);
+
+492 
+	`drw_free
+(
+drw
+);
+
+493 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+494 
+	`XSetInputFocus
+(
+dpy
+, 
+PointerRoot
+, 
+RevertToPointerRoot
+, 
+CurrentTime
+);
+
+495 
+	`XDeleteProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetActiveWindow
+]);
+
+496 
+	}
+}
+
+499 
+	$cleanupmon
+(
+Monitor
+ *
+mon
+)
+
+501 
+Monitor
+ *
+m
+;
+
+503 if (
+mon
+ == 
+mons
+)
+
+504 
+mons
+ = mons->
+next
+;
+
+506 for (
+m
+ = 
+mons
+; m && m->
+next
+ != 
+mon
+; m = m->next);
+
+507 
+m
+->
+next
+ = 
+mon
+->next;
+
+509 
+	`XUnmapWindow
+(
+dpy
+, 
+mon
+->
+barwin
+);
+
+510 
+	`XDestroyWindow
+(
+dpy
+, 
+mon
+->
+barwin
+);
+
+511 
+	`free
+(
+mon
+);
+
+512 
+	}
+}
+
+515 
+	$clientmessage
+(
+XEvent
+ *
+e
+)
+
+517 
+XClientMessageEvent
+ *
+cme
+ = &
+e
+->
+xclient
+;
+
+518 
+Client
+ *
+c
+ = 
+	`wintoclient
+(
+cme
+->
+window
+);
+
+520 if (!
+c
+)
+
+522 if (
+cme
+->
+message_type
+ == 
+netatom
+[
+NetWMState
+]) {
+
+523 if (
+cme
+->
+data
+.
+l
+[1] == 
+netatom
+[
+NetWMFullscreen
+]
+
+524 || 
+cme
+->
+data
+.
+l
+[2] == 
+netatom
+[
+NetWMFullscreen
+])
+
+525 
+	`setfullscreen
+(
+c
+, (
+cme
+->
+data
+.
+l
+[0] == 1
+
+526 || (
+cme
+->
+data
+.
+l
+[0] == 2 && !
+c
+->
+isfullscreen
+)));
+
+527 } else if (
+cme
+->
+message_type
+ == 
+netatom
+[
+NetActiveWindow
+]) {
+
+528 if (
+c
+ != 
+selmon
+->
+sel
+ && !c->
+isurgent
+)
+
+529 
+	`seturgent
+(
+c
+, 1);
+
+531 
+	}
+}
+
+534 
+	$configure
+(
+Client
+ *
+c
+)
+
+536 
+XConfigureEvent
+ 
+ce
+;
+
+538 
+ce
+.
+type
+ = 
+ConfigureNotify
+;
+
+539 
+ce
+.
+display
+ = 
+dpy
+;
+
+540 
+ce
+.
+event
+ = 
+c
+->
+win
+;
+
+541 
+ce
+.
+window
+ = 
+c
+->
+win
+;
+
+542 
+ce
+.
+x
+ = 
+c
+->x;
+
+543 
+ce
+.
+y
+ = 
+c
+->y;
+
+544 
+ce
+.
+width
+ = 
+c
+->
+w
+;
+
+545 
+ce
+.
+height
+ = 
+c
+->
+h
+;
+
+546 
+ce
+.
+border_width
+ = 
+c
+->
+bw
+;
+
+547 
+ce
+.
+above
+ = 
+None
+;
+
+548 
+ce
+.
+override_redirect
+ = 
+False
+;
+
+549 
+	`XSendEvent
+(
+dpy
+, 
+c
+->
+win
+, 
+False
+, 
+StructureNotifyMask
+, (
+XEvent
+ *)&
+ce
+);
+
+550 
+	}
+}
+
+553 
+	$configurenotify
+(
+XEvent
+ *
+e
+)
+
+555 
+Monitor
+ *
+m
+;
+
+556 
+Client
+ *
+c
+;
+
+557 
+XConfigureEvent
+ *
+ev
+ = &
+e
+->
+xconfigure
+;
+
+558 int 
+dirty
+;
+
+561 if (
+ev
+->
+window
+ == 
+root
+) {
+
+562 
+dirty
+ = (
+sw
+ != 
+ev
+->
+width
+ || 
+sh
+ != ev->
+height
+);
+
+563 
+sw
+ = 
+ev
+->
+width
+;
+
+564 
+sh
+ = 
+ev
+->
+height
+;
+
+565 if (
+	`updategeom
+() || 
+dirty
+) {
+
+566 
+	`drw_resize
+(
+drw
+, 
+sw
+, 
+bh
+);
+
+567 
+	`updatebars
+();
+
+568 for (
+m
+ = 
+mons
+; m; m = m->
+next
+) {
+
+569 for (
+c
+ = 
+m
+->
+clients
+; c; c = c->
+next
+)
+
+570 if (
+c
+->
+isfullscreen
+)
+
+571 
+	`resizeclient
+(
+c
+, 
+m
+->
+mx
+, m->
+my
+, m->
+mw
+, m->
+mh
+);
+
+572 
+	`XMoveResizeWindow
+(
+dpy
+, 
+m
+->
+barwin
+, m->
+wx
+, m->
+by
+, m->
+ww
+, 
+bh
+);
+
+574 
+	`focus
+(
+NULL
+);
+
+575 
+	`arrange
+(
+NULL
+);
+
+578 
+	}
+}
+
+581 
+	$configurerequest
+(
+XEvent
+ *
+e
+)
+
+583 
+Client
+ *
+c
+;
+
+584 
+Monitor
+ *
+m
+;
+
+585 
+XConfigureRequestEvent
+ *
+ev
+ = &
+e
+->
+xconfigurerequest
+;
+
+586 
+XWindowChanges
+ 
+wc
+;
+
+588 if ((
+c
+ = 
+	`wintoclient
+(
+ev
+->
+window
+))) {
+
+589 if (
+ev
+->
+value_mask
+ & 
+CWBorderWidth
+)
+
+590 
+c
+->
+bw
+ = 
+ev
+->
+border_width
+;
+
+591 else if (
+c
+->
+isfloating
+ || !
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+) {
+
+592 
+m
+ = 
+c
+->
+mon
+;
+
+593 if (
+ev
+->
+value_mask
+ & 
+CWX
+) {
+
+594 
+c
+->
+oldx
+ = c->
+x
+;
+
+595 
+c
+->
+x
+ = 
+m
+->
+mx
+ + 
+ev
+->x;
+
+597 if (
+ev
+->
+value_mask
+ & 
+CWY
+) {
+
+598 
+c
+->
+oldy
+ = c->
+y
+;
+
+599 
+c
+->
+y
+ = 
+m
+->
+my
+ + 
+ev
+->y;
+
+601 if (
+ev
+->
+value_mask
+ & 
+CWWidth
+) {
+
+602 
+c
+->
+oldw
+ = c->
+w
+;
+
+603 
+c
+->
+w
+ = 
+ev
+->
+width
+;
+
+605 if (
+ev
+->
+value_mask
+ & 
+CWHeight
+) {
+
+606 
+c
+->
+oldh
+ = c->
+h
+;
+
+607 
+c
+->
+h
+ = 
+ev
+->
+height
+;
+
+609 if ((
+c
+->
+x
+ + c->
+w
+) > 
+m
+->
+mx
+ + m->
+mw
+ && c->
+isfloating
+)
+
+610 
+c
+->
+x
+ = 
+m
+->
+mx
+ + (m->
+mw
+ / 2 - 
+	`WIDTH
+(c) / 2);
+
+611 if ((
+c
+->
+y
+ + c->
+h
+) > 
+m
+->
+my
+ + m->
+mh
+ && c->
+isfloating
+)
+
+612 
+c
+->
+y
+ = 
+m
+->
+my
+ + (m->
+mh
+ / 2 - 
+	`HEIGHT
+(c) / 2);
+
+613 if ((
+ev
+->
+value_mask
+ & (
+CWX
+|
+CWY
+)) && !(ev->value_mask & (
+CWWidth
+|
+CWHeight
+)))
+
+614 
+	`configure
+(
+c
+);
+
+615 if (
+	`ISVISIBLE
+(
+c
+))
+
+616 
+	`XMoveResizeWindow
+(
+dpy
+, 
+c
+->
+win
+, c->
+x
+, c->
+y
+, c->
+w
+, c->
+h
+);
+
+618 
+	`configure
+(
+c
+);
+
+620 
+wc
+.
+x
+ = 
+ev
+->x;
+
+621 
+wc
+.
+y
+ = 
+ev
+->y;
+
+622 
+wc
+.
+width
+ = 
+ev
+->width;
+
+623 
+wc
+.
+height
+ = 
+ev
+->height;
+
+624 
+wc
+.
+border_width
+ = 
+ev
+->border_width;
+
+625 
+wc
+.
+sibling
+ = 
+ev
+->
+above
+;
+
+626 
+wc
+.
+stack_mode
+ = 
+ev
+->
+detail
+;
+
+627 
+	`XConfigureWindow
+(
+dpy
+, 
+ev
+->
+window
+, ev->
+value_mask
+, &
+wc
+);
+
+629 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+630 
+	}
+}
+
+632 
+Monitor
+ *
+
+633 
+	$createmon
+(void)
+
+635 
+Monitor
+ *
+m
+;
+
+637 
+m
+ = 
+	`ecalloc
+(1, sizeof(
+Monitor
+));
+
+638 
+m
+->
+tagset
+[0] = m->tagset[1] = 1;
+
+639 
+m
+->
+mfact
+ = mfact;
+
+640 
+m
+->
+nmaster
+ = nmaster;
+
+641 
+m
+->
+showbar
+ = showbar;
+
+642 
+m
+->
+topbar
+ = topbar;
+
+643 
+m
+->
+lt
+[0] = &
+layouts
+[0];
+
+644 
+m
+->
+lt
+[1] = &
+layouts
+[1 % 
+	`LENGTH
+(layouts)];
+
+645 
+	`strncpy
+(
+m
+->
+ltsymbol
+, 
+layouts
+[0].
+symbol
+, sizeof m->ltsymbol);
+
+646 return 
+m
+;
+
+647 
+	}
+}
+
+650 
+	$destroynotify
+(
+XEvent
+ *
+e
+)
+
+652 
+Client
+ *
+c
+;
+
+653 
+XDestroyWindowEvent
+ *
+ev
+ = &
+e
+->
+xdestroywindow
+;
+
+655 if ((
+c
+ = 
+	`wintoclient
+(
+ev
+->
+window
+)))
+
+656 
+	`unmanage
+(
+c
+, 1);
+
+657 
+	}
+}
+
+660 
+	$detach
+(
+Client
+ *
+c
+)
+
+662 
+Client
+ **
+tc
+;
+
+664 for (
+tc
+ = &
+c
+->
+mon
+->
+clients
+; *tc && *tc != c; tc = &(*tc)->
+next
+);
+
+665 *
+tc
+ = 
+c
+->
+next
+;
+
+666 
+	}
+}
+
+669 
+	$detachstack
+(
+Client
+ *
+c
+)
+
+671 
+Client
+ **
+tc
+, *
+t
+;
+
+673 for (
+tc
+ = &
+c
+->
+mon
+->
+stack
+; *tc && *tc != c; tc = &(*tc)->
+snext
+);
+
+674 *
+tc
+ = 
+c
+->
+snext
+;
+
+676 if (
+c
+ == c->
+mon
+->
+sel
+) {
+
+677 for (
+t
+ = 
+c
+->
+mon
+->
+stack
+; t && !
+	`ISVISIBLE
+(t); t = t->
+snext
+);
+
+678 
+c
+->
+mon
+->
+sel
+ = 
+t
+;
+
+680 
+	}
+}
+
+682 
+Monitor
+ *
+
+683 
+	$dirtomon
+(int 
+dir
+)
+
+685 
+Monitor
+ *
+m
+ = 
+NULL
+;
+
+687 if (
+dir
+ > 0) {
+
+688 if (!(
+m
+ = 
+selmon
+->
+next
+))
+
+689 
+m
+ = 
+mons
+;
+
+690 } else if (
+selmon
+ == 
+mons
+)
+
+691 for (
+m
+ = 
+mons
+; m->
+next
+; m = m->next);
+
+693 for (
+m
+ = 
+mons
+; m->
+next
+ != 
+selmon
+; m = m->next);
+
+694 return 
+m
+;
+
+695 
+	}
+}
+
+698 
+	$drawbar
+(
+Monitor
+ *
+m
+)
+
+700 int 
+x
+, 
+w
+, 
+tw
+ = 0;
+
+701 int 
+boxs
+ = 
+drw
+->
+fonts
+->
+h
+ / 9;
+
+702 int 
+boxw
+ = 
+drw
+->
+fonts
+->
+h
+ / 6 + 2;
+
+703 unsigned int 
+i
+, 
+occ
+ = 0, 
+urg
+ = 0;
+
+704 
+Client
+ *
+c
+;
+
+706 if (!
+m
+->
+showbar
+)
+
+710 if (
+m
+ == 
+selmon
+) {
+
+711 
+	`drw_setscheme
+(
+drw
+, 
+scheme
+[
+SchemeNorm
+]);
+
+712 
+tw
+ = 
+	`TEXTW
+(
+stext
+) - 
+lrpad
+ + 2;
+
+713 
+	`drw_text
+(
+drw
+, 
+m
+->
+ww
+ - 
+tw
+, 0, tw, 
+bh
+, 0, 
+stext
+, 0);
+
+716 for (
+c
+ = 
+m
+->
+clients
+; c; c = c->
+next
+) {
+
+717 
+occ
+ |= 
+c
+->
+tags
+;
+
+718 if (
+c
+->
+isurgent
+)
+
+719 
+urg
+ |= 
+c
+->
+tags
+;
+
+721 
+x
+ = 0;
+
+722 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+tags
+); i++) {
+
+723 
+w
+ = 
+	`TEXTW
+(
+tags
+[
+i
+]);
+
+724 
+	`drw_setscheme
+(
+drw
+, 
+scheme
+[
+m
+->
+tagset
+[m->
+seltags
+] & 1 << 
+i
+ ? 
+SchemeSel
+ : 
+SchemeNorm
+]);
+
+725 
+	`drw_text
+(
+drw
+, 
+x
+, 0, 
+w
+, 
+bh
+, 
+lrpad
+ / 2, 
+tags
+[
+i
+], 
+urg
+ & 1 << i);
+
+726 if (
+occ
+ & 1 << 
+i
+)
+
+727 
+	`drw_rect
+(
+drw
+, 
+x
+ + 
+boxs
+, boxs, 
+boxw
+, boxw,
+
+728 
+m
+ == 
+selmon
+ && selmon->
+sel
+ && selmon->sel->
+tags
+ & 1 << 
+i
+,
+
+729 
+urg
+ & 1 << 
+i
+);
+
+730 
+x
+ += 
+w
+;
+
+732 
+w
+ = 
+	`TEXTW
+(
+m
+->
+ltsymbol
+);
+
+733 
+	`drw_setscheme
+(
+drw
+, 
+scheme
+[
+SchemeNorm
+]);
+
+734 
+x
+ = 
+	`drw_text
+(
+drw
+, x, 0, 
+w
+, 
+bh
+, 
+lrpad
+ / 2, 
+m
+->
+ltsymbol
+, 0);
+
+736 if ((
+w
+ = 
+m
+->
+ww
+ - 
+tw
+ - 
+x
+) > 
+bh
+) {
+
+737 if (
+m
+->
+sel
+) {
+
+738 
+	`drw_setscheme
+(
+drw
+, 
+scheme
+[
+m
+ == 
+selmon
+ ? 
+SchemeSel
+ : 
+SchemeNorm
+]);
+
+739 
+	`drw_text
+(
+drw
+, 
+x
+, 0, 
+w
+, 
+bh
+, 
+lrpad
+ / 2, 
+m
+->
+sel
+->
+name
+, 0);
+
+740 if (
+m
+->
+sel
+->
+isfloating
+)
+
+741 
+	`drw_rect
+(
+drw
+, 
+x
+ + 
+boxs
+, boxs, 
+boxw
+, boxw, 
+m
+->
+sel
+->
+isfixed
+, 0);
+
+743 
+	`drw_setscheme
+(
+drw
+, 
+scheme
+[
+SchemeNorm
+]);
+
+744 
+	`drw_rect
+(
+drw
+, 
+x
+, 0, 
+w
+, 
+bh
+, 1, 1);
+
+747 
+	`drw_map
+(
+drw
+, 
+m
+->
+barwin
+, 0, 0, m->
+ww
+, 
+bh
+);
+
+748 
+	}
+}
+
+751 
+	$drawbars
+(void)
+
+753 
+Monitor
+ *
+m
+;
+
+755 for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+756 
+	`drawbar
+(
+m
+);
+
+757 
+	}
+}
+
+760 
+	$enternotify
+(
+XEvent
+ *
+e
+)
+
+762 
+Client
+ *
+c
+;
+
+763 
+Monitor
+ *
+m
+;
+
+764 
+XCrossingEvent
+ *
+ev
+ = &
+e
+->
+xcrossing
+;
+
+766 if ((
+ev
+->
+mode
+ != 
+NotifyNormal
+ || ev->
+detail
+ == 
+NotifyInferior
+) && ev->
+window
+ != 
+root
+)
+
+768 
+c
+ = 
+	`wintoclient
+(
+ev
+->
+window
+);
+
+769 
+m
+ = 
+c
+ ? c->
+mon
+ : 
+	`wintomon
+(
+ev
+->
+window
+);
+
+770 if (
+m
+ != 
+selmon
+) {
+
+771 
+	`unfocus
+(
+selmon
+->
+sel
+, 1);
+
+772 
+selmon
+ = 
+m
+;
+
+773 } else if (!
+c
+ || c == 
+selmon
+->
+sel
+)
+
+775 
+	`focus
+(
+c
+);
+
+776 
+	}
+}
+
+779 
+	$expose
+(
+XEvent
+ *
+e
+)
+
+781 
+Monitor
+ *
+m
+;
+
+782 
+XExposeEvent
+ *
+ev
+ = &
+e
+->
+xexpose
+;
+
+784 if (
+ev
+->
+count
+ == 0 && (
+m
+ = 
+	`wintomon
+(ev->
+window
+)))
+
+785 
+	`drawbar
+(
+m
+);
+
+786 
+	}
+}
+
+789 
+	$focus
+(
+Client
+ *
+c
+)
+
+791 if (!
+c
+ || !
+	`ISVISIBLE
+(c))
+
+792 for (
+c
+ = 
+selmon
+->
+stack
+; c && !
+	`ISVISIBLE
+(c); c = c->
+snext
+);
+
+793 if (
+selmon
+->
+sel
+ && selmon->sel != 
+c
+)
+
+794 
+	`unfocus
+(
+selmon
+->
+sel
+, 0);
+
+795 if (
+c
+) {
+
+796 if (
+c
+->
+mon
+ != 
+selmon
+)
+
+797 
+selmon
+ = 
+c
+->
+mon
+;
+
+798 if (
+c
+->
+isurgent
+)
+
+799 
+	`seturgent
+(
+c
+, 0);
+
+800 
+	`detachstack
+(
+c
+);
+
+801 
+	`attachstack
+(
+c
+);
+
+802 
+	`grabbuttons
+(
+c
+, 1);
+
+803 
+	`XSetWindowBorder
+(
+dpy
+, 
+c
+->
+win
+, 
+scheme
+[
+SchemeSel
+][
+ColBorder
+].
+pixel
+);
+
+804 
+	`setfocus
+(
+c
+);
+
+806 
+	`XSetInputFocus
+(
+dpy
+, 
+root
+, 
+RevertToPointerRoot
+, 
+CurrentTime
+);
+
+807 
+	`XDeleteProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetActiveWindow
+]);
+
+809 
+selmon
+->
+sel
+ = 
+c
+;
+
+810 
+	`drawbars
+();
+
+811 
+	}
+}
+
+815 
+	$focusin
+(
+XEvent
+ *
+e
+)
+
+817 
+XFocusChangeEvent
+ *
+ev
+ = &
+e
+->
+xfocus
+;
+
+819 if (
+selmon
+->
+sel
+ && 
+ev
+->
+window
+ != selmon->sel->
+win
+)
+
+820 
+	`setfocus
+(
+selmon
+->
+sel
+);
+
+821 
+	}
+}
+
+824 
+	$focusmon
+(const 
+Arg
+ *
+arg
+)
+
+826 
+Monitor
+ *
+m
+;
+
+828 if (!
+mons
+->
+next
+)
+
+830 if ((
+m
+ = 
+	`dirtomon
+(
+arg
+->
+i
+)) == 
+selmon
+)
+
+832 
+	`unfocus
+(
+selmon
+->
+sel
+, 0);
+
+833 
+selmon
+ = 
+m
+;
+
+834 
+	`focus
+(
+NULL
+);
+
+835 
+	}
+}
+
+838 
+	$focusstack
+(const 
+Arg
+ *
+arg
+)
+
+840 
+Client
+ *
+c
+ = 
+NULL
+, *
+i
+;
+
+842 if (!
+selmon
+->
+sel
+ || (selmon->sel->
+isfullscreen
+ && 
+lockfullscreen
+))
+
+844 if (
+arg
+->
+i
+ > 0) {
+
+845 for (
+c
+ = 
+selmon
+->
+sel
+->
+next
+; c && !
+	`ISVISIBLE
+(c); c = c->next);
+
+846 if (!
+c
+)
+
+847 for (
+c
+ = 
+selmon
+->
+clients
+; c && !
+	`ISVISIBLE
+(c); c = c->
+next
+);
+
+849 for (
+i
+ = 
+selmon
+->
+clients
+; i != selmon->
+sel
+; i = i->
+next
+)
+
+850 if (
+	`ISVISIBLE
+(
+i
+))
+
+851 
+c
+ = 
+i
+;
+
+852 if (!
+c
+)
+
+853 for (; 
+i
+; i = i->
+next
+)
+
+854 if (
+	`ISVISIBLE
+(
+i
+))
+
+855 
+c
+ = 
+i
+;
+
+857 if (
+c
+) {
+
+858 
+	`focus
+(
+c
+);
+
+859 
+	`restack
+(
+selmon
+);
+
+861 
+	}
+}
+
+863 
+Atom
+
+
+864 
+	$getatomprop
+(
+Client
+ *
+c
+, 
+Atom
+ 
+prop
+)
+
+866 int 
+di
+;
+
+867 unsigned long 
+dl
+;
+
+868 unsigned char *
+p
+ = 
+NULL
+;
+
+869 
+Atom
+ 
+da
+, 
+atom
+ = 
+None
+;
+
+871 if (
+	`XGetWindowProperty
+(
+dpy
+, 
+c
+->
+win
+, 
+prop
+, 0L, sizeof 
+atom
+, 
+False
+, 
+XA_ATOM
+,
+
+872 &
+da
+, &
+di
+, &
+dl
+, &dl, &
+p
+) == 
+Success
+ && p) {
+
+873 
+atom
+ = *(
+Atom
+ *)
+p
+;
+
+874 
+	`XFree
+(
+p
+);
+
+876 return 
+atom
+;
+
+877 
+	}
+}
+
+880 
+	$getrootptr
+(int *
+x
+, int *
+y
+)
+
+882 int 
+di
+;
+
+883 unsigned int 
+dui
+;
+
+884 
+Window
+ 
+dummy
+;
+
+886 return 
+	`XQueryPointer
+(
+dpy
+, 
+root
+, &
+dummy
+, &dummy, 
+x
+, 
+y
+, &
+di
+, &di, &
+dui
+);
+
+887 
+	}
+}
+
+890 
+	$getstate
+(
+Window
+ 
+w
+)
+
+892 int 
+format
+;
+
+893 long 
+result
+ = -1;
+
+894 unsigned char *
+p
+ = 
+NULL
+;
+
+895 unsigned long 
+n
+, 
+extra
+;
+
+896 
+Atom
+ 
+real
+;
+
+898 if (
+	`XGetWindowProperty
+(
+dpy
+, 
+w
+, 
+wmatom
+[
+WMState
+], 0L, 2L, 
+False
+, wmatom[WMState],
+
+899 &
+real
+, &
+format
+, &
+n
+, &
+extra
+, (unsigned char **)&
+p
+) != 
+Success
+)
+
+901 if (
+n
+ != 0)
+
+902 
+result
+ = *
+p
+;
+
+903 
+	`XFree
+(
+p
+);
+
+904 return 
+result
+;
+
+905 
+	}
+}
+
+908 
+	$gettextprop
+(
+Window
+ 
+w
+, 
+Atom
+ 
+atom
+, char *
+text
+, unsigned int 
+size
+)
+
+910 char **
+list
+ = 
+NULL
+;
+
+911 int 
+n
+;
+
+912 
+XTextProperty
+ 
+name
+;
+
+914 if (!
+text
+ || 
+size
+ == 0)
+
+916 
+text
+[0] = '\0';
+
+917 if (!
+	`XGetTextProperty
+(
+dpy
+, 
+w
+, &
+name
+, 
+atom
+) || !name.
+nitems
+)
+
+919 if (
+name
+.
+encoding
+ == 
+XA_STRING
+) {
+
+920 
+	`strncpy
+(
+text
+, (char *)
+name
+.
+value
+, 
+size
+ - 1);
+
+921 } else if (
+	`XmbTextPropertyToTextList
+(
+dpy
+, &
+name
+, &
+list
+, &
+n
+) >= 
+Success
+ && n > 0 && *list) {
+
+922 
+	`strncpy
+(
+text
+, *
+list
+, 
+size
+ - 1);
+
+923 
+	`XFreeStringList
+(
+list
+);
+
+925 
+text
+[
+size
+ - 1] = '\0';
+
+926 
+	`XFree
+(
+name
+.
+value
+);
+
+928 
+	}
+}
+
+931 
+	$grabbuttons
+(
+Client
+ *
+c
+, int 
+focused
+)
+
+933 
+	`updatenumlockmask
+();
+
+935 unsigned int 
+i
+, 
+j
+;
+
+936 unsigned int 
+modifiers
+[] = { 0, 
+LockMask
+, 
+numlockmask
+, numlockmask|LockMask };
+
+937 
+	`XUngrabButton
+(
+dpy
+, 
+AnyButton
+, 
+AnyModifier
+, 
+c
+->
+win
+);
+
+938 if (!
+focused
+)
+
+939 
+	`XGrabButton
+(
+dpy
+, 
+AnyButton
+, 
+AnyModifier
+, 
+c
+->
+win
+, 
+False
+,
+
+940 
+BUTTONMASK
+, 
+GrabModeSync
+, GrabModeSync, 
+None
+, None);
+
+941 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+buttons
+); i++)
+
+942 if (
+buttons
+[
+i
+].
+click
+ == 
+ClkClientWin
+)
+
+943 for (
+j
+ = 0; j < 
+	`LENGTH
+(
+modifiers
+); j++)
+
+944 
+	`XGrabButton
+(
+dpy
+, 
+buttons
+[
+i
+].
+button
+,
+
+945 
+buttons
+[
+i
+].
+mask
+ | 
+modifiers
+[
+j
+],
+
+946 
+c
+->
+win
+, 
+False
+, 
+BUTTONMASK
+,
+
+947 
+GrabModeAsync
+, 
+GrabModeSync
+, 
+None
+, None);
+
+949 
+	}
+}
+
+952 
+	$grabkeys
+(void)
+
+954 
+	`updatenumlockmask
+();
+
+956 unsigned int 
+i
+, 
+j
+, 
+k
+;
+
+957 unsigned int 
+modifiers
+[] = { 0, 
+LockMask
+, 
+numlockmask
+, numlockmask|LockMask };
+
+958 int 
+start
+, 
+end
+, 
+skip
+;
+
+959 
+KeySym
+ *
+syms
+;
+
+961 
+	`XUngrabKey
+(
+dpy
+, 
+AnyKey
+, 
+AnyModifier
+, 
+root
+);
+
+962 
+	`XDisplayKeycodes
+(
+dpy
+, &
+start
+, &
+end
+);
+
+963 
+syms
+ = 
+	`XGetKeyboardMapping
+(
+dpy
+, 
+start
+, 
+end
+ - start + 1, &
+skip
+);
+
+964 if (!
+syms
+)
+
+966 for (
+k
+ = 
+start
+; k <= 
+end
+; k++)
+
+967 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+keys
+); i++)
+
+969 if (
+keys
+[
+i
+].
+keysym
+ == 
+syms
+[(
+k
+ - 
+start
+) * 
+skip
+])
+
+970 for (
+j
+ = 0; j < 
+	`LENGTH
+(
+modifiers
+); j++)
+
+971 
+	`XGrabKey
+(
+dpy
+, 
+k
+,
+
+972 
+keys
+[
+i
+].
+mod
+ | 
+modifiers
+[
+j
+],
+
+973 
+root
+, 
+True
+,
+
+974 
+GrabModeAsync
+, GrabModeAsync);
+
+975 
+	`XFree
+(
+syms
+);
+
+977 
+	}
+}
+
+980 
+	$incnmaster
+(const 
+Arg
+ *
+arg
+)
+
+982 
+selmon
+->
+nmaster
+ = 
+	`MAX
+(selmon->nmaster + 
+arg
+->
+i
+, 0);
+
+983 
+	`arrange
+(
+selmon
+);
+
+984 
+	}
+}
+
+986 #ifdef 
+XINERAMA
+
+
+988 
+	$isuniquegeom
+(
+XineramaScreenInfo
+ *
+unique
+, 
+size_t
+ 
+n
+, XineramaScreenInfo *
+info
+)
+
+990 while (
+n
+--)
+
+991 if (
+unique
+[
+n
+].
+x_org
+ == 
+info
+->x_org && unique[n].
+y_org
+ == info->y_org
+
+992 && 
+unique
+[
+n
+].
+width
+ == 
+info
+->width && unique[n].
+height
+ == info->height)
+
+995 
+	}
+}
+
+999 
+	$keypress
+(
+XEvent
+ *
+e
+)
+
+1001 unsigned int 
+i
+;
+
+1002 
+KeySym
+ 
+keysym
+;
+
+1003 
+XKeyEvent
+ *
+ev
+;
+
+1005 
+ev
+ = &
+e
+->
+xkey
+;
+
+1006 
+keysym
+ = 
+	`XKeycodeToKeysym
+(
+dpy
+, (
+KeyCode
+)
+ev
+->
+keycode
+, 0);
+
+1007 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+keys
+); i++)
+
+1008 if (
+keysym
+ == 
+keys
+[
+i
+].keysym
+
+1009 && 
+	`CLEANMASK
+(
+keys
+[
+i
+].
+mod
+) == CLEANMASK(
+ev
+->
+state
+)
+
+1010 && 
+keys
+[
+i
+].
+func
+)
+
+1011 
+keys
+[
+i
+].
+	`func
+(&(keys[i].
+arg
+));
+
+1012 
+	}
+}
+
+1015 
+	$killclient
+(const 
+Arg
+ *
+arg
+)
+
+1017 if (!
+selmon
+->
+sel
+)
+
+1019 if (!
+	`sendevent
+(
+selmon
+->
+sel
+, 
+wmatom
+[
+WMDelete
+])) {
+
+1020 
+	`XGrabServer
+(
+dpy
+);
+
+1021 
+	`XSetErrorHandler
+(
+xerrordummy
+);
+
+1022 
+	`XSetCloseDownMode
+(
+dpy
+, 
+DestroyAll
+);
+
+1023 
+	`XKillClient
+(
+dpy
+, 
+selmon
+->
+sel
+->
+win
+);
+
+1024 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+1025 
+	`XSetErrorHandler
+(
+xerror
+);
+
+1026 
+	`XUngrabServer
+(
+dpy
+);
+
+1028 
+	}
+}
+
+1031 
+	$manage
+(
+Window
+ 
+w
+, 
+XWindowAttributes
+ *
+wa
+)
+
+1033 
+Client
+ *
+c
+, *
+t
+ = 
+NULL
+;
+
+1034 
+Window
+ 
+trans
+ = 
+None
+;
+
+1035 
+XWindowChanges
+ 
+wc
+;
+
+1037 
+c
+ = 
+	`ecalloc
+(1, sizeof(
+Client
+));
+
+1038 
+c
+->
+win
+ = 
+w
+;
+
+1040 
+c
+->
+x
+ = c->
+oldx
+ = 
+wa
+->x;
+
+1041 
+c
+->
+y
+ = c->
+oldy
+ = 
+wa
+->y;
+
+1042 
+c
+->
+w
+ = c->
+oldw
+ = 
+wa
+->
+width
+;
+
+1043 
+c
+->
+h
+ = c->
+oldh
+ = 
+wa
+->
+height
+;
+
+1044 
+c
+->
+oldbw
+ = 
+wa
+->
+border_width
+;
+
+1046 
+	`updatetitle
+(
+c
+);
+
+1047 if (
+	`XGetTransientForHint
+(
+dpy
+, 
+w
+, &
+trans
+) && (
+t
+ = 
+	`wintoclient
+(trans))) {
+
+1048 
+c
+->
+mon
+ = 
+t
+->mon;
+
+1049 
+c
+->
+tags
+ = 
+t
+->tags;
+
+1051 
+c
+->
+mon
+ = 
+selmon
+;
+
+1052 
+	`applyrules
+(
+c
+);
+
+1055 if (
+c
+->
+x
+ + 
+	`WIDTH
+(c) > c->
+mon
+->
+wx
+ + c->mon->
+ww
+)
+
+1056 
+c
+->
+x
+ = c->
+mon
+->
+wx
+ + c->mon->
+ww
+ - 
+	`WIDTH
+(c);
+
+1057 if (
+c
+->
+y
+ + 
+	`HEIGHT
+(c) > c->
+mon
+->
+wy
+ + c->mon->
+wh
+)
+
+1058 
+c
+->
+y
+ = c->
+mon
+->
+wy
+ + c->mon->
+wh
+ - 
+	`HEIGHT
+(c);
+
+1059 
+c
+->
+x
+ = 
+	`MAX
+(c->x, c->
+mon
+->
+wx
+);
+
+1060 
+c
+->
+y
+ = 
+	`MAX
+(c->y, c->
+mon
+->
+wy
+);
+
+1061 
+c
+->
+bw
+ = 
+borderpx
+;
+
+1063 
+wc
+.
+border_width
+ = 
+c
+->
+bw
+;
+
+1064 
+	`XConfigureWindow
+(
+dpy
+, 
+w
+, 
+CWBorderWidth
+, &
+wc
+);
+
+1065 
+	`XSetWindowBorder
+(
+dpy
+, 
+w
+, 
+scheme
+[
+SchemeNorm
+][
+ColBorder
+].
+pixel
+);
+
+1066 
+	`configure
+(
+c
+);
+
+1067 
+	`updatewindowtype
+(
+c
+);
+
+1068 
+	`updatesizehints
+(
+c
+);
+
+1069 
+	`updatewmhints
+(
+c
+);
+
+1070 
+	`XSelectInput
+(
+dpy
+, 
+w
+, 
+EnterWindowMask
+|
+FocusChangeMask
+|
+PropertyChangeMask
+|
+StructureNotifyMask
+);
+
+1071 
+	`grabbuttons
+(
+c
+, 0);
+
+1072 if (!
+c
+->
+isfloating
+)
+
+1073 
+c
+->
+isfloating
+ = c->
+oldstate
+ = 
+trans
+ != 
+None
+ || c->
+isfixed
+;
+
+1074 if (
+c
+->
+isfloating
+)
+
+1075 
+	`XRaiseWindow
+(
+dpy
+, 
+c
+->
+win
+);
+
+1076 
+	`attach
+(
+c
+);
+
+1077 
+	`attachstack
+(
+c
+);
+
+1078 
+	`XChangeProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetClientList
+], 
+XA_WINDOW
+, 32, 
+PropModeAppend
+,
+
+1079 (unsigned char *) &(
+c
+->
+win
+), 1);
+
+1080 
+	`XMoveResizeWindow
+(
+dpy
+, 
+c
+->
+win
+, c->
+x
+ + 2 * 
+sw
+, c->
+y
+, c->
+w
+, c->
+h
+);
+
+1081 
+	`setclientstate
+(
+c
+, 
+NormalState
+);
+
+1082 if (
+c
+->
+mon
+ == 
+selmon
+)
+
+1083 
+	`unfocus
+(
+selmon
+->
+sel
+, 0);
+
+1084 
+c
+->
+mon
+->
+sel
+ = c;
+
+1085 
+	`arrange
+(
+c
+->
+mon
+);
+
+1086 
+	`XMapWindow
+(
+dpy
+, 
+c
+->
+win
+);
+
+1087 
+	`focus
+(
+NULL
+);
+
+1088 
+	}
+}
+
+1091 
+	$mappingnotify
+(
+XEvent
+ *
+e
+)
+
+1093 
+XMappingEvent
+ *
+ev
+ = &
+e
+->
+xmapping
+;
+
+1095 
+	`XRefreshKeyboardMapping
+(
+ev
+);
+
+1096 if (
+ev
+->
+request
+ == 
+MappingKeyboard
+)
+
+1097 
+	`grabkeys
+();
+
+1098 
+	}
+}
+
+1101 
+	$maprequest
+(
+XEvent
+ *
+e
+)
+
+1103 static 
+XWindowAttributes
+ 
+wa
+;
+
+1104 
+XMapRequestEvent
+ *
+ev
+ = &
+e
+->
+xmaprequest
+;
+
+1106 if (!
+	`XGetWindowAttributes
+(
+dpy
+, 
+ev
+->
+window
+, &
+wa
+) || wa.
+override_redirect
+)
+
+1108 if (!
+	`wintoclient
+(
+ev
+->
+window
+))
+
+1109 
+	`manage
+(
+ev
+->
+window
+, &
+wa
+);
+
+1110 
+	}
+}
+
+1113 
+	$monocle
+(
+Monitor
+ *
+m
+)
+
+1115 unsigned int 
+n
+ = 0;
+
+1116 
+Client
+ *
+c
+;
+
+1118 for (
+c
+ = 
+m
+->
+clients
+; c; c = c->
+next
+)
+
+1119 if (
+	`ISVISIBLE
+(
+c
+))
+
+1120 
+n
+++;
+
+1121 if (
+n
+ > 0)
+
+1122 
+	`snprintf
+(
+m
+->
+ltsymbol
+, sizeof m->ltsymbol, "[%d]", 
+n
+);
+
+1123 for (
+c
+ = 
+	`nexttiled
+(
+m
+->
+clients
+); c; c = nexttiled(c->
+next
+))
+
+1124 
+	`resize
+(
+c
+, 
+m
+->
+wx
+, m->
+wy
+, m->
+ww
+ - 2 * c->
+bw
+, m->
+wh
+ - 2 * c->bw, 0);
+
+1125 
+	}
+}
+
+1128 
+	$motionnotify
+(
+XEvent
+ *
+e
+)
+
+1130 static 
+Monitor
+ *
+mon
+ = 
+NULL
+;
+
+1131 
+Monitor
+ *
+m
+;
+
+1132 
+XMotionEvent
+ *
+ev
+ = &
+e
+->
+xmotion
+;
+
+1134 if (
+ev
+->
+window
+ != 
+root
+)
+
+1136 if ((
+m
+ = 
+	`recttomon
+(
+ev
+->
+x_root
+, ev->
+y_root
+, 1, 1)) != 
+mon
+ && mon) {
+
+1137 
+	`unfocus
+(
+selmon
+->
+sel
+, 1);
+
+1138 
+selmon
+ = 
+m
+;
+
+1139 
+	`focus
+(
+NULL
+);
+
+1141 
+mon
+ = 
+m
+;
+
+1142 
+	}
+}
+
+1145 
+	$movemouse
+(const 
+Arg
+ *
+arg
+)
+
+1147 int 
+x
+, 
+y
+, 
+ocx
+, 
+ocy
+, 
+nx
+, 
+ny
+;
+
+1148 
+Client
+ *
+c
+;
+
+1149 
+Monitor
+ *
+m
+;
+
+1150 
+XEvent
+ 
+ev
+;
+
+1151 
+Time
+ 
+lasttime
+ = 0;
+
+1153 if (!(
+c
+ = 
+selmon
+->
+sel
+))
+
+1155 if (
+c
+->
+isfullscreen
+)
+
+1157 
+	`restack
+(
+selmon
+);
+
+1158 
+ocx
+ = 
+c
+->
+x
+;
+
+1159 
+ocy
+ = 
+c
+->
+y
+;
+
+1160 if (
+	`XGrabPointer
+(
+dpy
+, 
+root
+, 
+False
+, 
+MOUSEMASK
+, 
+GrabModeAsync
+, GrabModeAsync,
+
+1161 
+None
+, 
+cursor
+[
+CurMove
+]->cursor, 
+CurrentTime
+) != 
+GrabSuccess
+)
+
+1163 if (!
+	`getrootptr
+(&
+x
+, &
+y
+))
+
+1166 
+	`XMaskEvent
+(
+dpy
+, 
+MOUSEMASK
+|
+ExposureMask
+|
+SubstructureRedirectMask
+, &
+ev
+);
+
+1167 switch(
+ev
+.
+type
+) {
+
+1168 case 
+ConfigureRequest
+:
+
+1169 case 
+Expose
+:
+
+1170 case 
+MapRequest
+:
+
+1171 
+handler
+[
+ev
+.
+type
+](&ev);
+
+1173 case 
+MotionNotify
+:
+
+1174 if ((
+ev
+.
+xmotion
+.
+time
+ - 
+lasttime
+) <= (1000 / 60))
+
+1176 
+lasttime
+ = 
+ev
+.
+xmotion
+.
+time
+;
+
+1178 
+nx
+ = 
+ocx
+ + (
+ev
+.
+xmotion
+.
+x
+ - x);
+
+1179 
+ny
+ = 
+ocy
+ + (
+ev
+.
+xmotion
+.
+y
+ - y);
+
+1180 if (
+	`abs
+(
+selmon
+->
+wx
+ - 
+nx
+) < 
+snap
+)
+
+1181 
+nx
+ = 
+selmon
+->
+wx
+;
+
+1182 else if (
+	`abs
+((
+selmon
+->
+wx
+ + selmon->
+ww
+) - (
+nx
+ + 
+	`WIDTH
+(
+c
+))) < 
+snap
+)
+
+1183 
+nx
+ = 
+selmon
+->
+wx
+ + selmon->
+ww
+ - 
+	`WIDTH
+(
+c
+);
+
+1184 if (
+	`abs
+(
+selmon
+->
+wy
+ - 
+ny
+) < 
+snap
+)
+
+1185 
+ny
+ = 
+selmon
+->
+wy
+;
+
+1186 else if (
+	`abs
+((
+selmon
+->
+wy
+ + selmon->
+wh
+) - (
+ny
+ + 
+	`HEIGHT
+(
+c
+))) < 
+snap
+)
+
+1187 
+ny
+ = 
+selmon
+->
+wy
+ + selmon->
+wh
+ - 
+	`HEIGHT
+(
+c
+);
+
+1188 if (!
+c
+->
+isfloating
+ && 
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+
+
+1189 && (
+	`abs
+(
+nx
+ - 
+c
+->
+x
+) > 
+snap
+ || abs(
+ny
+ - c->
+y
+) > snap))
+
+1190 
+	`togglefloating
+(
+NULL
+);
+
+1191 if (!
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+ || 
+c
+->
+isfloating
+)
+
+1192 
+	`resize
+(
+c
+, 
+nx
+, 
+ny
+, c->
+w
+, c->
+h
+, 1);
+
+1195 } while (
+ev
+.
+type
+ != 
+ButtonRelease
+);
+
+1196 
+	`XUngrabPointer
+(
+dpy
+, 
+CurrentTime
+);
+
+1197 if ((
+m
+ = 
+	`recttomon
+(
+c
+->
+x
+, c->
+y
+, c->
+w
+, c->
+h
+)) != 
+selmon
+) {
+
+1198 
+	`sendmon
+(
+c
+, 
+m
+);
+
+1199 
+selmon
+ = 
+m
+;
+
+1200 
+	`focus
+(
+NULL
+);
+
+1202 
+	}
+}
+
+1204 
+Client
+ *
+
+1205 
+	$nexttiled
+(
+Client
+ *
+c
+)
+
+1207 for (; 
+c
+ && (c->
+isfloating
+ || !
+	`ISVISIBLE
+(c)); c = c->
+next
+);
+
+1208 return 
+c
+;
+
+1209 
+	}
+}
+
+1212 
+	$pop
+(
+Client
+ *
+c
+)
+
+1214 
+	`detach
+(
+c
+);
+
+1215 
+	`attach
+(
+c
+);
+
+1216 
+	`focus
+(
+c
+);
+
+1217 
+	`arrange
+(
+c
+->
+mon
+);
+
+1218 
+	}
+}
+
+1221 
+	$propertynotify
+(
+XEvent
+ *
+e
+)
+
+1223 
+Client
+ *
+c
+;
+
+1224 
+Window
+ 
+trans
+;
+
+1225 
+XPropertyEvent
+ *
+ev
+ = &
+e
+->
+xproperty
+;
+
+1227 if ((
+ev
+->
+window
+ == 
+root
+) && (ev->
+atom
+ == 
+XA_WM_NAME
+))
+
+1228 
+	`updatestatus
+();
+
+1229 else if (
+ev
+->
+state
+ == 
+PropertyDelete
+)
+
+1231 else if ((
+c
+ = 
+	`wintoclient
+(
+ev
+->
+window
+))) {
+
+1232 switch(
+ev
+->
+atom
+) {
+
+1234 case 
+XA_WM_TRANSIENT_FOR
+:
+
+1235 if (!
+c
+->
+isfloating
+ && (
+	`XGetTransientForHint
+(
+dpy
+, c->
+win
+, &
+trans
+)) &&
+
+1236 (
+c
+->
+isfloating
+ = (
+	`wintoclient
+(
+trans
+)) != 
+NULL
+))
+
+1237 
+	`arrange
+(
+c
+->
+mon
+);
+
+1239 case 
+XA_WM_NORMAL_HINTS
+:
+
+1240 
+c
+->
+hintsvalid
+ = 0;
+
+1242 case 
+XA_WM_HINTS
+:
+
+1243 
+	`updatewmhints
+(
+c
+);
+
+1244 
+	`drawbars
+();
+
+1247 if (
+ev
+->
+atom
+ == 
+XA_WM_NAME
+ || ev->atom == 
+netatom
+[
+NetWMName
+]) {
+
+1248 
+	`updatetitle
+(
+c
+);
+
+1249 if (
+c
+ == c->
+mon
+->
+sel
+)
+
+1250 
+	`drawbar
+(
+c
+->
+mon
+);
+
+1252 if (
+ev
+->
+atom
+ == 
+netatom
+[
+NetWMWindowType
+])
+
+1253 
+	`updatewindowtype
+(
+c
+);
+
+1255 
+	}
+}
+
+1258 
+	$quit
+(const 
+Arg
+ *
+arg
+)
+
+1260 
+running
+ = 0;
+
+1261 
+	}
+}
+
+1263 
+Monitor
+ *
+
+1264 
+	$recttomon
+(int 
+x
+, int 
+y
+, int 
+w
+, int 
+h
+)
+
+1266 
+Monitor
+ *
+m
+, *
+r
+ = 
+selmon
+;
+
+1267 int 
+a
+, 
+area
+ = 0;
+
+1269 for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+1270 if ((
+a
+ = 
+	`INTERSECT
+(
+x
+, 
+y
+, 
+w
+, 
+h
+, 
+m
+)) > 
+area
+) {
+
+1271 
+area
+ = 
+a
+;
+
+1272 
+r
+ = 
+m
+;
+
+1274 return 
+r
+;
+
+1275 
+	}
+}
+
+1278 
+	$resize
+(
+Client
+ *
+c
+, int 
+x
+, int 
+y
+, int 
+w
+, int 
+h
+, int 
+interact
+)
+
+1280 if (
+	`applysizehints
+(
+c
+, &
+x
+, &
+y
+, &
+w
+, &
+h
+, 
+interact
+))
+
+1281 
+	`resizeclient
+(
+c
+, 
+x
+, 
+y
+, 
+w
+, 
+h
+);
+
+1282 
+	}
+}
+
+1285 
+	$resizeclient
+(
+Client
+ *
+c
+, int 
+x
+, int 
+y
+, int 
+w
+, int 
+h
+)
+
+1287 
+XWindowChanges
+ 
+wc
+;
+
+1289 
+c
+->
+oldx
+ = c->
+x
+; c->x = 
+wc
+.x = x;
+
+1290 
+c
+->
+oldy
+ = c->
+y
+; c->y = 
+wc
+.y = y;
+
+1291 
+c
+->
+oldw
+ = c->
+w
+; c->w = 
+wc
+.
+width
+ = w;
+
+1292 
+c
+->
+oldh
+ = c->
+h
+; c->h = 
+wc
+.
+height
+ = h;
+
+1293 
+wc
+.
+border_width
+ = 
+c
+->
+bw
+;
+
+1294 
+	`XConfigureWindow
+(
+dpy
+, 
+c
+->
+win
+, 
+CWX
+|
+CWY
+|
+CWWidth
+|
+CWHeight
+|
+CWBorderWidth
+, &
+wc
+);
+
+1295 
+	`configure
+(
+c
+);
+
+1296 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+1297 
+	}
+}
+
+1300 
+	$resizemouse
+(const 
+Arg
+ *
+arg
+)
+
+1302 int 
+ocx
+, 
+ocy
+, 
+nw
+, 
+nh
+;
+
+1303 
+Client
+ *
+c
+;
+
+1304 
+Monitor
+ *
+m
+;
+
+1305 
+XEvent
+ 
+ev
+;
+
+1306 
+Time
+ 
+lasttime
+ = 0;
+
+1308 if (!(
+c
+ = 
+selmon
+->
+sel
+))
+
+1310 if (
+c
+->
+isfullscreen
+)
+
+1312 
+	`restack
+(
+selmon
+);
+
+1313 
+ocx
+ = 
+c
+->
+x
+;
+
+1314 
+ocy
+ = 
+c
+->
+y
+;
+
+1315 if (
+	`XGrabPointer
+(
+dpy
+, 
+root
+, 
+False
+, 
+MOUSEMASK
+, 
+GrabModeAsync
+, GrabModeAsync,
+
+1316 
+None
+, 
+cursor
+[
+CurResize
+]->cursor, 
+CurrentTime
+) != 
+GrabSuccess
+)
+
+1318 
+	`XWarpPointer
+(
+dpy
+, 
+None
+, 
+c
+->
+win
+, 0, 0, 0, 0, c->
+w
+ + c->
+bw
+ - 1, c->
+h
+ + c->bw - 1);
+
+1320 
+	`XMaskEvent
+(
+dpy
+, 
+MOUSEMASK
+|
+ExposureMask
+|
+SubstructureRedirectMask
+, &
+ev
+);
+
+1321 switch(
+ev
+.
+type
+) {
+
+1322 case 
+ConfigureRequest
+:
+
+1323 case 
+Expose
+:
+
+1324 case 
+MapRequest
+:
+
+1325 
+handler
+[
+ev
+.
+type
+](&ev);
+
+1327 case 
+MotionNotify
+:
+
+1328 if ((
+ev
+.
+xmotion
+.
+time
+ - 
+lasttime
+) <= (1000 / 60))
+
+1330 
+lasttime
+ = 
+ev
+.
+xmotion
+.
+time
+;
+
+1332 
+nw
+ = 
+	`MAX
+(
+ev
+.
+xmotion
+.
+x
+ - 
+ocx
+ - 2 * 
+c
+->
+bw
+ + 1, 1);
+
+1333 
+nh
+ = 
+	`MAX
+(
+ev
+.
+xmotion
+.
+y
+ - 
+ocy
+ - 2 * 
+c
+->
+bw
+ + 1, 1);
+
+1334 if (
+c
+->
+mon
+->
+wx
+ + 
+nw
+ >= 
+selmon
+->wx && c->mon->wx + nw <= selmon->wx + selmon->
+ww
+
+
+1335 && 
+c
+->
+mon
+->
+wy
+ + 
+nh
+ >= 
+selmon
+->wy && c->mon->wy + nh <= selmon->wy + selmon->
+wh
+)
+
+1337 if (!
+c
+->
+isfloating
+ && 
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+
+
+1338 && (
+	`abs
+(
+nw
+ - 
+c
+->
+w
+) > 
+snap
+ || abs(
+nh
+ - c->
+h
+) > snap))
+
+1339 
+	`togglefloating
+(
+NULL
+);
+
+1341 if (!
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+ || 
+c
+->
+isfloating
+)
+
+1342 
+	`resize
+(
+c
+, c->
+x
+, c->
+y
+, 
+nw
+, 
+nh
+, 1);
+
+1345 } while (
+ev
+.
+type
+ != 
+ButtonRelease
+);
+
+1346 
+	`XWarpPointer
+(
+dpy
+, 
+None
+, 
+c
+->
+win
+, 0, 0, 0, 0, c->
+w
+ + c->
+bw
+ - 1, c->
+h
+ + c->bw - 1);
+
+1347 
+	`XUngrabPointer
+(
+dpy
+, 
+CurrentTime
+);
+
+1348 while (
+	`XCheckMaskEvent
+(
+dpy
+, 
+EnterWindowMask
+, &
+ev
+));
+
+1349 if ((
+m
+ = 
+	`recttomon
+(
+c
+->
+x
+, c->
+y
+, c->
+w
+, c->
+h
+)) != 
+selmon
+) {
+
+1350 
+	`sendmon
+(
+c
+, 
+m
+);
+
+1351 
+selmon
+ = 
+m
+;
+
+1352 
+	`focus
+(
+NULL
+);
+
+1354 
+	}
+}
+
+1357 
+	$restack
+(
+Monitor
+ *
+m
+)
+
+1359 
+Client
+ *
+c
+;
+
+1360 
+XEvent
+ 
+ev
+;
+
+1361 
+XWindowChanges
+ 
+wc
+;
+
+1363 
+	`drawbar
+(
+m
+);
+
+1364 if (!
+m
+->
+sel
+)
+
+1366 if (
+m
+->
+sel
+->
+isfloating
+ || !m->
+lt
+[m->
+sellt
+]->
+arrange
+)
+
+1367 
+	`XRaiseWindow
+(
+dpy
+, 
+m
+->
+sel
+->
+win
+);
+
+1368 if (
+m
+->
+lt
+[m->
+sellt
+]->
+arrange
+) {
+
+1369 
+wc
+.
+stack_mode
+ = 
+Below
+;
+
+1370 
+wc
+.
+sibling
+ = 
+m
+->
+barwin
+;
+
+1371 for (
+c
+ = 
+m
+->
+stack
+; c; c = c->
+snext
+)
+
+1372 if (!
+c
+->
+isfloating
+ && 
+	`ISVISIBLE
+(c)) {
+
+1373 
+	`XConfigureWindow
+(
+dpy
+, 
+c
+->
+win
+, 
+CWSibling
+|
+CWStackMode
+, &
+wc
+);
+
+1374 
+wc
+.
+sibling
+ = 
+c
+->
+win
+;
+
+1377 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+1378 while (
+	`XCheckMaskEvent
+(
+dpy
+, 
+EnterWindowMask
+, &
+ev
+));
+
+1379 
+	}
+}
+
+1382 
+	$run
+(void)
+
+1384 
+XEvent
+ 
+ev
+;
+
+1386 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+1387 while (
+running
+ && !
+	`XNextEvent
+(
+dpy
+, &
+ev
+))
+
+1388 if (
+handler
+[
+ev
+.
+type
+])
+
+1389 
+handler
+[
+ev
+.
+type
+](&ev);
+
+1390 
+	}
+}
+
+1393 
+	$scan
+(void)
+
+1395 unsigned int 
+i
+, 
+num
+;
+
+1396 
+Window
+ 
+d1
+, 
+d2
+, *
+wins
+ = 
+NULL
+;
+
+1397 
+XWindowAttributes
+ 
+wa
+;
+
+1399 if (
+	`XQueryTree
+(
+dpy
+, 
+root
+, &
+d1
+, &
+d2
+, &
+wins
+, &
+num
+)) {
+
+1400 for (
+i
+ = 0; i < 
+num
+; i++) {
+
+1401 if (!
+	`XGetWindowAttributes
+(
+dpy
+, 
+wins
+[
+i
+], &
+wa
+)
+
+1402 || 
+wa
+.
+override_redirect
+ || 
+	`XGetTransientForHint
+(
+dpy
+, 
+wins
+[
+i
+], &
+d1
+))
+
+1404 if (
+wa
+.
+map_state
+ == 
+IsViewable
+ || 
+	`getstate
+(
+wins
+[
+i
+]) == 
+IconicState
+)
+
+1405 
+	`manage
+(
+wins
+[
+i
+], &
+wa
+);
+
+1407 for (
+i
+ = 0; i < 
+num
+; i++) {
+
+1408 if (!
+	`XGetWindowAttributes
+(
+dpy
+, 
+wins
+[
+i
+], &
+wa
+))
+
+1410 if (
+	`XGetTransientForHint
+(
+dpy
+, 
+wins
+[
+i
+], &
+d1
+)
+
+1411 && (
+wa
+.
+map_state
+ == 
+IsViewable
+ || 
+	`getstate
+(
+wins
+[
+i
+]) == 
+IconicState
+))
+
+1412 
+	`manage
+(
+wins
+[
+i
+], &
+wa
+);
+
+1414 if (
+wins
+)
+
+1415 
+	`XFree
+(
+wins
+);
+
+1417 
+	}
+}
+
+1420 
+	$sendmon
+(
+Client
+ *
+c
+, 
+Monitor
+ *
+m
+)
+
+1422 if (
+c
+->
+mon
+ == 
+m
+)
+
+1424 
+	`unfocus
+(
+c
+, 1);
+
+1425 
+	`detach
+(
+c
+);
+
+1426 
+	`detachstack
+(
+c
+);
+
+1427 
+c
+->
+mon
+ = 
+m
+;
+
+1428 
+c
+->
+tags
+ = 
+m
+->
+tagset
+[m->
+seltags
+];
+
+1429 
+	`attach
+(
+c
+);
+
+1430 
+	`attachstack
+(
+c
+);
+
+1431 
+	`focus
+(
+NULL
+);
+
+1432 
+	`arrange
+(
+NULL
+);
+
+1433 
+	}
+}
+
+1436 
+	$setclientstate
+(
+Client
+ *
+c
+, long 
+state
+)
+
+1438 long 
+data
+[] = { 
+state
+, 
+None
+ };
+
+1440 
+	`XChangeProperty
+(
+dpy
+, 
+c
+->
+win
+, 
+wmatom
+[
+WMState
+], wmatom[WMState], 32,
+
+1441 
+PropModeReplace
+, (unsigned char *)
+data
+, 2);
+
+1442 
+	}
+}
+
+1445 
+	$sendevent
+(
+Client
+ *
+c
+, 
+Atom
+ 
+proto
+)
+
+1447 int 
+n
+;
+
+1448 
+Atom
+ *
+protocols
+;
+
+1449 int 
+exists
+ = 0;
+
+1450 
+XEvent
+ 
+ev
+;
+
+1452 if (
+	`XGetWMProtocols
+(
+dpy
+, 
+c
+->
+win
+, &
+protocols
+, &
+n
+)) {
+
+1453 while (!
+exists
+ && 
+n
+--)
+
+1454 
+exists
+ = 
+protocols
+[
+n
+] == 
+proto
+;
+
+1455 
+	`XFree
+(
+protocols
+);
+
+1457 if (
+exists
+) {
+
+1458 
+ev
+.
+type
+ = 
+ClientMessage
+;
+
+1459 
+ev
+.
+xclient
+.
+window
+ = 
+c
+->
+win
+;
+
+1460 
+ev
+.
+xclient
+.
+message_type
+ = 
+wmatom
+[
+WMProtocols
+];
+
+1461 
+ev
+.
+xclient
+.
+format
+ = 32;
+
+1462 
+ev
+.
+xclient
+.
+data
+.
+l
+[0] = 
+proto
+;
+
+1463 
+ev
+.
+xclient
+.
+data
+.
+l
+[1] = 
+CurrentTime
+;
+
+1464 
+	`XSendEvent
+(
+dpy
+, 
+c
+->
+win
+, 
+False
+, 
+NoEventMask
+, &
+ev
+);
+
+1466 return 
+exists
+;
+
+1467 
+	}
+}
+
+1470 
+	$setfocus
+(
+Client
+ *
+c
+)
+
+1472 if (!
+c
+->
+neverfocus
+) {
+
+1473 
+	`XSetInputFocus
+(
+dpy
+, 
+c
+->
+win
+, 
+RevertToPointerRoot
+, 
+CurrentTime
+);
+
+1474 
+	`XChangeProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetActiveWindow
+],
+
+1475 
+XA_WINDOW
+, 32, 
+PropModeReplace
+,
+
+1476 (unsigned char *) &(
+c
+->
+win
+), 1);
+
+1478 
+	`sendevent
+(
+c
+, 
+wmatom
+[
+WMTakeFocus
+]);
+
+1479 
+	}
+}
+
+1482 
+	$setfullscreen
+(
+Client
+ *
+c
+, int 
+fullscreen
+)
+
+1484 if (
+fullscreen
+ && !
+c
+->
+isfullscreen
+) {
+
+1485 
+	`XChangeProperty
+(
+dpy
+, 
+c
+->
+win
+, 
+netatom
+[
+NetWMState
+], 
+XA_ATOM
+, 32,
+
+1486 
+PropModeReplace
+, (unsigned char*)&
+netatom
+[
+NetWMFullscreen
+], 1);
+
+1487 
+c
+->
+isfullscreen
+ = 1;
+
+1488 
+c
+->
+oldstate
+ = c->
+isfloating
+;
+
+1489 
+c
+->
+oldbw
+ = c->
+bw
+;
+
+1490 
+c
+->
+bw
+ = 0;
+
+1491 
+c
+->
+isfloating
+ = 1;
+
+1492 
+	`resizeclient
+(
+c
+, c->
+mon
+->
+mx
+, c->mon->
+my
+, c->mon->
+mw
+, c->mon->
+mh
+);
+
+1493 
+	`XRaiseWindow
+(
+dpy
+, 
+c
+->
+win
+);
+
+1494 } else if (!
+fullscreen
+ && 
+c
+->
+isfullscreen
+){
+
+1495 
+	`XChangeProperty
+(
+dpy
+, 
+c
+->
+win
+, 
+netatom
+[
+NetWMState
+], 
+XA_ATOM
+, 32,
+
+1496 
+PropModeReplace
+, (unsigned char*)0, 0);
+
+1497 
+c
+->
+isfullscreen
+ = 0;
+
+1498 
+c
+->
+isfloating
+ = c->
+oldstate
+;
+
+1499 
+c
+->
+bw
+ = c->
+oldbw
+;
+
+1500 
+c
+->
+x
+ = c->
+oldx
+;
+
+1501 
+c
+->
+y
+ = c->
+oldy
+;
+
+1502 
+c
+->
+w
+ = c->
+oldw
+;
+
+1503 
+c
+->
+h
+ = c->
+oldh
+;
+
+1504 
+	`resizeclient
+(
+c
+, c->
+x
+, c->
+y
+, c->
+w
+, c->
+h
+);
+
+1505 
+	`arrange
+(
+c
+->
+mon
+);
+
+1507 
+	}
+}
+
+1510 
+	$setlayout
+(const 
+Arg
+ *
+arg
+)
+
+1512 if (!
+arg
+ || !arg->
+v
+ || arg->v != 
+selmon
+->
+lt
+[selmon->
+sellt
+])
+
+1513 
+selmon
+->
+sellt
+ ^= 1;
+
+1514 if (
+arg
+ && arg->
+v
+)
+
+1515 
+selmon
+->
+lt
+[selmon->
+sellt
+] = (
+Layout
+ *)
+arg
+->
+v
+;
+
+1516 
+	`strncpy
+(
+selmon
+->
+ltsymbol
+, selmon->
+lt
+[selmon->
+sellt
+]->
+symbol
+, sizeof selmon->ltsymbol);
+
+1517 if (
+selmon
+->
+sel
+)
+
+1518 
+	`arrange
+(
+selmon
+);
+
+1520 
+	`drawbar
+(
+selmon
+);
+
+1521 
+	}
+}
+
+1525 
+	$setmfact
+(const 
+Arg
+ *
+arg
+)
+
+1527 float 
+f
+;
+
+1529 if (!
+arg
+ || !
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+)
+
+1531 
+f
+ = 
+arg
+->f < 1.0 ? arg->f + 
+selmon
+->
+mfact
+ : arg->f - 1.0;
+
+1532 if (
+f
+ < 0.05 || f > 0.95)
+
+1534 
+selmon
+->
+mfact
+ = 
+f
+;
+
+1535 
+	`arrange
+(
+selmon
+);
+
+1536 
+	}
+}
+
+1539 
+	$setup
+(void)
+
+1541 int 
+i
+;
+
+1542 
+XSetWindowAttributes
+ 
+wa
+;
+
+1543 
+Atom
+ 
+utf8string
+;
+
+1544 struct 
+sigaction
+ 
+sa
+;
+
+1547 
+	`sigemptyset
+(&
+sa
+.
+sa_mask
+);
+
+1548 
+sa
+.
+sa_flags
+ = 
+SA_NOCLDSTOP
+ | 
+SA_NOCLDWAIT
+ | 
+SA_RESTART
+;
+
+1549 
+sa
+.
+sa_handler
+ = 
+SIG_IGN
+;
+
+1550 
+	`sigaction
+(
+SIGCHLD
+, &
+sa
+, 
+NULL
+);
+
+1553 while (
+	`waitpid
+(-1, 
+NULL
+, 
+WNOHANG
+) > 0);
+
+1556 
+screen
+ = 
+	`DefaultScreen
+(
+dpy
+);
+
+1557 
+sw
+ = 
+	`DisplayWidth
+(
+dpy
+, 
+screen
+);
+
+1558 
+sh
+ = 
+	`DisplayHeight
+(
+dpy
+, 
+screen
+);
+
+1559 
+root
+ = 
+	`RootWindow
+(
+dpy
+, 
+screen
+);
+
+1560 
+drw
+ = 
+	`drw_create
+(
+dpy
+, 
+screen
+, 
+root
+, 
+sw
+, 
+sh
+);
+
+1561 if (!
+	`drw_fontset_create
+(
+drw
+, 
+fonts
+, 
+	`LENGTH
+(fonts)))
+
+1562 
+	`die
+("no fonts could be loaded.");
+
+1563 
+lrpad
+ = 
+drw
+->
+fonts
+->
+h
+;
+
+1564 
+bh
+ = 
+drw
+->
+fonts
+->
+h
+ + 2;
+
+1565 
+	`updategeom
+();
+
+1567 
+utf8string
+ = 
+	`XInternAtom
+(
+dpy
+, "UTF8_STRING", 
+False
+);
+
+1568 
+wmatom
+[
+WMProtocols
+] = 
+	`XInternAtom
+(
+dpy
+, "WM_PROTOCOLS", 
+False
+);
+
+1569 
+wmatom
+[
+WMDelete
+] = 
+	`XInternAtom
+(
+dpy
+, "WM_DELETE_WINDOW", 
+False
+);
+
+1570 
+wmatom
+[
+WMState
+] = 
+	`XInternAtom
+(
+dpy
+, "WM_STATE", 
+False
+);
+
+1571 
+wmatom
+[
+WMTakeFocus
+] = 
+	`XInternAtom
+(
+dpy
+, "WM_TAKE_FOCUS", 
+False
+);
+
+1572 
+netatom
+[
+NetActiveWindow
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_ACTIVE_WINDOW", 
+False
+);
+
+1573 
+netatom
+[
+NetSupported
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_SUPPORTED", 
+False
+);
+
+1574 
+netatom
+[
+NetWMName
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_WM_NAME", 
+False
+);
+
+1575 
+netatom
+[
+NetWMState
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_WM_STATE", 
+False
+);
+
+1576 
+netatom
+[
+NetWMCheck
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_SUPPORTING_WM_CHECK", 
+False
+);
+
+1577 
+netatom
+[
+NetWMFullscreen
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_WM_STATE_FULLSCREEN", 
+False
+);
+
+1578 
+netatom
+[
+NetWMWindowType
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_WM_WINDOW_TYPE", 
+False
+);
+
+1579 
+netatom
+[
+NetWMWindowTypeDialog
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_WM_WINDOW_TYPE_DIALOG", 
+False
+);
+
+1580 
+netatom
+[
+NetClientList
+] = 
+	`XInternAtom
+(
+dpy
+, "_NET_CLIENT_LIST", 
+False
+);
+
+1582 
+cursor
+[
+CurNormal
+] = 
+	`drw_cur_create
+(
+drw
+, 
+XC_left_ptr
+);
+
+1583 
+cursor
+[
+CurResize
+] = 
+	`drw_cur_create
+(
+drw
+, 
+XC_sizing
+);
+
+1584 
+cursor
+[
+CurMove
+] = 
+	`drw_cur_create
+(
+drw
+, 
+XC_fleur
+);
+
+1586 
+scheme
+ = 
+	`ecalloc
+(
+	`LENGTH
+(
+colors
+), sizeof(
+Clr
+ *));
+
+1587 for (
+i
+ = 0; i < 
+	`LENGTH
+(
+colors
+); i++)
+
+1588 
+scheme
+[
+i
+] = 
+	`drw_scm_create
+(
+drw
+, 
+colors
+[i], 3);
+
+1590 
+	`updatebars
+();
+
+1591 
+	`updatestatus
+();
+
+1593 
+wmcheckwin
+ = 
+	`XCreateSimpleWindow
+(
+dpy
+, 
+root
+, 0, 0, 1, 1, 0, 0, 0);
+
+1594 
+	`XChangeProperty
+(
+dpy
+, 
+wmcheckwin
+, 
+netatom
+[
+NetWMCheck
+], 
+XA_WINDOW
+, 32,
+
+1595 
+PropModeReplace
+, (unsigned char *) &
+wmcheckwin
+, 1);
+
+1596 
+	`XChangeProperty
+(
+dpy
+, 
+wmcheckwin
+, 
+netatom
+[
+NetWMName
+], 
+utf8string
+, 8,
+
+1597 
+PropModeReplace
+, (unsigned char *) "dwm", 3);
+
+1598 
+	`XChangeProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetWMCheck
+], 
+XA_WINDOW
+, 32,
+
+1599 
+PropModeReplace
+, (unsigned char *) &
+wmcheckwin
+, 1);
+
+1601 
+	`XChangeProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetSupported
+], 
+XA_ATOM
+, 32,
+
+1602 
+PropModeReplace
+, (unsigned char *) 
+netatom
+, 
+NetLast
+);
+
+1603 
+	`XDeleteProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetClientList
+]);
+
+1605 
+wa
+.
+cursor
+ = cursor[
+CurNormal
+]->cursor;
+
+1606 
+wa
+.
+event_mask
+ = 
+SubstructureRedirectMask
+|
+SubstructureNotifyMask
+
+
+1607 |
+ButtonPressMask
+|
+PointerMotionMask
+|
+EnterWindowMask
+
+
+1608 |
+LeaveWindowMask
+|
+StructureNotifyMask
+|
+PropertyChangeMask
+;
+
+1609 
+	`XChangeWindowAttributes
+(
+dpy
+, 
+root
+, 
+CWEventMask
+|
+CWCursor
+, &
+wa
+);
+
+1610 
+	`XSelectInput
+(
+dpy
+, 
+root
+, 
+wa
+.
+event_mask
+);
+
+1611 
+	`grabkeys
+();
+
+1612 
+	`focus
+(
+NULL
+);
+
+1613 
+	}
+}
+
+1616 
+	$seturgent
+(
+Client
+ *
+c
+, int 
+urg
+)
+
+1618 
+XWMHints
+ *
+wmh
+;
+
+1620 
+c
+->
+isurgent
+ = 
+urg
+;
+
+1621 if (!(
+wmh
+ = 
+	`XGetWMHints
+(
+dpy
+, 
+c
+->
+win
+)))
+
+1623 
+wmh
+->
+flags
+ = 
+urg
+ ? (wmh->flags | 
+XUrgencyHint
+) : (wmh->flags & ~XUrgencyHint);
+
+1624 
+	`XSetWMHints
+(
+dpy
+, 
+c
+->
+win
+, 
+wmh
+);
+
+1625 
+	`XFree
+(
+wmh
+);
+
+1626 
+	}
+}
+
+1629 
+	$showhide
+(
+Client
+ *
+c
+)
+
+1631 if (!
+c
+)
+
+1633 if (
+	`ISVISIBLE
+(
+c
+)) {
+
+1635 
+	`XMoveWindow
+(
+dpy
+, 
+c
+->
+win
+, c->
+x
+, c->
+y
+);
+
+1636 if ((!
+c
+->
+mon
+->
+lt
+[c->mon->
+sellt
+]->
+arrange
+ || c->
+isfloating
+) && !c->
+isfullscreen
+)
+
+1637 
+	`resize
+(
+c
+, c->
+x
+, c->
+y
+, c->
+w
+, c->
+h
+, 0);
+
+1638 
+	`showhide
+(
+c
+->
+snext
+);
+
+1641 
+	`showhide
+(
+c
+->
+snext
+);
+
+1642 
+	`XMoveWindow
+(
+dpy
+, 
+c
+->
+win
+, 
+	`WIDTH
+(c) * -2, c->
+y
+);
+
+1644 
+	}
+}
+
+1647 
+	$spawn
+(const 
+Arg
+ *
+arg
+)
+
+1649 struct 
+sigaction
+ 
+sa
+;
+
+1651 if (
+arg
+->
+v
+ == 
+dmenucmd
+)
+
+1652 
+dmenumon
+[0] = '0' + 
+selmon
+->
+num
+;
+
+1653 if (
+	`fork
+() == 0) {
+
+1654 if (
+dpy
+)
+
+1655 
+	`close
+(
+	`ConnectionNumber
+(
+dpy
+));
+
+1656 
+	`setsid
+();
+
+1658 
+	`sigemptyset
+(&
+sa
+.
+sa_mask
+);
+
+1659 
+sa
+.
+sa_flags
+ = 0;
+
+1660 
+sa
+.
+sa_handler
+ = 
+SIG_DFL
+;
+
+1661 
+	`sigaction
+(
+SIGCHLD
+, &
+sa
+, 
+NULL
+);
+
+1663 
+	`execvp
+(((char **)
+arg
+->
+v
+)[0], (char **)arg->v);
+
+1664 
+	`die
+("dwm: execvp '%s' failed:", ((char **)
+arg
+->
+v
+)[0]);
+
+1666 
+	}
+}
+
+1669 
+	$tag
+(const 
+Arg
+ *
+arg
+)
+
+1671 if (
+selmon
+->
+sel
+ && 
+arg
+->
+ui
+ & 
+TAGMASK
+) {
+
+1672 
+selmon
+->
+sel
+->
+tags
+ = 
+arg
+->
+ui
+ & 
+TAGMASK
+;
+
+1673 
+	`focus
+(
+NULL
+);
+
+1674 
+	`arrange
+(
+selmon
+);
+
+1676 
+	}
+}
+
+1679 
+	$tagmon
+(const 
+Arg
+ *
+arg
+)
+
+1681 if (!
+selmon
+->
+sel
+ || !
+mons
+->
+next
+)
+
+1683 
+	`sendmon
+(
+selmon
+->
+sel
+, 
+	`dirtomon
+(
+arg
+->
+i
+));
+
+1684 
+	}
+}
+
+1687 
+	$tile
+(
+Monitor
+ *
+m
+)
+
+1689 unsigned int 
+i
+, 
+n
+, 
+h
+, 
+mw
+, 
+my
+, 
+ty
+;
+
+1690 
+Client
+ *
+c
+;
+
+1692 for (
+n
+ = 0, 
+c
+ = 
+	`nexttiled
+(
+m
+->
+clients
+); c; c = nexttiled(c->
+next
+), n++);
+
+1693 if (
+n
+ == 0)
+
+1696 if (
+n
+ > 
+m
+->
+nmaster
+)
+
+1697 
+mw
+ = 
+m
+->
+nmaster
+ ? m->
+ww
+ * m->
+mfact
+ : 0;
+
+1699 
+mw
+ = 
+m
+->
+ww
+;
+
+1700 for (
+i
+ = 
+my
+ = 
+ty
+ = 0, 
+c
+ = 
+	`nexttiled
+(
+m
+->
+clients
+); c; c = nexttiled(c->
+next
+), i++)
+
+1701 if (
+i
+ < 
+m
+->
+nmaster
+) {
+
+1702 
+h
+ = (
+m
+->
+wh
+ - 
+my
+) / (
+	`MIN
+(
+n
+, m->
+nmaster
+) - 
+i
+);
+
+1703 
+	`resize
+(
+c
+, 
+m
+->
+wx
+ + m->
+ww
+ - 
+mw
+, m->
+wy
+ + 
+my
+, mw - (2*c->
+bw
+), 
+h
+ - (2*c->bw), 0);
+
+1704 if (
+my
+ + 
+	`HEIGHT
+(
+c
+) < 
+m
+->
+wh
+)
+
+1705 
+my
+ += 
+	`HEIGHT
+(
+c
+);
+
+1707 
+h
+ = (
+m
+->
+wh
+ - 
+ty
+) / (
+n
+ - 
+i
+);
+
+1708 
+	`resize
+(
+c
+, 
+m
+->
+wx
+, m->
+wy
+ + 
+ty
+, m->
+ww
+ - 
+mw
+ - (2*c->
+bw
+), 
+h
+ - (2*c->bw), 0);
+
+1709 if (
+ty
+ + 
+	`HEIGHT
+(
+c
+) < 
+m
+->
+wh
+)
+
+1710 
+ty
+ += 
+	`HEIGHT
+(
+c
+);
+
+1712 
+	}
+}
+
+1715 
+	$togglebar
+(const 
+Arg
+ *
+arg
+)
+
+1717 
+selmon
+->
+showbar
+ = !selmon->showbar;
+
+1718 
+	`updatebarpos
+(
+selmon
+);
+
+1719 
+	`XMoveResizeWindow
+(
+dpy
+, 
+selmon
+->
+barwin
+, selmon->
+wx
+, selmon->
+by
+, selmon->
+ww
+, 
+bh
+);
+
+1720 
+	`arrange
+(
+selmon
+);
+
+1721 
+	}
+}
+
+1724 
+	$togglefloating
+(const 
+Arg
+ *
+arg
+)
+
+1726 if (!
+selmon
+->
+sel
+)
+
+1728 if (
+selmon
+->
+sel
+->
+isfullscreen
+)
+
+1730 
+selmon
+->
+sel
+->
+isfloating
+ = !selmon->sel->isfloating || selmon->sel->
+isfixed
+;
+
+1731 if (
+selmon
+->
+sel
+->
+isfloating
+)
+
+1732 
+	`resize
+(
+selmon
+->
+sel
+, selmon->sel->
+x
+, selmon->sel->
+y
+,
+
+1733 
+selmon
+->
+sel
+->
+w
+, selmon->sel->
+h
+, 0);
+
+1734 
+	`arrange
+(
+selmon
+);
+
+1735 
+	}
+}
+
+1738 
+	$toggletag
+(const 
+Arg
+ *
+arg
+)
+
+1740 unsigned int 
+newtags
+;
+
+1742 if (!
+selmon
+->
+sel
+)
+
+1744 
+newtags
+ = 
+selmon
+->
+sel
+->
+tags
+ ^ (
+arg
+->
+ui
+ & 
+TAGMASK
+);
+
+1745 if (
+newtags
+) {
+
+1746 
+selmon
+->
+sel
+->
+tags
+ = 
+newtags
+;
+
+1747 
+	`focus
+(
+NULL
+);
+
+1748 
+	`arrange
+(
+selmon
+);
+
+1750 
+	}
+}
+
+1753 
+	$toggleview
+(const 
+Arg
+ *
+arg
+)
+
+1755 unsigned int 
+newtagset
+ = 
+selmon
+->
+tagset
+[selmon->
+seltags
+] ^ (
+arg
+->
+ui
+ & 
+TAGMASK
+);
+
+1757 if (
+newtagset
+) {
+
+1758 
+selmon
+->
+tagset
+[selmon->
+seltags
+] = 
+newtagset
+;
+
+1759 
+	`focus
+(
+NULL
+);
+
+1760 
+	`arrange
+(
+selmon
+);
+
+1762 
+	}
+}
+
+1765 
+	$unfocus
+(
+Client
+ *
+c
+, int 
+setfocus
+)
+
+1767 if (!
+c
+)
+
+1769 
+	`grabbuttons
+(
+c
+, 0);
+
+1770 
+	`XSetWindowBorder
+(
+dpy
+, 
+c
+->
+win
+, 
+scheme
+[
+SchemeNorm
+][
+ColBorder
+].
+pixel
+);
+
+1771 if (
+setfocus
+) {
+
+1772 
+	`XSetInputFocus
+(
+dpy
+, 
+root
+, 
+RevertToPointerRoot
+, 
+CurrentTime
+);
+
+1773 
+	`XDeleteProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetActiveWindow
+]);
+
+1775 
+	}
+}
+
+1778 
+	$unmanage
+(
+Client
+ *
+c
+, int 
+destroyed
+)
+
+1780 
+Monitor
+ *
+m
+ = 
+c
+->
+mon
+;
+
+1781 
+XWindowChanges
+ 
+wc
+;
+
+1783 
+	`detach
+(
+c
+);
+
+1784 
+	`detachstack
+(
+c
+);
+
+1785 if (!
+destroyed
+) {
+
+1786 
+wc
+.
+border_width
+ = 
+c
+->
+oldbw
+;
+
+1787 
+	`XGrabServer
+(
+dpy
+);
+
+1788 
+	`XSetErrorHandler
+(
+xerrordummy
+);
+
+1789 
+	`XSelectInput
+(
+dpy
+, 
+c
+->
+win
+, 
+NoEventMask
+);
+
+1790 
+	`XConfigureWindow
+(
+dpy
+, 
+c
+->
+win
+, 
+CWBorderWidth
+, &
+wc
+);
+
+1791 
+	`XUngrabButton
+(
+dpy
+, 
+AnyButton
+, 
+AnyModifier
+, 
+c
+->
+win
+);
+
+1792 
+	`setclientstate
+(
+c
+, 
+WithdrawnState
+);
+
+1793 
+	`XSync
+(
+dpy
+, 
+False
+);
+
+1794 
+	`XSetErrorHandler
+(
+xerror
+);
+
+1795 
+	`XUngrabServer
+(
+dpy
+);
+
+1797 
+	`free
+(
+c
+);
+
+1798 
+	`focus
+(
+NULL
+);
+
+1799 
+	`updateclientlist
+();
+
+1800 
+	`arrange
+(
+m
+);
+
+1801 
+	}
+}
+
+1804 
+	$unmapnotify
+(
+XEvent
+ *
+e
+)
+
+1806 
+Client
+ *
+c
+;
+
+1807 
+XUnmapEvent
+ *
+ev
+ = &
+e
+->
+xunmap
+;
+
+1809 if ((
+c
+ = 
+	`wintoclient
+(
+ev
+->
+window
+))) {
+
+1810 if (
+ev
+->
+send_event
+)
+
+1811 
+	`setclientstate
+(
+c
+, 
+WithdrawnState
+);
+
+1813 
+	`unmanage
+(
+c
+, 0);
+
+1815 
+	}
+}
+
+1818 
+	$updatebars
+(void)
+
+1820 
+Monitor
+ *
+m
+;
+
+1821 
+XSetWindowAttributes
+ 
+wa
+ = {
+
+1822 .
+override_redirect
+ = 
+True
+,
+
+1823 .
+background_pixmap
+ = 
+ParentRelative
+,
+
+1824 .
+event_mask
+ = 
+ButtonPressMask
+|
+ExposureMask
+
+
+1826 
+XClassHint
+ 
+ch
+ = {"dwm", "dwm"};
+
+1827 for (
+m
+ = 
+mons
+; m; m = m->
+next
+) {
+
+1828 if (
+m
+->
+barwin
+)
+
+1830 
+m
+->
+barwin
+ = 
+	`XCreateWindow
+(
+dpy
+, 
+root
+, m->
+wx
+, m->
+by
+, m->
+ww
+, 
+bh
+, 0, 
+	`DefaultDepth
+(dpy, 
+screen
+),
+
+1831 
+CopyFromParent
+, 
+	`DefaultVisual
+(
+dpy
+, 
+screen
+),
+
+1832 
+CWOverrideRedirect
+|
+CWBackPixmap
+|
+CWEventMask
+, &
+wa
+);
+
+1833 
+	`XDefineCursor
+(
+dpy
+, 
+m
+->
+barwin
+, 
+cursor
+[
+CurNormal
+]->cursor);
+
+1834 
+	`XMapRaised
+(
+dpy
+, 
+m
+->
+barwin
+);
+
+1835 
+	`XSetClassHint
+(
+dpy
+, 
+m
+->
+barwin
+, &
+ch
+);
+
+1837 
+	}
+}
+
+1840 
+	$updatebarpos
+(
+Monitor
+ *
+m
+)
+
+1842 
+m
+->
+wy
+ = m->
+my
+;
+
+1843 
+m
+->
+wh
+ = m->
+mh
+;
+
+1844 if (
+m
+->
+showbar
+) {
+
+1845 
+m
+->
+wh
+ -= 
+bh
+;
+
+1846 
+m
+->
+by
+ = m->
+topbar
+ ? m->
+wy
+ : m->wy + m->
+wh
+;
+
+1847 
+m
+->
+wy
+ = m->
+topbar
+ ? m->wy + 
+bh
+ : m->wy;
+
+1849 
+m
+->
+by
+ = -
+bh
+;
+
+1850 
+	}
+}
+
+1853 
+	$updateclientlist
+(void)
+
+1855 
+Client
+ *
+c
+;
+
+1856 
+Monitor
+ *
+m
+;
+
+1858 
+	`XDeleteProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetClientList
+]);
+
+1859 for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+1860 for (
+c
+ = 
+m
+->
+clients
+; c; c = c->
+next
+)
+
+1861 
+	`XChangeProperty
+(
+dpy
+, 
+root
+, 
+netatom
+[
+NetClientList
+],
+
+1862 
+XA_WINDOW
+, 32, 
+PropModeAppend
+,
+
+1863 (unsigned char *) &(
+c
+->
+win
+), 1);
+
+1864 
+	}
+}
+
+1867 
+	$updategeom
+(void)
+
+1869 int 
+dirty
+ = 0;
+
+1871 #ifdef 
+XINERAMA
+
+
+1872 if (
+	`XineramaIsActive
+(
+dpy
+)) {
+
+1873 int 
+i
+, 
+j
+, 
+n
+, 
+nn
+;
+
+1874 
+Client
+ *
+c
+;
+
+1875 
+Monitor
+ *
+m
+;
+
+1876 
+XineramaScreenInfo
+ *
+info
+ = 
+	`XineramaQueryScreens
+(
+dpy
+, &
+nn
+);
+
+1877 
+XineramaScreenInfo
+ *
+unique
+ = 
+NULL
+;
+
+1879 for (
+n
+ = 0, 
+m
+ = 
+mons
+; m; m = m->
+next
+, n++);
+
+1881 
+unique
+ = 
+	`ecalloc
+(
+nn
+, sizeof(
+XineramaScreenInfo
+));
+
+1882 for (
+i
+ = 0, 
+j
+ = 0; i < 
+nn
+; i++)
+
+1883 if (
+	`isuniquegeom
+(
+unique
+, 
+j
+, &
+info
+[
+i
+]))
+
+1884 
+	`memcpy
+(&
+unique
+[
+j
+++], &
+info
+[
+i
+], sizeof(
+XineramaScreenInfo
+));
+
+1885 
+	`XFree
+(
+info
+);
+
+1886 
+nn
+ = 
+j
+;
+
+1889 for (
+i
+ = 
+n
+; i < 
+nn
+; i++) {
+
+1890 for (
+m
+ = 
+mons
+; m && m->
+next
+; m = m->next);
+
+1891 if (
+m
+)
+
+1892 
+m
+->
+next
+ = 
+	`createmon
+();
+
+1894 
+mons
+ = 
+	`createmon
+();
+
+1896 for (
+i
+ = 0, 
+m
+ = 
+mons
+; i < 
+nn
+ && m; m = m->
+next
+, i++)
+
+1897 if (
+i
+ >= 
+n
+
+
+1898 || 
+unique
+[
+i
+].
+x_org
+ != 
+m
+->
+mx
+ || unique[i].
+y_org
+ != m->
+my
+
+
+1899 || 
+unique
+[
+i
+].
+width
+ != 
+m
+->
+mw
+ || unique[i].
+height
+ != m->
+mh
+)
+
+1901 
+dirty
+ = 1;
+
+1902 
+m
+->
+num
+ = 
+i
+;
+
+1903 
+m
+->
+mx
+ = m->
+wx
+ = 
+unique
+[
+i
+].
+x_org
+;
+
+1904 
+m
+->
+my
+ = m->
+wy
+ = 
+unique
+[
+i
+].
+y_org
+;
+
+1905 
+m
+->
+mw
+ = m->
+ww
+ = 
+unique
+[
+i
+].
+width
+;
+
+1906 
+m
+->
+mh
+ = m->
+wh
+ = 
+unique
+[
+i
+].
+height
+;
+
+1907 
+	`updatebarpos
+(
+m
+);
+
+1910 for (
+i
+ = 
+nn
+; i < 
+n
+; i++) {
+
+1911 for (
+m
+ = 
+mons
+; m && m->
+next
+; m = m->next);
+
+1912 while ((
+c
+ = 
+m
+->
+clients
+)) {
+
+1913 
+dirty
+ = 1;
+
+1914 
+m
+->
+clients
+ = 
+c
+->
+next
+;
+
+1915 
+	`detachstack
+(
+c
+);
+
+1916 
+c
+->
+mon
+ = 
+mons
+;
+
+1917 
+	`attach
+(
+c
+);
+
+1918 
+	`attachstack
+(
+c
+);
+
+1920 if (
+m
+ == 
+selmon
+)
+
+1921 
+selmon
+ = 
+mons
+;
+
+1922 
+	`cleanupmon
+(
+m
+);
+
+1924 
+	`free
+(
+unique
+);
+
+1928 if (!
+mons
+)
+
+1929 
+mons
+ = 
+	`createmon
+();
+
+1930 if (
+mons
+->
+mw
+ != 
+sw
+ || mons->
+mh
+ != 
+sh
+) {
+
+1931 
+dirty
+ = 1;
+
+1932 
+mons
+->
+mw
+ = mons->
+ww
+ = 
+sw
+;
+
+1933 
+mons
+->
+mh
+ = mons->
+wh
+ = 
+sh
+;
+
+1934 
+	`updatebarpos
+(
+mons
+);
+
+1937 if (
+dirty
+) {
+
+1938 
+selmon
+ = 
+mons
+;
+
+1939 
+selmon
+ = 
+	`wintomon
+(
+root
+);
+
+1941 return 
+dirty
+;
+
+1942 
+	}
+}
+
+1945 
+	$updatenumlockmask
+(void)
+
+1947 unsigned int 
+i
+, 
+j
+;
+
+1948 
+XModifierKeymap
+ *
+modmap
+;
+
+1950 
+numlockmask
+ = 0;
+
+1951 
+modmap
+ = 
+	`XGetModifierMapping
+(
+dpy
+);
+
+1952 for (
+i
+ = 0; i < 8; i++)
+
+1953 for (
+j
+ = 0; j < 
+modmap
+->
+max_keypermod
+; j++)
+
+1954 if (
+modmap
+->
+modifiermap
+[
+i
+ * modmap->
+max_keypermod
+ + 
+j
+]
+
+1955 == 
+	`XKeysymToKeycode
+(
+dpy
+, 
+XK_Num_Lock
+))
+
+1956 
+numlockmask
+ = (1 << 
+i
+);
+
+1957 
+	`XFreeModifiermap
+(
+modmap
+);
+
+1958 
+	}
+}
+
+1961 
+	$updatesizehints
+(
+Client
+ *
+c
+)
+
+1963 long 
+msize
+;
+
+1964 
+XSizeHints
+ 
+size
+;
+
+1966 if (!
+	`XGetWMNormalHints
+(
+dpy
+, 
+c
+->
+win
+, &
+size
+, &
+msize
+))
+
+1968 
+size
+.
+flags
+ = 
+PSize
+;
+
+1969 if (
+size
+.
+flags
+ & 
+PBaseSize
+) {
+
+1970 
+c
+->
+basew
+ = 
+size
+.
+base_width
+;
+
+1971 
+c
+->
+baseh
+ = 
+size
+.
+base_height
+;
+
+1972 } else if (
+size
+.
+flags
+ & 
+PMinSize
+) {
+
+1973 
+c
+->
+basew
+ = 
+size
+.
+min_width
+;
+
+1974 
+c
+->
+baseh
+ = 
+size
+.
+min_height
+;
+
+1976 
+c
+->
+basew
+ = c->
+baseh
+ = 0;
+
+1977 if (
+size
+.
+flags
+ & 
+PResizeInc
+) {
+
+1978 
+c
+->
+incw
+ = 
+size
+.
+width_inc
+;
+
+1979 
+c
+->
+inch
+ = 
+size
+.
+height_inc
+;
+
+1981 
+c
+->
+incw
+ = c->
+inch
+ = 0;
+
+1982 if (
+size
+.
+flags
+ & 
+PMaxSize
+) {
+
+1983 
+c
+->
+maxw
+ = 
+size
+.
+max_width
+;
+
+1984 
+c
+->
+maxh
+ = 
+size
+.
+max_height
+;
+
+1986 
+c
+->
+maxw
+ = c->
+maxh
+ = 0;
+
+1987 if (
+size
+.
+flags
+ & 
+PMinSize
+) {
+
+1988 
+c
+->
+minw
+ = 
+size
+.
+min_width
+;
+
+1989 
+c
+->
+minh
+ = 
+size
+.
+min_height
+;
+
+1990 } else if (
+size
+.
+flags
+ & 
+PBaseSize
+) {
+
+1991 
+c
+->
+minw
+ = 
+size
+.
+base_width
+;
+
+1992 
+c
+->
+minh
+ = 
+size
+.
+base_height
+;
+
+1994 
+c
+->
+minw
+ = c->
+minh
+ = 0;
+
+1995 if (
+size
+.
+flags
+ & 
+PAspect
+) {
+
+1996 
+c
+->
+mina
+ = (float)
+size
+.
+min_aspect
+.
+y
+ / size.min_aspect.
+x
+;
+
+1997 
+c
+->
+maxa
+ = (float)
+size
+.
+max_aspect
+.
+x
+ / size.max_aspect.
+y
+;
+
+1999 
+c
+->
+maxa
+ = c->
+mina
+ = 0.0;
+
+2000 
+c
+->
+isfixed
+ = (c->
+maxw
+ && c->
+maxh
+ && c->maxw == c->
+minw
+ && c->maxh == c->
+minh
+);
+
+2001 
+c
+->
+hintsvalid
+ = 1;
+
+2002 
+	}
+}
+
+2005 
+	$updatestatus
+(void)
+
+2007 if (!
+	`gettextprop
+(
+root
+, 
+XA_WM_NAME
+, 
+stext
+, sizeof(stext)))
+
+2008 
+	`strcpy
+(
+stext
+, "dwm-"
+VERSION
+);
+
+2009 
+	`drawbar
+(
+selmon
+);
+
+2010 
+	}
+}
+
+2013 
+	$updatetitle
+(
+Client
+ *
+c
+)
+
+2015 if (!
+	`gettextprop
+(
+c
+->
+win
+, 
+netatom
+[
+NetWMName
+], c->
+name
+, sizeof c->name))
+
+2016 
+	`gettextprop
+(
+c
+->
+win
+, 
+XA_WM_NAME
+, c->
+name
+, sizeof c->name);
+
+2017 if (
+c
+->
+name
+[0] == '\0')
+
+2018 
+	`strcpy
+(
+c
+->
+name
+, 
+broken
+);
+
+2019 
+	}
+}
+
+2022 
+	$updatewindowtype
+(
+Client
+ *
+c
+)
+
+2024 
+Atom
+ 
+state
+ = 
+	`getatomprop
+(
+c
+, 
+netatom
+[
+NetWMState
+]);
+
+2025 
+Atom
+ 
+wtype
+ = 
+	`getatomprop
+(
+c
+, 
+netatom
+[
+NetWMWindowType
+]);
+
+2027 if (
+state
+ == 
+netatom
+[
+NetWMFullscreen
+])
+
+2028 
+	`setfullscreen
+(
+c
+, 1);
+
+2029 if (
+wtype
+ == 
+netatom
+[
+NetWMWindowTypeDialog
+])
+
+2030 
+c
+->
+isfloating
+ = 1;
+
+2031 
+	}
+}
+
+2034 
+	$updatewmhints
+(
+Client
+ *
+c
+)
+
+2036 
+XWMHints
+ *
+wmh
+;
+
+2038 if ((
+wmh
+ = 
+	`XGetWMHints
+(
+dpy
+, 
+c
+->
+win
+))) {
+
+2039 if (
+c
+ == 
+selmon
+->
+sel
+ && 
+wmh
+->
+flags
+ & 
+XUrgencyHint
+) {
+
+2040 
+wmh
+->
+flags
+ &= ~
+XUrgencyHint
+;
+
+2041 
+	`XSetWMHints
+(
+dpy
+, 
+c
+->
+win
+, 
+wmh
+);
+
+2043 
+c
+->
+isurgent
+ = (
+wmh
+->
+flags
+ & 
+XUrgencyHint
+) ? 1 : 0;
+
+2044 if (
+wmh
+->
+flags
+ & 
+InputHint
+)
+
+2045 
+c
+->
+neverfocus
+ = !
+wmh
+->
+input
+;
+
+2047 
+c
+->
+neverfocus
+ = 0;
+
+2048 
+	`XFree
+(
+wmh
+);
+
+2050 
+	}
+}
+
+2053 
+	$view
+(const 
+Arg
+ *
+arg
+)
+
+2055 if ((
+arg
+->
+ui
+ & 
+TAGMASK
+) == 
+selmon
+->
+tagset
+[selmon->
+seltags
+])
+
+2057 
+selmon
+->
+seltags
+ ^= 1;
+
+2058 if (
+arg
+->
+ui
+ & 
+TAGMASK
+)
+
+2059 
+selmon
+->
+tagset
+[selmon->
+seltags
+] = 
+arg
+->
+ui
+ & 
+TAGMASK
+;
+
+2060 
+	`focus
+(
+NULL
+);
+
+2061 
+	`arrange
+(
+selmon
+);
+
+2062 
+	}
+}
+
+2064 
+Client
+ *
+
+2065 
+	$wintoclient
+(
+Window
+ 
+w
+)
+
+2067 
+Client
+ *
+c
+;
+
+2068 
+Monitor
+ *
+m
+;
+
+2070 for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+2071 for (
+c
+ = 
+m
+->
+clients
+; c; c = c->
+next
+)
+
+2072 if (
+c
+->
+win
+ == 
+w
+)
+
+2073 return 
+c
+;
+
+2074 return 
+NULL
+;
+
+2075 
+	}
+}
+
+2077 
+Monitor
+ *
+
+2078 
+	$wintomon
+(
+Window
+ 
+w
+)
+
+2080 int 
+x
+, 
+y
+;
+
+2081 
+Client
+ *
+c
+;
+
+2082 
+Monitor
+ *
+m
+;
+
+2084 if (
+w
+ == 
+root
+ && 
+	`getrootptr
+(&
+x
+, &
+y
+))
+
+2085 return 
+	`recttomon
+(
+x
+, 
+y
+, 1, 1);
+
+2086 for (
+m
+ = 
+mons
+; m; m = m->
+next
+)
+
+2087 if (
+w
+ == 
+m
+->
+barwin
+)
+
+2088 return 
+m
+;
+
+2089 if ((
+c
+ = 
+	`wintoclient
+(
+w
+)))
+
+2090 return 
+c
+->
+mon
+;
+
+2091 return 
+selmon
+;
+
+2092 
+	}
+}
+
+2098 
+	$xerror
+(
+Display
+ *
+dpy
+, 
+XErrorEvent
+ *
+ee
+)
+
+2100 if (
+ee
+->
+error_code
+ == 
+BadWindow
+
+
+2101 || (
+ee
+->
+request_code
+ == 
+X_SetInputFocus
+ && ee->
+error_code
+ == 
+BadMatch
+)
+
+2102 || (
+ee
+->
+request_code
+ == 
+X_PolyText8
+ && ee->
+error_code
+ == 
+BadDrawable
+)
+
+2103 || (
+ee
+->
+request_code
+ == 
+X_PolyFillRectangle
+ && ee->
+error_code
+ == 
+BadDrawable
+)
+
+2104 || (
+ee
+->
+request_code
+ == 
+X_PolySegment
+ && ee->
+error_code
+ == 
+BadDrawable
+)
+
+2105 || (
+ee
+->
+request_code
+ == 
+X_ConfigureWindow
+ && ee->
+error_code
+ == 
+BadMatch
+)
+
+2106 || (
+ee
+->
+request_code
+ == 
+X_GrabButton
+ && ee->
+error_code
+ == 
+BadAccess
+)
+
+2107 || (
+ee
+->
+request_code
+ == 
+X_GrabKey
+ && ee->
+error_code
+ == 
+BadAccess
+)
+
+2108 || (
+ee
+->
+request_code
+ == 
+X_CopyArea
+ && ee->
+error_code
+ == 
+BadDrawable
+))
+
+2110 
+	`fprintf
+(
+stderr
+, "dwm: fatal error: request code=%d, error code=%d\n",
+
+2111 
+ee
+->
+request_code
+, ee->
+error_code
+);
+
+2112 return 
+	`xerrorxlib
+(
+dpy
+, 
+ee
+);
+
+2113 
+	}
+}
+
+2116 
+	$xerrordummy
+(
+Display
+ *
+dpy
+, 
+XErrorEvent
+ *
+ee
+)
+
+2119 
+	}
+}
+
+2124 
+	$xerrorstart
+(
+Display
+ *
+dpy
+, 
+XErrorEvent
+ *
+ee
+)
+
+2126 
+	`die
+("dwm: another window manager is already running");
+
+2128 
+	}
+}
+
+2131 
+	$zoom
+(const 
+Arg
+ *
+arg
+)
+
+2133 
+Client
+ *
+c
+ = 
+selmon
+->
+sel
+;
+
+2135 if (!
+selmon
+->
+lt
+[selmon->
+sellt
+]->
+arrange
+ || !
+c
+ || c->
+isfloating
+)
+
+2137 if (
+c
+ == 
+	`nexttiled
+(
+selmon
+->
+clients
+) && !(c = nexttiled(c->
+next
+)))
+
+2139 
+	`pop
+(
+c
+);
+
+2140 
+	}
+}
+
+2143 
+	$main
+(int 
+argc
+, char *
+argv
+[])
+
+2145 if (
+argc
+ == 2 && !
+	`strcmp
+("-v", 
+argv
+[1]))
+
+2146 
+	`die
+("dwm-"
+VERSION
+);
+
+2147 else if (
+argc
+ != 1)
+
+2148 
+	`die
+("usage: dwm [-v]");
+
+2149 if (!
+	`setlocale
+(
+LC_CTYPE
+, "") || !
+	`XSupportsLocale
+())
+
+2150 
+	`fputs
+("warning: no locale support\n", 
+stderr
+);
+
+2151 if (!(
+dpy
+ = 
+	`XOpenDisplay
+(
+NULL
+)))
+
+2152 
+	`die
+("dwm: cannot open display");
+
+2153 
+	`checkotherwm
+();
+
+2154 
+	`setup
+();
+
+2155 #ifdef 
+__OpenBSD__
+
+
+2156 if (
+	`pledge
+("stdio rpath proc exec", 
+NULL
+) == -1)
+
+2157 
+	`die
+("pledge");
+
+2159 
+	`scan
+();
+
+2160 
+	`run
+();
+
+2161 
+	`cleanup
+();
+
+2162 
+	`XCloseDisplay
+(
+dpy
+);
+
+2163 return 
+EXIT_SUCCESS
+;
+
+2164 
+	}
+}
+
+	@transient.c
+
+3 #include 
+	~<stdlib.h
+>
+
+4 #include 
+	~<unistd.h
+>
+
+5 #include 
+	~<X11/Xlib.h
+>
+
+6 #include 
+	~<X11/Xutil.h
+>
+
+8 int 
+	$main
+(void) {
+
+9 
+Display
+ *
+d
+;
+
+10 
+Window
+ 
+r
+, 
+f
+, 
+t
+ = 
+None
+;
+
+11 
+XSizeHints
+ 
+h
+;
+
+12 
+XEvent
+ 
+e
+;
+
+14 
+d
+ = 
+	`XOpenDisplay
+(
+NULL
+);
+
+15 if (!
+d
+)
+
+16 
+	`exit
+(1);
+
+17 
+r
+ = 
+	`DefaultRootWindow
+(
+d
+);
+
+19 
+f
+ = 
+	`XCreateSimpleWindow
+(
+d
+, 
+r
+, 100, 100, 400, 400, 0, 0, 0);
+
+20 
+h
+.
+min_width
+ = h.
+max_width
+ = h.
+min_height
+ = h.
+max_height
+ = 400;
+
+21 
+h
+.
+flags
+ = 
+PMinSize
+ | 
+PMaxSize
+;
+
+22 
+	`XSetWMNormalHints
+(
+d
+, 
+f
+, &
+h
+);
+
+23 
+	`XStoreName
+(
+d
+, 
+f
+, "floating");
+
+24 
+	`XMapWindow
+(
+d
+, 
+f
+);
+
+26 
+	`XSelectInput
+(
+d
+, 
+f
+, 
+ExposureMask
+);
+
+28 
+	`XNextEvent
+(
+d
+, &
+e
+);
+
+30 if (
+t
+ == 
+None
+) {
+
+31 
+	`sleep
+(5);
+
+32 
+t
+ = 
+	`XCreateSimpleWindow
+(
+d
+, 
+r
+, 50, 50, 100, 100, 0, 0, 0);
+
+33 
+	`XSetTransientForHint
+(
+d
+, 
+t
+, 
+f
+);
+
+34 
+	`XStoreName
+(
+d
+, 
+t
+, "transient");
+
+35 
+	`XMapWindow
+(
+d
+, 
+t
+);
+
+36 
+	`XSelectInput
+(
+d
+, 
+t
+, 
+ExposureMask
+);
+
+40 
+	`XCloseDisplay
+(
+d
+);
+
+41 
+	`exit
+(0);
+
+42 
+	}
+}
+
+	@util.c
+
+2 #include 
+	~<errno.h
+>
+
+3 #include 
+	~<stdarg.h
+>
+
+4 #include 
+	~<stdio.h
+>
+
+5 #include 
+	~<stdlib.h
+>
+
+6 #include 
+	~<string.h
+>
+
+8 #include 
+	~"util.h
+"
+
+11 
+	$die
+(const char *
+fmt
+, ...)
+
+13 
+va_list
+ 
+ap
+;
+
+14 int 
+saved_errno
+;
+
+16 
+saved_errno
+ = 
+errno
+;
+
+18 
+	`va_start
+(
+ap
+, 
+fmt
+);
+
+19 
+	`vfprintf
+(
+stderr
+, 
+fmt
+, 
+ap
+);
+
+20 
+	`va_end
+(
+ap
+);
+
+22 if (
+fmt
+[0] && fmt[
+	`strlen
+(fmt)-1] == ':')
+
+23 
+	`fprintf
+(
+stderr
+, " %s", 
+	`strerror
+(
+saved_errno
+));
+
+24 
+	`fputc
+('\n', 
+stderr
+);
+
+26 
+	`exit
+(1);
+
+27 
+	}
+}
+
+30 
+	$ecalloc
+(
+size_t
+ 
+nmemb
+, size_t 
+size
+)
+
+32 void *
+p
+;
+
+34 if (!(
+p
+ = 
+	`calloc
+(
+nmemb
+, 
+size
+)))
+
+35 
+	`die
+("calloc:");
+
+36 return 
+p
+;
+
+37 
+	}
+}
+
+	@util.h
+
+3 #define 
+	#MAX
+(
+A
+, 
+B
+) ((A) > (B) ? (A) : (B))
+
+	)
+
+4 #define 
+	#MIN
+(
+A
+, 
+B
+) ((A) < (B) ? (A) : (B))
+
+	)
+
+5 #define 
+	#BETWEEN
+(
+X
+, 
+A
+, 
+B
+) ((A) <= (X) && (X) <= (B))
+
+	)
+
+6 #define 
+	#LENGTH
+(
+X
+) (sizeof (X) / sizeof (X)[0])
+
+	)
+
+8 void 
+die
+(const char *
+fmt
+, ...);
+
+9 void *
+ecalloc
+(
+size_t
+ 
+nmemb
+, size_t 
+size
+);
+
+	@
+1
+.
+0
+8
+66
+config.def.h
+config.h
+drw.c
+drw.h
+dwm.c
+transient.c
+util.c
+util.h

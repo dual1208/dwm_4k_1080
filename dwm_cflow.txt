@@ -1,0 +1,543 @@
+main() <int main (int argc, char *argv[]) at dwm.c:2143>:
+    strcmp()
+    die()
+    setlocale()
+    XSupportsLocale()
+    fputs()
+    XOpenDisplay()
+    checkotherwm() <void checkotherwm (void) at dwm.c:460>:
+        xerrorxlib() <int (*xerrorxlib) (Display *, XErrorEvent *) at dwm.c:243>
+        XSetErrorHandler()
+        xerrorstart() <int xerrorstart (Display *dpy, XErrorEvent *ee) at dwm.c:2124>:
+            die()
+        XSelectInput()
+        DefaultRootWindow()
+        XSync()
+        xerror() <int xerror (Display *dpy, XErrorEvent *ee) at dwm.c:2098>:
+            fprintf()
+            xerrorxlib() <int (*xerrorxlib) (Display *, XErrorEvent *) at dwm.c:243>
+    setup() <void setup (void) at dwm.c:1539>:
+        sigemptyset()
+        sigaction()
+        waitpid()
+        DefaultScreen()
+        DisplayWidth()
+        DisplayHeight()
+        RootWindow()
+        drw_create()
+        drw_fontset_create()
+        LENGTH()
+        die()
+        updategeom() <int updategeom (void) at dwm.c:1867>:
+            XineramaIsActive()
+            XineramaQueryScreens()
+            ecalloc()
+            isuniquegeom() <int isuniquegeom (XineramaScreenInfo *unique, size_t n, XineramaScreenInfo *info) at dwm.c:988>
+            memcpy()
+            XFree()
+            createmon() <Monitor *createmon (void) at dwm.c:633>:
+                ecalloc()
+                LENGTH()
+                strncpy()
+            updatebarpos() <void updatebarpos (Monitor *m) at dwm.c:1840>:
+            detachstack() <void detachstack (Client *c) at dwm.c:669>:
+                ISVISIBLE()
+            attach() <void attach (Client *c) at dwm.c:404>
+            attachstack() <void attachstack (Client *c) at dwm.c:411>
+            cleanupmon() <void cleanupmon (Monitor *mon) at dwm.c:499>:
+                XUnmapWindow()
+                XDestroyWindow()
+                free()
+            free()
+            wintomon() <Monitor *wintomon (Window w) at dwm.c:2078>:
+                getrootptr() <int getrootptr (int *x, int *y) at dwm.c:880>:
+                    XQueryPointer()
+                recttomon() <Monitor *recttomon (int x, int y, int w, int h) at dwm.c:1264>:
+                    INTERSECT()
+                wintoclient() <Client *wintoclient (Window w) at dwm.c:2065>:
+        XInternAtom()
+        drw_cur_create()
+        ecalloc()
+        drw_scm_create()
+        updatebars() <void updatebars (void) at dwm.c:1818>:
+            XCreateWindow()
+            DefaultDepth()
+            DefaultVisual()
+            XDefineCursor()
+            XMapRaised()
+            XSetClassHint()
+        updatestatus() <void updatestatus (void) at dwm.c:2005>:
+            gettextprop() <int gettextprop (Window w, Atom atom, char *text, unsigned int size) at dwm.c:908>:
+                XGetTextProperty()
+                strncpy()
+                XmbTextPropertyToTextList()
+                XFreeStringList()
+                XFree()
+            strcpy()
+            drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                drw_setscheme()
+                TEXTW()
+                drw_text()
+                LENGTH()
+                drw_rect()
+                drw_map()
+        XCreateSimpleWindow()
+        XChangeProperty()
+        XDeleteProperty()
+        XChangeWindowAttributes()
+        XSelectInput()
+        grabkeys() <void grabkeys (void) at dwm.c:952>:
+            updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                XGetModifierMapping()
+                XKeysymToKeycode()
+                XFreeModifiermap()
+            XUngrabKey()
+            XDisplayKeycodes()
+            XGetKeyboardMapping()
+            LENGTH()
+            XGrabKey()
+            XFree()
+        focus() <void focus (Client *c) at dwm.c:789>:
+            ISVISIBLE()
+            unfocus() <void unfocus (Client *c, int setfocus) at dwm.c:1765>:
+                grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                    updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                        XGetModifierMapping()
+                        XKeysymToKeycode()
+                        XFreeModifiermap()
+                    XUngrabButton()
+                    XGrabButton()
+                    LENGTH()
+                XSetWindowBorder()
+                XSetInputFocus()
+                XDeleteProperty()
+            seturgent() <void seturgent (Client *c, int urg) at dwm.c:1616>:
+                XGetWMHints()
+                XSetWMHints()
+                XFree()
+            detachstack() <void detachstack (Client *c) at dwm.c:669>:
+                ISVISIBLE()
+            attachstack() <void attachstack (Client *c) at dwm.c:411>
+            grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                    XGetModifierMapping()
+                    XKeysymToKeycode()
+                    XFreeModifiermap()
+                XUngrabButton()
+                XGrabButton()
+                LENGTH()
+            XSetWindowBorder()
+            setfocus() <void setfocus (Client *c) at dwm.c:1470>:
+                XSetInputFocus()
+                XChangeProperty()
+                sendevent() <int sendevent (Client *c, Atom proto) at dwm.c:1445>:
+                    XGetWMProtocols()
+                    XFree()
+                    XSendEvent()
+            XSetInputFocus()
+            XDeleteProperty()
+            drawbars() <void drawbars (void) at dwm.c:751>:
+                drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                    drw_setscheme()
+                    TEXTW()
+                    drw_text()
+                    LENGTH()
+                    drw_rect()
+                    drw_map()
+    pledge()
+    scan() <void scan (void) at dwm.c:1393>:
+        XQueryTree()
+        XGetWindowAttributes()
+        XGetTransientForHint()
+        getstate() <long getstate (Window w) at dwm.c:890>:
+            XGetWindowProperty()
+            XFree()
+        manage() <void manage (Window w, XWindowAttributes *wa) at dwm.c:1031>:
+            ecalloc()
+            updatetitle() <void updatetitle (Client *c) at dwm.c:2013>:
+                gettextprop() <int gettextprop (Window w, Atom atom, char *text, unsigned int size) at dwm.c:908>:
+                    XGetTextProperty()
+                    strncpy()
+                    XmbTextPropertyToTextList()
+                    XFreeStringList()
+                    XFree()
+                strcpy()
+            XGetTransientForHint()
+            wintoclient() <Client *wintoclient (Window w) at dwm.c:2065>:
+            applyrules() <void applyrules (Client *c) at dwm.c:278>:
+                XGetClassHint()
+                LENGTH()
+                strstr()
+                XFree()
+            WIDTH()
+            HEIGHT()
+            MAX()
+            XConfigureWindow()
+            XSetWindowBorder()
+            configure() <void configure (Client *c) at dwm.c:534>:
+                XSendEvent()
+            updatewindowtype() <void updatewindowtype (Client *c) at dwm.c:2022>:
+                getatomprop() <Atom getatomprop (Client *c, Atom prop) at dwm.c:864>:
+                    XGetWindowProperty()
+                    XFree()
+                setfullscreen() <void setfullscreen (Client *c, int fullscreen) at dwm.c:1482>:
+                    XChangeProperty()
+                    resizeclient() <void resizeclient (Client *c, int x, int y, int w, int h) at dwm.c:1285>:
+                        XConfigureWindow()
+                        configure() <void configure (Client *c) at dwm.c:534>:
+                            XSendEvent()
+                        XSync()
+                    XRaiseWindow()
+                    arrange() <void arrange (Monitor *m) at dwm.c:382>:
+                        showhide() <void showhide (Client *c) at dwm.c:1629> (R):
+                            ISVISIBLE()
+                            XMoveWindow()
+                            resize() <void resize (Client *c, int x, int y, int w, int h, int interact) at dwm.c:1278>:
+                                applysizehints() <int applysizehints (Client *c, int *x, int *y, int *w, int *h, int interact) at dwm.c:314>:
+                                    MAX()
+                                    WIDTH()
+                                    HEIGHT()
+                                    updatesizehints() <void updatesizehints (Client *c) at dwm.c:1961>:
+                                        XGetWMNormalHints()
+                                    MIN()
+                                resizeclient() <void resizeclient (Client *c, int x, int y, int w, int h) at dwm.c:1285>:
+                                    XConfigureWindow()
+                                    configure() <void configure (Client *c) at dwm.c:534>:
+                                        XSendEvent()
+                                    XSync()
+                            showhide() <void showhide (Client *c) at dwm.c:1629> (recursive: see 192)
+                            WIDTH()
+                        arrangemon() <void arrangemon (Monitor *m) at dwm.c:396>:
+                            strncpy()
+                        restack() <void restack (Monitor *m) at dwm.c:1357>:
+                            drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                                drw_setscheme()
+                                TEXTW()
+                                drw_text()
+                                LENGTH()
+                                drw_rect()
+                                drw_map()
+                            XRaiseWindow()
+                            ISVISIBLE()
+                            XConfigureWindow()
+                            XSync()
+                            XCheckMaskEvent()
+            updatesizehints() <void updatesizehints (Client *c) at dwm.c:1961>:
+                XGetWMNormalHints()
+            updatewmhints() <void updatewmhints (Client *c) at dwm.c:2034>:
+                XGetWMHints()
+                XSetWMHints()
+                XFree()
+            XSelectInput()
+            grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                    XGetModifierMapping()
+                    XKeysymToKeycode()
+                    XFreeModifiermap()
+                XUngrabButton()
+                XGrabButton()
+                LENGTH()
+            XRaiseWindow()
+            attach() <void attach (Client *c) at dwm.c:404>
+            attachstack() <void attachstack (Client *c) at dwm.c:411>
+            XChangeProperty()
+            XMoveResizeWindow()
+            setclientstate() <void setclientstate (Client *c, long state) at dwm.c:1436>:
+                XChangeProperty()
+            unfocus() <void unfocus (Client *c, int setfocus) at dwm.c:1765>:
+                grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                    updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                        XGetModifierMapping()
+                        XKeysymToKeycode()
+                        XFreeModifiermap()
+                    XUngrabButton()
+                    XGrabButton()
+                    LENGTH()
+                XSetWindowBorder()
+                XSetInputFocus()
+                XDeleteProperty()
+            arrange() <void arrange (Monitor *m) at dwm.c:382>:
+                showhide() <void showhide (Client *c) at dwm.c:1629> (R):
+                    ISVISIBLE()
+                    XMoveWindow()
+                    resize() <void resize (Client *c, int x, int y, int w, int h, int interact) at dwm.c:1278>:
+                        applysizehints() <int applysizehints (Client *c, int *x, int *y, int *w, int *h, int interact) at dwm.c:314>:
+                            MAX()
+                            WIDTH()
+                            HEIGHT()
+                            updatesizehints() <void updatesizehints (Client *c) at dwm.c:1961>:
+                                XGetWMNormalHints()
+                            MIN()
+                        resizeclient() <void resizeclient (Client *c, int x, int y, int w, int h) at dwm.c:1285>:
+                            XConfigureWindow()
+                            configure() <void configure (Client *c) at dwm.c:534>:
+                                XSendEvent()
+                            XSync()
+                    showhide() <void showhide (Client *c) at dwm.c:1629> (recursive: see 260)
+                    WIDTH()
+                arrangemon() <void arrangemon (Monitor *m) at dwm.c:396>:
+                    strncpy()
+                restack() <void restack (Monitor *m) at dwm.c:1357>:
+                    drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                        drw_setscheme()
+                        TEXTW()
+                        drw_text()
+                        LENGTH()
+                        drw_rect()
+                        drw_map()
+                    XRaiseWindow()
+                    ISVISIBLE()
+                    XConfigureWindow()
+                    XSync()
+                    XCheckMaskEvent()
+            XMapWindow()
+            focus() <void focus (Client *c) at dwm.c:789>:
+                ISVISIBLE()
+                unfocus() <void unfocus (Client *c, int setfocus) at dwm.c:1765>:
+                    grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                        updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                            XGetModifierMapping()
+                            XKeysymToKeycode()
+                            XFreeModifiermap()
+                        XUngrabButton()
+                        XGrabButton()
+                        LENGTH()
+                    XSetWindowBorder()
+                    XSetInputFocus()
+                    XDeleteProperty()
+                seturgent() <void seturgent (Client *c, int urg) at dwm.c:1616>:
+                    XGetWMHints()
+                    XSetWMHints()
+                    XFree()
+                detachstack() <void detachstack (Client *c) at dwm.c:669>:
+                    ISVISIBLE()
+                attachstack() <void attachstack (Client *c) at dwm.c:411>
+                grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                    updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                        XGetModifierMapping()
+                        XKeysymToKeycode()
+                        XFreeModifiermap()
+                    XUngrabButton()
+                    XGrabButton()
+                    LENGTH()
+                XSetWindowBorder()
+                setfocus() <void setfocus (Client *c) at dwm.c:1470>:
+                    XSetInputFocus()
+                    XChangeProperty()
+                    sendevent() <int sendevent (Client *c, Atom proto) at dwm.c:1445>:
+                        XGetWMProtocols()
+                        XFree()
+                        XSendEvent()
+                XSetInputFocus()
+                XDeleteProperty()
+                drawbars() <void drawbars (void) at dwm.c:751>:
+                    drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                        drw_setscheme()
+                        TEXTW()
+                        drw_text()
+                        LENGTH()
+                        drw_rect()
+                        drw_map()
+        XFree()
+    run() <void run (void) at dwm.c:1382>:
+        XSync()
+        XNextEvent()
+    cleanup() <void cleanup (void) at dwm.c:471>:
+        view() <void view (const Arg *arg) at dwm.c:2053>:
+            focus() <void focus (Client *c) at dwm.c:789>:
+                ISVISIBLE()
+                unfocus() <void unfocus (Client *c, int setfocus) at dwm.c:1765>:
+                    grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                        updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                            XGetModifierMapping()
+                            XKeysymToKeycode()
+                            XFreeModifiermap()
+                        XUngrabButton()
+                        XGrabButton()
+                        LENGTH()
+                    XSetWindowBorder()
+                    XSetInputFocus()
+                    XDeleteProperty()
+                seturgent() <void seturgent (Client *c, int urg) at dwm.c:1616>:
+                    XGetWMHints()
+                    XSetWMHints()
+                    XFree()
+                detachstack() <void detachstack (Client *c) at dwm.c:669>:
+                    ISVISIBLE()
+                attachstack() <void attachstack (Client *c) at dwm.c:411>
+                grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                    updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                        XGetModifierMapping()
+                        XKeysymToKeycode()
+                        XFreeModifiermap()
+                    XUngrabButton()
+                    XGrabButton()
+                    LENGTH()
+                XSetWindowBorder()
+                setfocus() <void setfocus (Client *c) at dwm.c:1470>:
+                    XSetInputFocus()
+                    XChangeProperty()
+                    sendevent() <int sendevent (Client *c, Atom proto) at dwm.c:1445>:
+                        XGetWMProtocols()
+                        XFree()
+                        XSendEvent()
+                XSetInputFocus()
+                XDeleteProperty()
+                drawbars() <void drawbars (void) at dwm.c:751>:
+                    drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                        drw_setscheme()
+                        TEXTW()
+                        drw_text()
+                        LENGTH()
+                        drw_rect()
+                        drw_map()
+            arrange() <void arrange (Monitor *m) at dwm.c:382>:
+                showhide() <void showhide (Client *c) at dwm.c:1629> (R):
+                    ISVISIBLE()
+                    XMoveWindow()
+                    resize() <void resize (Client *c, int x, int y, int w, int h, int interact) at dwm.c:1278>:
+                        applysizehints() <int applysizehints (Client *c, int *x, int *y, int *w, int *h, int interact) at dwm.c:314>:
+                            MAX()
+                            WIDTH()
+                            HEIGHT()
+                            updatesizehints() <void updatesizehints (Client *c) at dwm.c:1961>:
+                                XGetWMNormalHints()
+                            MIN()
+                        resizeclient() <void resizeclient (Client *c, int x, int y, int w, int h) at dwm.c:1285>:
+                            XConfigureWindow()
+                            configure() <void configure (Client *c) at dwm.c:534>:
+                                XSendEvent()
+                            XSync()
+                    showhide() <void showhide (Client *c) at dwm.c:1629> (recursive: see 395)
+                    WIDTH()
+                arrangemon() <void arrangemon (Monitor *m) at dwm.c:396>:
+                    strncpy()
+                restack() <void restack (Monitor *m) at dwm.c:1357>:
+                    drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                        drw_setscheme()
+                        TEXTW()
+                        drw_text()
+                        LENGTH()
+                        drw_rect()
+                        drw_map()
+                    XRaiseWindow()
+                    ISVISIBLE()
+                    XConfigureWindow()
+                    XSync()
+                    XCheckMaskEvent()
+        unmanage() <void unmanage (Client *c, int destroyed) at dwm.c:1778>:
+            detach() <void detach (Client *c) at dwm.c:660>
+            detachstack() <void detachstack (Client *c) at dwm.c:669>:
+                ISVISIBLE()
+            XGrabServer()
+            XSetErrorHandler()
+            xerrordummy() <int xerrordummy (Display *dpy, XErrorEvent *ee) at dwm.c:2116>
+            XSelectInput()
+            XConfigureWindow()
+            XUngrabButton()
+            setclientstate() <void setclientstate (Client *c, long state) at dwm.c:1436>:
+                XChangeProperty()
+            XSync()
+            xerror() <int xerror (Display *dpy, XErrorEvent *ee) at dwm.c:2098>:
+                fprintf()
+                xerrorxlib() <int (*xerrorxlib) (Display *, XErrorEvent *) at dwm.c:243>
+            XUngrabServer()
+            free()
+            focus() <void focus (Client *c) at dwm.c:789>:
+                ISVISIBLE()
+                unfocus() <void unfocus (Client *c, int setfocus) at dwm.c:1765>:
+                    grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                        updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                            XGetModifierMapping()
+                            XKeysymToKeycode()
+                            XFreeModifiermap()
+                        XUngrabButton()
+                        XGrabButton()
+                        LENGTH()
+                    XSetWindowBorder()
+                    XSetInputFocus()
+                    XDeleteProperty()
+                seturgent() <void seturgent (Client *c, int urg) at dwm.c:1616>:
+                    XGetWMHints()
+                    XSetWMHints()
+                    XFree()
+                detachstack() <void detachstack (Client *c) at dwm.c:669>:
+                    ISVISIBLE()
+                attachstack() <void attachstack (Client *c) at dwm.c:411>
+                grabbuttons() <void grabbuttons (Client *c, int focused) at dwm.c:931>:
+                    updatenumlockmask() <void updatenumlockmask (void) at dwm.c:1945>:
+                        XGetModifierMapping()
+                        XKeysymToKeycode()
+                        XFreeModifiermap()
+                    XUngrabButton()
+                    XGrabButton()
+                    LENGTH()
+                XSetWindowBorder()
+                setfocus() <void setfocus (Client *c) at dwm.c:1470>:
+                    XSetInputFocus()
+                    XChangeProperty()
+                    sendevent() <int sendevent (Client *c, Atom proto) at dwm.c:1445>:
+                        XGetWMProtocols()
+                        XFree()
+                        XSendEvent()
+                XSetInputFocus()
+                XDeleteProperty()
+                drawbars() <void drawbars (void) at dwm.c:751>:
+                    drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                        drw_setscheme()
+                        TEXTW()
+                        drw_text()
+                        LENGTH()
+                        drw_rect()
+                        drw_map()
+            updateclientlist() <void updateclientlist (void) at dwm.c:1853>:
+                XDeleteProperty()
+                XChangeProperty()
+            arrange() <void arrange (Monitor *m) at dwm.c:382>:
+                showhide() <void showhide (Client *c) at dwm.c:1629> (R):
+                    ISVISIBLE()
+                    XMoveWindow()
+                    resize() <void resize (Client *c, int x, int y, int w, int h, int interact) at dwm.c:1278>:
+                        applysizehints() <int applysizehints (Client *c, int *x, int *y, int *w, int *h, int interact) at dwm.c:314>:
+                            MAX()
+                            WIDTH()
+                            HEIGHT()
+                            updatesizehints() <void updatesizehints (Client *c) at dwm.c:1961>:
+                                XGetWMNormalHints()
+                            MIN()
+                        resizeclient() <void resizeclient (Client *c, int x, int y, int w, int h) at dwm.c:1285>:
+                            XConfigureWindow()
+                            configure() <void configure (Client *c) at dwm.c:534>:
+                                XSendEvent()
+                            XSync()
+                    showhide() <void showhide (Client *c) at dwm.c:1629> (recursive: see 497)
+                    WIDTH()
+                arrangemon() <void arrangemon (Monitor *m) at dwm.c:396>:
+                    strncpy()
+                restack() <void restack (Monitor *m) at dwm.c:1357>:
+                    drawbar() <void drawbar (Monitor *m) at dwm.c:698>:
+                        drw_setscheme()
+                        TEXTW()
+                        drw_text()
+                        LENGTH()
+                        drw_rect()
+                        drw_map()
+                    XRaiseWindow()
+                    ISVISIBLE()
+                    XConfigureWindow()
+                    XSync()
+                    XCheckMaskEvent()
+        XUngrabKey()
+        cleanupmon() <void cleanupmon (Monitor *mon) at dwm.c:499>:
+            XUnmapWindow()
+            XDestroyWindow()
+            free()
+        drw_cur_free()
+        LENGTH()
+        free()
+        XDestroyWindow()
+        drw_free()
+        XSync()
+        XSetInputFocus()
+        XDeleteProperty()
+    XCloseDisplay()

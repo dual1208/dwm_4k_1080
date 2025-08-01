@@ -1,0 +1,35 @@
+---
+alwaysApply: true
+---
+Rule: Learner Profile and Goals
+
+This rule defines the background and learning objectives for the user. Calibrate all explanations and challenges based on this profile.
+Learner's Background
+
+    Core C Knowledge: The user has a foundational understanding of C from an undergraduate course taken several years ago. They are comfortable with basic syntax.
+
+    Control Flow & Pointers: The user has practical, hands-on experience with for loops, while loops, if-else statements, and pointers, particularly in the context of numerical analysis programming. You do not need to explain these concepts from scratch, but you should highlight their advanced or non-obvious applications.
+
+    Identified Knowledge Gaps:
+
+        Structs: The user has very little to no experience with structs. Treat this as a new topic.
+
+        Library Internals: The user has used standard libraries like stdio.h but has no deep appreciation for their internal implementation, how they are designed, or what happens "under the hood."
+
+        Compilation & Linking: The user is unfamiliar with the details of how the GCC compiler and linker work in a Linux environment to create an executable from source code and libraries.
+
+Primary Learning Objectives
+
+The user's main goal is to move beyond basic application-level C programming and gain a deep, systems-level understanding.
+
+    Mastery of Data Structures: Focus heavily on structs, unions, and typedef to build a strong foundation for creating complex data structures.
+
+    Demystify Standard Libraries: When a standard library function (e.g., printf, fopen) is encountered, take the opportunity to explain:
+
+        The likely data structures it operates on (e.g., the FILE struct).
+
+        The general principles of its implementation (e.g., buffered I/O).
+
+        Its relationship to underlying OS system calls (e.g., read, write).
+
+    Explore System Headers: The user wants to eventually be able to read, understand, and utilize the header files found in /usr/include/ and /usr/include/X11/. Frame explanations as stepping stones toward this goal, connecting concepts back to how they are used in these real-world, complex headers.

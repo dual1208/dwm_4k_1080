@@ -1,0 +1,77 @@
+set $mod Mod4
+
+font pango:Noto Sans CJK SC 15
+
+bindsym $mod+d exec rofi -show drun
+
+bindsym $mod+w exec ronema
+
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
+
+bindsym $mod+Return exec st
+# for_window [class="st"] fullscreen enable
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Shift+e exit
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+
+# making life easier
+
+# bindsym button9 --release exec --no-startup-id flameshot gui --path "/home/nachvorn/Pics" --accept-on-select
+bindsym Mod1+Shift+3 exec --no-startup-id flameshot full --clipboard --path "/home/nachvorn/Pics"
+bindsym Mod1+Shift+4 exec --no-startup-id flameshot gui --clipboard --path "/home/nachvorn/Pics" --accept-on-select
+bindcode 107 exec --no-startup-id flameshot gui --clipboard --path "/home/nachvorn/Pics" --accept-on-select
+bindsym Mod1+Shift+5 exec --no-startup-id flameshot gui --clipboard --path "/home/nachvorn/Pics"
+
+focus_follows_mouse yes
+mouse_warping output
+
+set $up k
+set $down j
+set $left h
+set $right l
+
+include ~/.config/i3/basic.conf
+include ~/.config/i3/f.conf
+
+
+assign [class="firefox"] 1
+exec firefox
+# assign [class="Clash-verge"] 2
+# exec clash-verge
+# assign [class="Clash-verge"] 2
+# exec clash-verge
+assign [class="Zathura"] 9
+assign [class="Termius"] 8
+exec flatpak run com.termius.Termius --no-sandbox
+assign [class="obsidian"] 3
+exec obsidian --no-sandbox
+ 
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+exec clight
+exec ibus-daemon -rxRd
