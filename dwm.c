@@ -69,6 +69,7 @@ enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
 typedef struct {
 	const char** cmd;
 	unsigned int tags;
+	int monnum;
 } As;
 
 typedef union {
@@ -242,6 +243,7 @@ static void zoom(const Arg *arg);
 
 /* variables */
 static unsigned int astmptags = 0;
+static int astmpmonnum = -1;
 static int asprogress =0;
 static int ascomplete = 0;
 static const char broken[] = "broken";
@@ -1041,6 +1043,12 @@ void aspasstags(Client* c){
 	if(!c) return;
 	c->tags = astmptags;
 	astmptags = 0;
+
+	Monitor *m;
+	for (m = mons; m && m->num != astmpmonnum; m = m->next);
+	if (m)
+		c->mon = m;
+	astmpmonnum = -1;
 	return;
 }
 
@@ -1402,6 +1410,7 @@ void asspawner(void){
 	Arg arg;
 	if(asprogress < LENGTH(aslist)){
 		astmptags = aslist[asprogress].tags;
+		astmpmonnum = aslist[asprogress].monnum;
 		arg.v = aslist[asprogress].cmd;
 		asprogress += 1;
 		spawn(&arg);

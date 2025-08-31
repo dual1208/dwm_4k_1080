@@ -27,10 +27,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-    { "Surf",     "surf",       NULL,       0,            1,           -1 },
+    	{ "Surf",     "surf",       NULL,       0,            1,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "Cursor",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Code",  NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "mpv",  NULL,       NULL,       1 << 1,       0,           1 },
 };
 
 
@@ -66,16 +67,28 @@ static const char *termcmd[]  = { "/bin/sh", "-c", "[ \"$GTK_THEME\" = \"Adwaita
 static const char *oald[]  = { "/home/new/.local/bin/oald", NULL };
 static const char *dict[]  = { "/home/new/.local/bin/dict", NULL };
 static const char *tts[]  = { "/home/new/.local/bin/tts", NULL };
-static const char *fd[]  = { "/usr/bin/firefox-developer-edition", NULL };
+static const char *fd[]  = { "/usr/bin/firefox-developer-edition", "--kiosk", NULL };
+static const char *ff[]  = { "/usr/bin/firefox", "https://exercism.org/tracks/javascript/concepts", NULL };
+static const char *anki[]  = { "/usr/bin/anki", NULL };
+static const char *xmind[]  = { "/usr/bin/xmind", NULL };
 static const char *upvol[]   = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master 10%+; touch /tmp/dwm-status-change", NULL };
 static const char *downvol[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master 10%-; touch /tmp/dwm-status-change", NULL };
 static const char *mutevol[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master toggle; touch /tmp/dwm-status-change", NULL };
 static const char *lightup[] = { "/bin/sh", "-c", "/usr/bin/ddcutil -d 2 setvcp 10 + 10; /usr/bin/ddcutil -d 1 setvcp 10 + 10; touch /tmp/dwm-status-change", NULL };
 static const char *lightdown[] = { "/bin/sh", "-c", "/usr/bin/ddcutil -d 2 setvcp 10 - 10; /usr/bin/ddcutil -d 1 setvcp 10 - 10; touch /tmp/dwm-status-change", NULL };
+static const char *editor[] = { "/usr/bin/code", NULL };
 
 static const As aslist[] = {
-	{.cmd = fd, .tags = 1},
-	{.cmd = NULL, .tags = 0 },
+	/*{.cmd = termcmd, .tags = 511, .monnum = 2 },
+	{.cmd = ff, .tags = 1 << 6, .monnum = 2 },
+	{.cmd = editor, .tags = 256, .monnum = 2 },
+	{.cmd = fd, .tags = 1, .monnum = 0 }, */
+	{.cmd = termcmd, .tags = 511, .monnum = 1 },
+	{.cmd = fd, .tags = 1, .monnum = 0 },
+	{.cmd = ff, .tags = 1, .monnum = 1 },
+	{.cmd = xmind, .tags = 1, .monnum = 2 },
+	{.cmd = editor, .tags = 256, .monnum = 1 },
+	{.cmd = NULL, .tags = 0, .monnum = -1 },
 };
 
 static const Key keys[] = {
