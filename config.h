@@ -29,15 +29,16 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
     	{ "Surf",     "surf",       NULL,       0,            1,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Chromium",  NULL,       NULL,       1 << 6,       0,           2 },
 	{ "Cursor",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Code",  NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Code",  NULL,       NULL,       1 << 7,       0,           1 },
 	{ "mpv",  NULL,       NULL,       1 << 1,       0,           1 },
 };
 
 
 
 /* layout(s) */
-static const float mfact     = 0.84; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.83; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -64,11 +65,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "/bin/sh", "-c", "[ \"$GTK_THEME\" = \"Adwaita:dark\" ] && dt || st", NULL };
+static const char *roficmd[]  = { "/usr/bin/rofi", "-show", "drun", "-show-icons", NULL };
 static const char *oald[]  = { "/home/new/.local/bin/oald", NULL };
 static const char *dict[]  = { "/home/new/.local/bin/dict", NULL };
 static const char *tts[]  = { "/home/new/.local/bin/tts", NULL };
-static const char *fd[]  = { "/usr/bin/firefox-developer-edition", "--kiosk", NULL };
-static const char *ff[]  = { "/usr/bin/firefox", "https://exercism.org/tracks/javascript/concepts", NULL };
 static const char *anki[]  = { "/usr/bin/anki", NULL };
 static const char *xmind[]  = { "/usr/bin/xmind", NULL };
 static const char *upvol[]   = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master 10%+; touch /tmp/dwm-status-change", NULL };
@@ -76,6 +76,13 @@ static const char *downvol[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Maste
 static const char *mutevol[] = { "/bin/sh", "-c", "/usr/bin/amixer -q sset Master toggle; touch /tmp/dwm-status-change", NULL };
 static const char *lightup[] = { "/bin/sh", "-c", "/usr/bin/ddcutil -d 2 setvcp 10 + 10; /usr/bin/ddcutil -d 1 setvcp 10 + 10; touch /tmp/dwm-status-change", NULL };
 static const char *lightdown[] = { "/bin/sh", "-c", "/usr/bin/ddcutil -d 2 setvcp 10 - 10; /usr/bin/ddcutil -d 1 setvcp 10 - 10; touch /tmp/dwm-status-change", NULL };
+static const char *fd[]  = { "/usr/bin/firefox-developer-edition", "--kiosk", NULL };
+static const char *ch[]  = { "/usr/bin/google-chrome-stable", "--kiosk", NULL };
+static const char *pp[]  = { "/usr/bin/polypane", NULL };
+static const char *bss[]  = { "/usr/bin/bootstrap-studio", NULL };
+static const char *mpv[]  = { "/usr/bin/mpv", NULL };
+static const char *ff[]  = { "/usr/bin/firefox",  NULL };
+static const char *mgdbc[]  = { "/usr/bin/mongodb-compass", "--password-store='gnome-libsecret'", "--ignore-additional-command-line-flags",  NULL };
 static const char *editor[] = { "/usr/bin/code", NULL };
 
 static const As aslist[] = {
@@ -83,11 +90,23 @@ static const As aslist[] = {
 	{.cmd = ff, .tags = 1 << 6, .monnum = 2 },
 	{.cmd = editor, .tags = 256, .monnum = 2 },
 	{.cmd = fd, .tags = 1, .monnum = 0 }, */
+	/*
 	{.cmd = termcmd, .tags = 511, .monnum = 1 },
 	{.cmd = fd, .tags = 1, .monnum = 0 },
 	{.cmd = ff, .tags = 1, .monnum = 1 },
 	{.cmd = xmind, .tags = 1, .monnum = 2 },
 	{.cmd = editor, .tags = 256, .monnum = 1 },
+	*/
+	/*{.cmd = fd, .tags = 1, .monnum = 0 },
+	{.cmd = editor, .tags = 129, .monnum = 1 },
+	{.cmd = fd, .tags = 1, .monnum = 0 },
+	{.cmd = pp, .tags = 1, .monnum = 0 },
+	{.cmd = mgdbc, .tags = 1, .monnum = 2 },
+	{.cmd = bss, .tags = 1, .monnum = 1 },*/
+	{.cmd = fd, .tags = 1, .monnum = 0 },
+	{.cmd = termcmd, .tags = 2, .monnum = 1 },
+	{.cmd = termcmd, .tags = 1, .monnum = 1 },
+	{.cmd = ff, .tags = 1, .monnum = 1 },
 	{.cmd = NULL, .tags = 0, .monnum = -1 },
 };
 
@@ -99,7 +118,7 @@ static const Key keys[] = {
 	{ 0, XF86XK_MonBrightnessUp,  spawn, {.v = lightup } },
 	{ 0, XF86XK_MonBrightnessDown,spawn, {.v = lightdown } },
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
 	{ Mod1Mask,                     XK_d,      spawn,          {.v = dict } },
 	{ Mod1Mask,                     XK_t,      spawn,          {.v = tts } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = oald } },
